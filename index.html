@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charcot Capital - Independent Mergers and Acquisitions advisory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #F5F6F8;
+      --bg-alt:    #ECEEF2;
+      --ink:       #181815;
+      --ink-mid:   #3A3A35;
+      --ink-light: #7A7A72;
+      --navy:      #002060;
+      --navy-dark: #001540;
+      --rule:      rgba(20,20,20,0.09);
+      --card-black:#1a1917;
+      --card-navy: #1C2E4A;
+      --card-tan:  #E2E5EC;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body {
+      font-family: 'Inter Tight', system-ui, sans-serif;
+      font-weight: 400;
+      color: var(--ink-mid);
+      font-size: 1rem;
+      line-height: 1.52;
+      letter-spacing: -0.005em;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3 { margin: 0; font-weight: inherit; }
+    p, ul, li { margin: 0; }
+    a { text-decoration: none; }
+
+    .serif {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: -0.012em;
+      line-height: 1.02;
+    }
+    .serif-italic {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.012em;
+      line-height: 1.02;
+    }
+
+    .label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .nav-link {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink-light);
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link.active { color: var(--ink); }
+    .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
+
+    .btn-navy {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.8125rem 2rem;
+      background: var(--navy); color: #fff;
+      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .btn-navy:hover { background: var(--navy-dark); }
+    .btn-navy:focus-visible { outline: 2px solid var(--ink-light); outline-offset: 3px; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.8125rem 2rem;
+      border: 1px solid var(--rule); color: var(--ink-mid);
+      font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
+
+    .btn-ghost-navy {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.8125rem 2rem;
+      border: 1px solid var(--navy); color: var(--navy);
+      font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost-navy:hover { border-color: var(--navy-dark); color: var(--navy-dark); }
+
+    .rule-with-label {
+      display: flex; align-items: center; gap: 1.25rem;
+    }
+    .rule-with-label .label { white-space: nowrap; }
+    .rule-with-label::before {
+      content: ''; display: block; height: 1px;
+      background: var(--rule); width: 4rem; flex-shrink: 0;
+    }
+
+    .h-rule { height: 1px; background: var(--rule); }
+
+    /* Proof strip responsive */
+    @media (max-width: 767px) {
+      #proof-grid { grid-template-columns: 1fr !important; }
+      #proof-hero { border-right: none !important; border-bottom: 1px solid var(--rule) !important; padding: 3.75rem 2.75rem !important; }
+      #proof-trio > div { padding-left: 2.75rem !important; padding-right: 2.75rem !important; padding-top: 2.25rem !important; padding-bottom: 2.25rem !important; gap: 1.5rem !important; }
+    }
+    @media (min-width: 768px) and (max-width: 1199px) {
+      #proof-hero { padding: 5.5rem 3rem 4rem !important; }
+      #proof-trio > div { padding-left: 2.5rem !important; padding-right: 2.5rem !important; gap: 2rem !important; }
+    }
+
+    /* Who-cards */
+    .who-cards { display: grid; grid-template-columns: repeat(3,1fr); }
+    @media (max-width: 767px) { .who-cards { grid-template-columns: 1fr; } }
+
+    .who-card {
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 540px; padding: 3rem;
+    }
+
+    /* Footer */
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(20,20,20,0.06);
+    }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 639px)  { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* CTA section */
+    .cta-grid { display: grid; grid-template-columns: 55fr 45fr; gap: 4rem; align-items: center; }
+    @media (max-width: 767px) { .cta-grid { grid-template-columns: 1fr; } .cta-right { display: none; } }
+
+    /* Hero image: left-edge mask only */
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 82% center;
+      filter: saturate(0.28) brightness(0.96) contrast(0.97);
+      -webkit-mask-image:
+        linear-gradient(to right,
+          transparent      0%,
+          rgba(0,0,0,0.03) 5%,
+          rgba(0,0,0,0.22) 13%,
+          rgba(0,0,0,0.62) 23%,
+          rgba(0,0,0,0.92) 34%,
+          black            44%,
+          black            100%
+        ),
+        linear-gradient(to bottom,
+          black            0%,
+          black            90%,
+          rgba(0,0,0,0.45) 96%,
+          rgba(0,0,0,0.08) 99%,
+          transparent      100%
+        );
+      -webkit-mask-composite: destination-in;
+      mask-image:
+        linear-gradient(to right,
+          transparent      0%,
+          rgba(0,0,0,0.03) 5%,
+          rgba(0,0,0,0.22) 13%,
+          rgba(0,0,0,0.62) 23%,
+          rgba(0,0,0,0.92) 34%,
+          black            44%,
+          black            100%
+        ),
+        linear-gradient(to bottom,
+          black            0%,
+          black            90%,
+          rgba(0,0,0,0.45) 96%,
+          rgba(0,0,0,0.08) 99%,
+          transparent      100%
+        );
+      mask-composite: intersect;
+    }
+
+    /* Hero responsive */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .hero-img-wrap { width: 64% !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+       style="background: #fff; border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
+        <a href="index.html" aria-label="Charcot Capital home">
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+        </a>
+        <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="transactions.html" class="nav-link">Transactions</a>
+          <a href="team.html" class="nav-link">Team</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+
+          <a href="contact.html" class="btn-navy" style="padding: 0.5625rem 1.25rem;">Get in touch</a>
+        </div>
+        <button id="burger-btn" class="flex lg:hidden" style="background:none;border:none;cursor:pointer;padding:0.25rem;color:var(--ink);" aria-label="Menu" aria-expanded="false">
+          <svg id="burger-icon" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="close-icon" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" aria-hidden="true"
+       style="position:fixed;top:4.5rem;left:0;right:0;bottom:0;z-index:49;background:#fff;border-top:1px solid var(--rule);overflow-y:auto;transform:translateY(-100%);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;">
+    <div style="padding:2rem 2.5rem;">
+      <nav style="display:flex;flex-direction:column;">
+        <a href="about.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">About</a>
+        <a href="services.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Services</a>
+        <a href="transactions.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Transactions</a>
+        <a href="team.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Team</a>
+        <a href="careers.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Careers</a>
+
+      </nav>
+      <div style="margin-top:2rem;">
+        <a href="contact.html" class="btn-navy" style="width:100%;">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section style="padding-top: 4.5rem; background: var(--bg); position: relative; overflow: hidden; min-height: 720px;">
+
+    <div class="hero-img-wrap hidden md:block" style="
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 65%;
+      pointer-events: none;
+      z-index: 0;
+    ">
+      <img src="image_sources/sextant_wide_horizon.png"
+           alt="" aria-hidden="true"
+           class="hero-img" />
+    </div>
+
+    <div style="position: relative; z-index: 1;">
+
+      <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; padding-top: 3.5rem; padding-bottom: 2rem;">
+        <p class="label">Independent M&amp;A advice since 2002</p>
+      </div>
+
+      <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+        <h1 style="margin: 0; max-width: 42rem;">
+          <span class="serif" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--ink);">Every transaction<br>has its own</span>
+          <span class="serif-italic" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--navy); display: block;">true bearing.</span>
+        </h1>
+      </div>
+
+      <div class="md:hidden" style="margin-top: 0.5rem; margin-bottom: 1.5rem; overflow: hidden;">
+        <img src="image_sources/sextant_wide_horizon.png"
+             alt="Nautical sextant against ocean horizon"
+             style="
+               width: 100%; height: 55vw; max-height: 280px;
+               object-fit: cover; object-position: 60% center; display: block;
+               filter: saturate(0.26) brightness(0.97) contrast(0.96);
+               -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+               mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+             " />
+      </div>
+
+      <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; padding-top: 2.25rem; padding-bottom: 8rem;">
+        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; max-width: 32rem; margin-bottom: 0.875rem;">
+          Charcot Capital advises boards, founders, and financial sponsors on mergers, acquisitions, and cross-border M&amp;A. As merchant bankers, we selectively co-invest alongside clients.
+        </p>
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.6; max-width: 32rem; margin-bottom: 2.75rem;">
+          Senior-led, partner-owned, and independent since 2002.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.875rem;">
+          <a href="contact.html" class="btn-navy">Discuss your situation</a>
+          <a href="transactions.html" class="btn-ghost-navy">View track record</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div aria-hidden="true" style="
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 8rem; pointer-events: none; z-index: 0;
+      background: linear-gradient(to bottom,
+        transparent        0%,
+        rgba(236,238,242,0.5)  50%,
+        #ECEEF2            100%
+      );
+    "></div>
+
+  </section>
+
+  <!-- PROOF STRIP -->
+  <section style="background: #ECEEF2; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto;">
+      <div id="proof-grid" style="display: grid; grid-template-columns: 1fr 1fr;">
+
+        <div id="proof-hero" style="padding: 3.5rem 4.5rem 5.5rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule);">
+          <p class="label" style="margin-bottom: 2.5rem;">The number that says most</p>
+          <p class="serif" style="font-size: clamp(4rem, 9vw, 8.5rem); color: var(--ink); line-height: 0.88; margin-bottom: 1.75rem;">70%+</p>
+          <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; max-width: 24rem;">of our mandates come from <b>referrals</b> - clients who have worked with us before or been referred by someone who has.</p>
+        </div>
+
+        <div id="proof-trio" style="display: flex; flex-direction: column;">
+          <div style="padding: 2.75rem 4rem; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 3rem; flex: 1;">
+            <p class="serif" style="font-size: clamp(2rem, 5vw, 3.25rem); color: var(--ink); text-align: right; line-height: 1; flex-shrink: 0; width: 7rem;">&gt;56</p>
+            <div style="min-width: 0; flex: 1;">
+              <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; overflow-wrap: break-word;">completed <b>transactions</b> across public and private markets</p>
+            </div>
+          </div>
+          <div style="padding: 2.75rem 4rem; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 3rem; flex: 1;">
+            <p class="serif" style="font-size: clamp(2rem, 5vw, 3.25rem); color: var(--ink); text-align: right; line-height: 1; flex-shrink: 0; width: 7rem;">5</p>
+            <div style="min-width: 0; flex: 1;">
+              <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; overflow-wrap: break-word;"><b>continents</b> where we have completed transactions</p>
+            </div>
+          </div>
+          <div style="padding: 2.75rem 4rem; display: flex; align-items: center; gap: 3rem; flex: 1;">
+            <p class="serif" style="font-size: clamp(2rem, 5vw, 3.25rem); color: var(--ink); text-align: right; line-height: 1; flex-shrink: 0; width: 7rem;">2002</p>
+            <div style="min-width: 0; flex: 1;">
+              <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; overflow-wrap: break-word;">advising <b>independently</b> - partner-owned, no external shareholders</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section style="padding: 9rem 0; background: var(--bg);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: center;">
+
+        <div style="height: 480px; overflow: hidden;">
+          <img src="image_sources/why_it_matters.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.25) brightness(1.05) contrast(0.92);" />
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <div>
+            <p class="label" style="margin-bottom: 0.875rem;">Why it matters</p>
+            <h2 style="margin-bottom: 2rem;">
+              <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">The outcome you achieve depends entirely on</span><span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);"> who is working for it.</span>
+            </h2>
+          </div>
+          <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.52;">Whether you are selling a business built over decades, acquiring a strategic target, or steering a board through a critical decision - this is likely one of the most consequential transactions of your career. The quality of the advice you receive, and the commitment of the person giving it, will shape what is achievable.</p>
+          <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.52;">When you work with Charcot Capital, you have direct access to the senior partners throughout your mandate. The same people who designed your strategy are the ones in the room at every negotiation.</p>
+          <ul style="display: flex; flex-direction: column; gap: 1rem; padding: 0; list-style: none;">
+            <li style="display: flex; gap: 1.25rem; align-items: baseline;">
+              <span style="flex-shrink: 0; color: var(--navy);"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">The same senior partner from your first conversation to the day you close</span>
+            </li>
+            <li style="display: flex; gap: 1.25rem; align-items: baseline;">
+              <span style="flex-shrink: 0; color: var(--navy);"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Full commitment to your mandate - we take a limited number each year, by design</span>
+            </li>
+            <li style="display: flex; gap: 1.25rem; align-items: baseline;">
+              <span style="flex-shrink: 0; color: var(--navy);"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Advice shaped entirely by your situation and your goals</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section style="padding: 6.5rem 0; background: #ECEEF2; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+
+      <div style="margin-bottom: 3rem;">
+        <p class="label" style="margin-bottom: 0.875rem;">Selected clients and counterparties</p>
+        <h2 class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); font-weight: 400; color: var(--navy);">Trusted <span style="color: var(--ink);">with transactions that define industries.</span></h2>
+      </div>
+
+      <div id="logo-carousel" style="position:relative;overflow:hidden;">
+        <div id="logo-track" style="display:flex;will-change:transform;"></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:1.75rem;">
+        <button id="carousel-prev" aria-label="Previous" style="background:none;border:none;padding:0.5rem;cursor:pointer;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+        </button>
+        <button id="carousel-next" aria-label="Next" style="background:none;border:none;padding:0.5rem;cursor:pointer;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </div>
+      <p style="font-size: 0.75rem; color: var(--ink-light); margin-top: 1.5rem; font-style: italic; opacity: 0.7;">
+        A selection of clients and counterparties across completed mandates since 2002.
+      </p>
+
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var logos=[{src:'image_sources/landing_logos/ge.png',alt:'General Electric'},{src:'image_sources/landing_logos/danone.png',alt:'Danone'},{src:'image_sources/landing_logos/smithnephew.png',alt:'Smith & Nephew'},{src:'image_sources/landing_logos/United_Rentals.png',alt:'United Rentals'},{src:'image_sources/landing_logos/CVCI_Citi.png',alt:'Citi Venture Capital International'},{src:'image_sources/landing_logos/louis_dreyfus.png',alt:'Louis Dreyfus Commodities'},{src:'image_sources/landing_logos/bracco.png',alt:'Bracco'},{src:'image_sources/landing_logos/rwe.svg',alt:'RWE'},{src:'image_sources/landing_logos/carlyle.svg',alt:'The Carlyle Group'},{src:'image_sources/landing_logos/rewe.svg',alt:'REWE'},{src:'image_sources/landing_logos/carlsberg.svg',alt:'Carlsberg'},{src:'image_sources/landing_logos/internova.svg',alt:'Internova Travel Group'}];
+    var total=logos.length,offset=0,animating=false;
+    var track=document.getElementById('logo-track'),prev=document.getElementById('carousel-prev'),next=document.getElementById('carousel-next');
+    function vis(){var w=window.innerWidth;return w>=1280?7:w>=1024?5:w>=768?4:w>=480?3:2;}
+    function build(){
+      var v=vis(),pct=100/v;
+      track.innerHTML='';
+      logos.concat(logos).forEach(function(l){
+        var c=document.createElement('a');c.href='transactions.html';
+        c.style.cssText='display:flex;align-items:center;justify-content:center;flex-shrink:0;width:'+pct+'%;padding:2.25rem 1.5rem;background:var(--bg-alt);border-right:1px solid var(--rule);box-sizing:border-box;transition:background 0.2s;';
+        c.addEventListener('mouseover',function(){this.style.background='var(--bg)';this.querySelector('img').style.filter='grayscale(0%)';});
+        c.addEventListener('mouseout',function(){this.style.background='var(--bg-alt)';this.querySelector('img').style.filter='grayscale(100%)';});
+        var i=document.createElement('img');i.src=l.src;i.alt=l.alt;
+        i.style.cssText='max-height:2.5rem;max-width:80%;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(100%);transition:filter 0.3s;';
+        c.appendChild(i);track.appendChild(c);
+      });
+      xform(false);
+    }
+    function xform(a){var v=vis(),p=-(offset/v)*100;track.style.transition=a?'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)':'none';track.style.transform='translateX('+p+'%)';}
+    function goN(){if(animating)return;animating=true;offset++;xform(true);track.addEventListener('transitionend',function h(){track.removeEventListener('transitionend',h);if(offset===total){track.style.transition='none';offset=0;xform(false);void track.getBoundingClientRect();}animating=false;});}
+    function goP(){if(animating)return;animating=true;if(offset===0){track.style.transition='none';offset=total;xform(false);void track.getBoundingClientRect();}offset--;xform(true);track.addEventListener('transitionend',function h(){track.removeEventListener('transitionend',h);animating=false;});}
+    prev.addEventListener('click',goP);next.addEventListener('click',goN);
+    var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){build();},150);});
+    build();
+  })();
+  </script>
+
+  <!-- WHO WE WORK WITH -->
+  <section style="background: var(--bg);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 6.5rem 2.5rem 0;">
+      <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+        <p class="label">Who we work with</p>
+      </div>
+      <h2>
+        <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">The expertise  </span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">your situation demands. </span>
+        <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">The seniority it deserves.</span>
+      </h2>
+    </div>
+
+    <div class="who-cards" style="margin-top: 4rem; padding: 0 2.5rem; gap: 0.5rem; max-width: 88rem; margin-left: auto; margin-right: auto;">
+
+      <div class="who-card" style="background: var(--card-black);">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+            <span class="label" style="color: rgba(255,255,255,0.65);">01</span>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.08);"></div>
+          </div>
+          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.25rem); color: #fff; margin-bottom: 2rem;">Boards &amp;<br>corporates</p>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.52;">You are navigating a major acquisition or a strategic crossroads that will define the company's direction. You need independent advice that tells you what is true - not what you expect to hear.</p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.75rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span class="label" style="color: rgba(255,255,255,0.65);">Acquisition - Strategic crossroads</span>
+          <a href="contact.html" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.65); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
+            Discuss <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="who-card" style="background: var(--card-navy);">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+            <span class="label" style="color: rgba(255,255,255,0.65);">02</span>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.08);"></div>
+          </div>
+          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.25rem); color: #fff; margin-bottom: 2rem;">Founders &amp;<br>owners</p>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.52;">You are selling a business that took decades to build. The stakes are personal as much as financial. You need an adviser whose judgement you trust completely - present from the first conversation to the last signature.</p>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.75rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span class="label" style="color: rgba(255,255,255,0.65);">Sell-side - Succession</span>
+          <a href="contact.html" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.65); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
+            Discuss <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="who-card" style="background: var(--card-tan);">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+            <span class="label" style="color: rgba(20,20,20,0.7);">03</span>
+            <div style="flex: 1; height: 1px; background: rgba(20,20,20,0.1);"></div>
+          </div>
+          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.25rem); color: var(--navy); margin-bottom: 2rem;">Financial<br>sponsors</p>
+          <p style="font-size: 0.875rem; color: rgba(20,20,20,0.7); line-height: 1.52;">You need senior-led execution across the full investment lifecycle - buy-side, sell-side, or exit. On selected mandates, we invest our own capital alongside yours, on the same terms.</p>
+        </div>
+        <div style="border-top: 1px solid rgba(20,20,20,0.1); padding-top: 1.75rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span class="label" style="color: rgba(20,20,20,0.7);">Buy-side - Exit - Co-invest</span>
+          <a href="contact.html" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(20,20,20,0.7); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='rgba(20,20,20,0.7)'">
+            Discuss <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT SETS US APART -->
+  <section style="padding: 9rem 0; background: var(--bg); border-top: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: center;">
+
+        <div class="order-1" style="height: 480px; overflow: hidden;">
+          <img src="image_sources/compass_rose.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.25) brightness(1.05) contrast(0.92);" />
+        </div>
+
+        <div class="order-2" style="display: flex; flex-direction: column; gap: 2rem;">
+          <div>
+            <p class="label" style="margin-bottom: 0.875rem;">What sets us apart</p>
+            <h2 style="margin-bottom: 2rem;">
+              <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">Uncompromised financial advice </span><span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">on strategic transactions.</span>
+            </h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+
+            <div style="display: flex; gap: 1.75rem; align-items: baseline;">
+              <span style="flex-shrink: 0; color: var(--navy); opacity: 0.5;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              <div>
+                <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.625rem; letter-spacing: -0.01em;">Senior partners throughout</h3>
+                <p style="font-size: 0.875rem; color: var(--ink-light); line-height: 1.7;">Every mandate is led personally by a senior partner, from first conversation to final close. We take on a deliberately limited number of engagements at any one time - so that attention is never divided and the partner who opens the conversation is the partner who delivers the outcome.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1.75rem; align-items: baseline;">
+              <span style="flex-shrink: 0; color: var(--navy); opacity: 0.5;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              <div>
+                <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.625rem; letter-spacing: -0.01em;">Independent by structure</h3>
+                <p style="font-size: 0.875rem; color: var(--ink-light); line-height: 1.7;">Wholly partner-owned since incorporation, with no external shareholders and no institutional affiliations. Every partner's interest is identical to every client's: the quality of the outcome, and nothing else.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1.75rem; align-items: baseline;">
+              <span style="flex-shrink: 0; color: var(--navy); opacity: 0.5;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              <div>
+                <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.625rem; letter-spacing: -0.01em;">Advice shaped by judgement</h3>
+                <p style="font-size: 0.875rem; color: var(--ink-light); line-height: 1.7;">Every mandate begins with what is right for your specific situation - not what fits a product category or a house specialisation. Senior partners bring genuine analytical conviction to every engagement, and it is that judgement, applied without external constraint, that determines the quality of the outcome.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--card-black); overflow: hidden;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="cta-grid">
+
+        <div style="padding: 8rem 0;">
+          <p class="label" style="color: rgba(255,255,255,0.25); margin-bottom: 2rem;">Confidential enquiry</p>
+          <h2 style="margin-bottom: 2.25rem;">
+            <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5.25rem); color: #fff;">What does the right outcome </span>
+            <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5.25rem); color: #C4A45A;">look like for you?</span>
+          </h2>
+          <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.35); line-height: 1.52; max-width: 34rem; margin-bottom: 3rem;">Senior partners are available for an initial conversation at any stage - no intermediaries.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;min-width:13rem;padding:0.875rem 2.25rem;background:#fff;color:var(--navy);font-size:0.875rem;font-weight:500;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Start a conversation</a>
+            <a href="about.html" style="display:inline-flex;align-items:center;justify-content:center;min-width:13rem;padding:0.875rem 2.25rem;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7);font-size:0.875rem;font-weight:400;letter-spacing:0.02em;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)';this.style.color='rgba(255,255,255,0.7)'">About the firm</a>
+          </div>
+        </div>
+
+        <div class="cta-right" style="position: relative; min-height: 500px; overflow: visible;">
+          <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg"
+               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none;"
+               aria-hidden="true">
+            <line x1="0"   y1="10"  x2="660" y2="10"  stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="0"   y1="90"  x2="660" y2="90"  stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="0"   y1="170" x2="660" y2="170" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="0"   y1="250" x2="660" y2="250" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="0"   y1="330" x2="660" y2="330" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="0"   y1="410" x2="660" y2="410" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="0"   y1="490" x2="660" y2="490" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="120" y1="0" x2="120" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="200" y1="0" x2="200" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="280" y1="0" x2="280" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="360" y1="0" x2="360" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="440" y1="0" x2="440" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="520" y1="0" x2="520" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="600" y1="0" x2="600" y2="500" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+            <line x1="190" y1="0"   x2="660" y2="470" stroke="rgba(255,255,255,0.042)" stroke-width="0.5"/>
+            <line x1="190" y1="500" x2="660" y2="30"  stroke="rgba(255,255,255,0.042)" stroke-width="0.5"/>
+            <circle cx="440" cy="250" r="265" stroke="rgba(255,255,255,0.038)" stroke-width="0.5"/>
+            <circle cx="440" cy="250" r="220" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+            <circle cx="440" cy="250" r="155" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+            <circle cx="440" cy="250" r="32" stroke="rgba(255,255,255,0.19)" stroke-width="1"/>
+            <circle cx="440" cy="250" r="16" stroke="rgba(255,255,255,0.12)" stroke-width="0.75"/>
+            <line x1="472"   y1="250"   x2="668"   y2="250"   stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="462.6" y1="272.6" x2="601.8" y2="411.8" stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="440"   y1="282"   x2="440"   y2="478"   stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="417.4" y1="272.6" x2="278.2" y2="411.8" stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="408"   y1="250"   x2="212"   y2="250"   stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="417.4" y1="227.4" x2="278.2" y2="88.2"  stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="440"   y1="218"   x2="440"   y2="22"    stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <line x1="462.6" y1="227.4" x2="601.8" y2="88.2"  stroke="rgba(255,255,255,0.10)" stroke-width="0.75"/>
+            <circle cx="440"   cy="470"   r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+            <circle cx="284.4" cy="405.6" r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+            <circle cx="220"   cy="250"   r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+            <circle cx="284.4" cy="94.4"  r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+            <circle cx="440"   cy="30"    r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+            <circle cx="595.6" cy="94.4"  r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+            <circle cx="595.6" cy="405.6" r="7" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #fff; border-top: 1px solid var(--rule); padding: 4.5rem 0 0;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="footer-grid">
+        <div>
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height:1.75rem; width:auto; display:block; margin-bottom:0.5rem;" />
+          <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
+          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br><br>
+            <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
+          </address>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
+        <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
+          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('site-nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>10);},{passive:true});
+    const burgerBtn=document.getElementById('burger-btn'),mob=document.getElementById('mobile-menu'),bi=document.getElementById('burger-icon'),ci=document.getElementById('close-icon');
+    let open=false;
+    function openM(){open=true;mob.style.transform='translateY(0)';mob.style.opacity='1';mob.style.pointerEvents='auto';mob.setAttribute('aria-hidden','false');burgerBtn.setAttribute('aria-expanded','true');bi.style.display='none';ci.style.display='block';document.body.style.overflow='hidden';}
+    function closeM(){open=false;mob.style.transform='translateY(-100%)';mob.style.opacity='0';mob.style.pointerEvents='none';mob.setAttribute('aria-hidden','true');burgerBtn.setAttribute('aria-expanded','false');bi.style.display='block';ci.style.display='none';document.body.style.overflow='';}
+    burgerBtn.addEventListener('click',()=>open?closeM():openM());
+    mob.querySelectorAll('a').forEach(l=>l.addEventListener('click',closeM));
+    window.addEventListener('resize',()=>{if(window.innerWidth>=1024&&open)closeM();});
+  </script>
+
+</body>
+</html>

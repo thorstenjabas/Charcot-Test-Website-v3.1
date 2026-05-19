@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Charcot Capital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #F5F6F8; --bg-alt: #ECEEF2; --ink: #181815; --ink-mid: #3A3A35;
+      --ink-light: #7A7A72; --navy: #002060; --navy-dark: #001540;
+      --rule: rgba(20,20,20,0.09); --card-black: #1a1917; --card-navy: #1C2E4A; --card-tan: #E2E5EC;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body { font-family: 'Inter Tight', system-ui, sans-serif; font-weight: 400; color: var(--ink-mid); font-size: 1rem; line-height: 1.52; letter-spacing: -0.005em; background: #fff; margin: 0; padding: 0; }
+    h1, h2, h3 { margin: 0; font-weight: inherit; }
+    p, ul, li { margin: 0; }
+    a { text-decoration: none; }
+    .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: normal; letter-spacing: -0.012em; line-height: 1.02; }
+    .serif-italic { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; letter-spacing: -0.012em; line-height: 1.02; }
+    .label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-light); }
+    .nav-link { font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link.active { color: var(--ink); }
+    .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
+    .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
+    .btn-navy:hover { background: var(--navy-dark); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* Form */
+    .form-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 0.5rem; }
+    .form-input {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1px solid var(--rule); background: #fff;
+      font-family: 'Inter Tight', system-ui, sans-serif; font-size: 1rem; color: var(--ink-mid);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(0,32,96,0.07); }
+    .form-input::placeholder { color: var(--ink-light); opacity: 0.7; }
+    textarea.form-input { resize: vertical; min-height: 7rem; }
+    .form-input.invalid { border-color: #b94a6a; box-shadow: 0 0 0 3px rgba(185,74,106,0.08); }
+    .field-error { display: none; font-size: 0.75rem; color: #b94a6a; margin-top: 0.375rem; }
+    .field-error.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+       style="background: #fff; border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
+        <a href="index.html" aria-label="Charcot Capital home">
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+        </a>
+        <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="transactions.html" class="nav-link">Transactions</a>
+          <a href="team.html" class="nav-link">Team</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+
+          <a href="contact.html" class="btn-navy" style="padding: 0.5625rem 1.25rem;">Get in touch</a>
+        </div>
+        <button id="burger-btn" class="flex lg:hidden" style="background:none;border:none;cursor:pointer;padding:0.25rem;color:var(--ink);" aria-label="Menu" aria-expanded="false">
+          <svg id="burger-icon" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="close-icon" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" aria-hidden="true"
+       style="position:fixed;top:4.5rem;left:0;right:0;bottom:0;z-index:49;background:#fff;border-top:1px solid var(--rule);overflow-y:auto;transform:translateY(-100%);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;">
+    <div style="padding:2rem 2.5rem;">
+      <nav style="display:flex;flex-direction:column;">
+        <a href="about.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">About</a>
+        <a href="services.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Services</a>
+        <a href="transactions.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Transactions</a>
+        <a href="team.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Team</a>
+        <a href="careers.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Careers</a>
+
+      </nav>
+      <div style="margin-top:2rem;"><a href="contact.html" class="btn-navy" style="width:100%;">Get in touch</a></div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section style="padding-top: 4.5rem; background: #fff; border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 6.5rem;">
+
+      <!-- Intro -->
+      <div style="margin-bottom: 3rem;">
+        <p class="label" style="margin-bottom: 1.5rem;">Contact Charcot Capital</p>
+        <h1 style="margin-bottom: 1rem;">
+          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">A conversation</span>
+          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">in confidence.</span>
+        </h1>
+        <div style="height: 1px; background: var(--rule); width: 2.5rem; margin: 1.5rem 0 1.5rem;"></div>
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 44rem;">Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.</p>
+      </div>
+
+      <!-- Enquiry form -->
+      <div style="margin-bottom: 4rem;">
+        <p class="label" style="margin-bottom: 0.875rem;">Send an enquiry</p>
+        <div style="background: var(--bg); padding: 2.5rem; border-top: 2px solid var(--navy);">
+          <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
+              <div>
+                <label class="form-label" for="contact-name">Name</label>
+                <input class="form-input" type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" />
+                <span class="field-error" id="err-name">Please enter your name.</span>
+              </div>
+              <div>
+                <label class="form-label" for="contact-org">Organisation</label>
+                <input class="form-input" type="text" id="contact-org" name="organisation" placeholder="Company or firm" autocomplete="organization" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
+              <div>
+                <label class="form-label" for="contact-email">Email</label>
+                <input class="form-input" type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" />
+                <span class="field-error" id="err-email">Please enter a valid email address.</span>
+              </div>
+              <div>
+                <label class="form-label" for="contact-phone">Telephone (optional)</label>
+                <input class="form-input" type="tel" id="contact-phone" name="phone" placeholder="+44 ..." autocomplete="tel" />
+              </div>
+            </div>
+            <div>
+              <label class="form-label" for="contact-subject">Nature of enquiry</label>
+              <select class="form-input" id="contact-subject" name="subject"
+                      style="cursor:pointer;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A7A72' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 1rem center;">
+                <option value="" disabled selected>Select...</option>
+                <option value="selling">Selling a business</option>
+                <option value="acquiring">Acquiring a business</option>
+                <option value="coinvesting">Co-investing / Merchant Banking</option>
+                <option value="other-services">Other services</option>
+                <option value="general">General enquiry</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea class="form-input" id="contact-message" name="message"
+                        placeholder="A brief description of your situation or what you would like to discuss."
+                        rows="5"></textarea>
+              <span class="field-error" id="err-message">Please enter a message.</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+              <p style="font-size: 0.8125rem; color: var(--ink-light); line-height: 1.7; max-width: 28rem; font-style: italic;">All enquiries are treated in strict confidence. For career enquiries please visit <a href="careers.html" style="color: var(--navy); text-decoration: underline; text-underline-offset: 2px;">Careers</a>.</p>
+              <button type="submit" class="btn-navy">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Offices -->
+      <div>
+        <p class="label" style="margin-bottom: 0.875rem;">Our offices</p>
+        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.75rem;">
+
+          <!-- London -->
+          <div style="overflow: hidden; border: 1px solid var(--rule);">
+            <div style="position: relative; overflow: hidden; line-height: 0;">
+              <img src="image_sources/offices/london.png" alt="London office"
+                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center top; display: block; filter: saturate(0.15) brightness(1.02) contrast(0.96);" />
+              <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.2); mix-blend-mode: multiply; pointer-events: none;"></div>
+            </div>
+            <div style="padding: 1.75rem 2rem;">
+              <p class="label" style="color: var(--navy); margin-bottom: 0.5rem;">London</p>
+              <div style="height: 1px; background: var(--navy); width: 2rem; opacity: 0.25; margin-bottom: 0.875rem;"></div>
+              <address style="font-style: normal; font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">
+                18 Nevern Square<br>London SW5 9PD<br>United Kingdom
+              </address>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule);">
+                <a href="mailto:info@charcotcapital.com" style="font-size: 1rem; color: var(--navy); transition: opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">info@charcotcapital.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paris -->
+          <div style="overflow: hidden; border: 1px solid var(--rule);">
+            <div style="position: relative; overflow: hidden; line-height: 0;">
+              <img src="image_sources/offices/paris.png" alt="Paris office"
+                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center 15%; display: block; filter: saturate(0.15) brightness(1.02) contrast(0.96);" />
+              <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.2); mix-blend-mode: multiply; pointer-events: none;"></div>
+            </div>
+            <div style="padding: 1.75rem 2rem;">
+              <p class="label" style="color: var(--navy); margin-bottom: 0.5rem;">Paris</p>
+              <div style="height: 1px; background: var(--navy); width: 2rem; opacity: 0.25; margin-bottom: 0.875rem;"></div>
+              <address style="font-style: normal; font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">
+                18 rue Las Cases<br>75007 Paris<br>France
+              </address>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule);">
+                <a href="mailto:info@charcotcapital.com" style="font-size: 1rem; color: var(--navy); transition: opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">info@charcotcapital.com</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #fff; border-top: 1px solid var(--rule); padding: 4.5rem 0 0;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="footer-grid">
+        <div>
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height:1.75rem; width:auto; display:block; margin-bottom:0.5rem;" />
+          <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
+          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br><br>
+            <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
+          </address>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
+        <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
+          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('site-nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>10);},{passive:true});
+    const burgerBtn=document.getElementById('burger-btn'),mob=document.getElementById('mobile-menu'),bi=document.getElementById('burger-icon'),ci=document.getElementById('close-icon');
+    let open=false;
+    function openM(){open=true;mob.style.transform='translateY(0)';mob.style.opacity='1';mob.style.pointerEvents='auto';mob.setAttribute('aria-hidden','false');burgerBtn.setAttribute('aria-expanded','true');bi.style.display='none';ci.style.display='block';document.body.style.overflow='hidden';}
+    function closeM(){open=false;mob.style.transform='translateY(-100%)';mob.style.opacity='0';mob.style.pointerEvents='none';mob.setAttribute('aria-hidden','true');burgerBtn.setAttribute('aria-expanded','false');bi.style.display='block';ci.style.display='none';document.body.style.overflow='';}
+    burgerBtn.addEventListener('click',()=>open?closeM():openM());
+    mob.querySelectorAll('a').forEach(l=>l.addEventListener('click',closeM));
+    window.addEventListener('resize',()=>{if(window.innerWidth>=1024&&open)closeM();});
+
+    const form=document.getElementById('contact-form');
+    function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+    function vf(iid,eid,fn){const i=document.getElementById(iid),e=document.getElementById(eid),bad=!fn(i.value.trim());i.classList.toggle('invalid',bad);e.classList.toggle('visible',bad);return !bad;}
+    function va(){return vf('contact-name','err-name',v=>v.length>0)&vf('contact-email','err-email',isEmail)&vf('contact-message','err-message',v=>v.length>0);}
+    ['contact-name','contact-email','contact-message'].forEach(id=>{
+      const el=document.getElementById(id);
+      el.addEventListener('input',()=>{
+        if(!el.classList.contains('invalid'))return;
+        const eid=id==='contact-name'?'err-name':id==='contact-email'?'err-email':'err-message';
+        vf(id,eid,id==='contact-email'?isEmail:v=>v.length>0);
+      });
+    });
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      if(!va()){const f=form.querySelector('.invalid');if(f)f.focus();return;}
+      const btn=form.querySelector('button[type="submit"]');
+      btn.textContent='Message sent';btn.disabled=true;btn.style.background='#3a6b3a';
+    });
+  </script>
+
+</body>
+</html>

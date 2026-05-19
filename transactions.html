@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transactions - Charcot Capital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #F5F6F8; --bg-alt: #ECEEF2; --ink: #181815; --ink-mid: #3A3A35;
+      --ink-light: #7A7A72; --navy: #002060; --navy-dark: #001540;
+      --rule: rgba(20,20,20,0.09); --card-black: #1a1917; --card-navy: #1C2E4A; --card-tan: #E2E5EC;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body { font-family: 'Inter Tight', system-ui, sans-serif; font-weight: 400; color: var(--ink-mid); font-size: 1rem; line-height: 1.52; letter-spacing: -0.005em; background: #fff; margin: 0; padding: 0; }
+    h1, h2, h3 { margin: 0; font-weight: inherit; }
+    p, ul, li { margin: 0; }
+    a { text-decoration: none; }
+    .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: normal; letter-spacing: -0.012em; line-height: 1.02; }
+    .serif-italic { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; letter-spacing: -0.012em; line-height: 1.02; }
+    .label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-light); }
+    .nav-link { font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link.active { color: var(--ink); }
+    .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
+    .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
+    .btn-navy:hover { background: var(--navy-dark); }
+    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; border: 1px solid var(--rule); color: var(--ink-mid); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s; }
+    .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* Tombstones */
+    .tombstone-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.75rem; }
+    @media (max-width: 1279px) { .tombstone-grid { grid-template-columns: repeat(4,1fr); } }
+    @media (max-width: 1023px) { .tombstone-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 639px) { .tombstone-grid { grid-template-columns: repeat(2,1fr); } }
+
+    .tombstone-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tombstone-card:hover {
+      box-shadow: 0 6px 24px rgba(0,20,60,0.1), 0 2px 8px rgba(0,20,60,0.06);
+      transform: translateY(-2px);
+    }
+    .tombstone-card img { width: 100%; height: auto; display: block; }
+
+    /* KPI bar */
+    .kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+    @media (max-width: 767px) { .kpi-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+       style="background: #fff; border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
+        <a href="index.html" aria-label="Charcot Capital home">
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+        </a>
+        <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="transactions.html" class="nav-link active">Transactions</a>
+          <a href="team.html" class="nav-link">Team</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+
+          <a href="contact.html" class="btn-navy" style="padding: 0.5625rem 1.25rem;">Get in touch</a>
+        </div>
+        <button id="burger-btn" class="flex lg:hidden" style="background:none;border:none;cursor:pointer;padding:0.25rem;color:var(--ink);" aria-label="Menu" aria-expanded="false">
+          <svg id="burger-icon" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="close-icon" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" aria-hidden="true"
+       style="position:fixed;top:4.5rem;left:0;right:0;bottom:0;z-index:49;background:#fff;border-top:1px solid var(--rule);overflow-y:auto;transform:translateY(-100%);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;">
+    <div style="padding:2rem 2.5rem;">
+      <nav style="display:flex;flex-direction:column;">
+        <a href="about.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">About</a>
+        <a href="services.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Services</a>
+        <a href="transactions.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Transactions</a>
+        <a href="team.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Team</a>
+        <a href="careers.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Careers</a>
+
+      </nav>
+      <div style="margin-top:2rem;"><a href="contact.html" class="btn-navy" style="width:100%;">Get in touch</a></div>
+    </div>
+  </div>
+
+  <!-- TRACK RECORD + GEOGRAPHIC FOOTPRINT -->
+  <section style="padding-top: 4.5rem; background: #fff; border-bottom: 1px solid var(--rule);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 2rem;">
+
+      <div style="max-width: 54rem; margin: 0 0 1.5rem;">
+        <p class="label" style="margin-bottom: 1.5rem;">Geographic footprint</p>
+        <h1 style="margin-bottom: 1rem;">
+          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 4.5rem); color: var(--ink);">A track record built across</span>
+          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 4.5rem); color: var(--navy); display: block;">five continents.</span>
+        </h1>
+      </div>
+      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 56rem; margin-bottom: 2.5rem;">
+        Since advising on our first transaction in 2002, Charcot Capital has built a record spanning more than 50 mandates across a broad range of sectors, geographies, and deal structures - from mid-market M&amp;A in Europe to complex cross-border transactions spanning Africa, Asia, and the Americas. The common thread across this record is not sector or size, but the quality of the client and the complexity of the challenge.
+      </p>
+
+      <!-- Map legend -->
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem; max-width: 68rem;">
+        <div style="display: flex; align-items: center; gap: 0.625rem;">
+          <div style="width: 1rem; height: 1rem; background: #1a1917; flex-shrink: 0;"></div>
+          <span style="font-size: 0.8125rem; color: var(--ink-light);">Primary deal geography - multiple transactions or deep market presence</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.625rem;">
+          <div style="width: 1rem; height: 1rem; background: #9a9a92; flex-shrink: 0;"></div>
+          <span style="font-size: 0.8125rem; color: var(--ink-light);">Secondary exposure - cross-border buyers, sellers, or capital partners</span>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div style="max-width: 68rem; margin: 0 auto;">
+        <img src="image_sources/map/transactions_map.svg"
+             alt="World map showing Charcot Capital deal geographies - primary markets in dark navy, secondary markets in light blue"
+             style="width: 100%; height: auto; display: block;" />
+      </div>
+
+    </div>
+
+    <!-- KPI bar -->
+    <div style="background: var(--card-black); border-top: 1px solid rgba(255,255,255,0.06);">
+      <div style="max-width: 88rem; margin: 0 auto;">
+        <div class="kpi-grid">
+          <div style="padding: 1.75rem 2.25rem; border-right: 1px solid rgba(255,255,255,0.08);">
+            <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: #fff; line-height: 1; margin-bottom: 0.5rem;">&gt; 56 transactions</p>
+            <p class="label" style="color: rgba(255,255,255,0.4);">Across public and private markets since 2002</p>
+          </div>
+          <div style="padding: 1.75rem 2.25rem; border-right: 1px solid rgba(255,255,255,0.08);">
+            <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: #fff; line-height: 1; margin-bottom: 0.5rem;">&gt; 43 countries</p>
+            <p class="label" style="color: rgba(255,255,255,0.4);">Spanning Europe, the Americas, Africa, Asia, and Australia</p>
+          </div>
+          <div style="padding: 1.75rem 2.25rem;">
+            <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: #fff; line-height: 1; margin-bottom: 0.5rem;">&gt; 70% referral</p>
+            <p class="label" style="color: rgba(255,255,255,0.4);">Referral and repeat clients - a measure of the trust we build</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOMBSTONES -->
+  <section style="padding: 6.5rem 0; background: var(--bg);">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+
+      <div style="margin-bottom: 3.5rem;">
+        <p class="label" style="margin-bottom: 0.875rem;">Selected transactions</p>
+        <h2 style="margin-bottom: 1.25rem;">
+          <span class="serif" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--ink);">A record of </span>
+          <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--navy);">advisory work done.</span>
+        </h2>
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 52rem;">The tombstones below represent a selection of completed mandates. They span M&amp;A advisory, capital raising, and principal investments across sectors ranging from food and agriculture to industrials, healthcare, and financial services.</p>
+      </div>
+
+      <!-- Blue chips -->
+      <div style="margin-bottom: 4rem;">
+        <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Blue chips</h3>
+        <div class="tombstone-grid">
+          <div class="tombstone-card"><img src="image_sources/transactions/15_2019_Smith__Nephew_plc.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/22_2017_Smith__Nephew_plc.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/34_2013_Danone_SA.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/43_2010_General_Electric_Company.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/23_2017_Smith__Nephew_plc.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/31_2014_Smith__Nephew_plc.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/55_2007_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/57_2001_Thales_plc.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/26_2015_Danone_SA.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/32_2013_General_Electric_Company.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/40_2011_CWT_Limited.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/07_2025_Adcorp.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/24_2016_Krispy_Kreme.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/39_2011_CalyxAgro.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/08_2022_Bracco_SpA.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/09_2022_Bracco_SpA.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/29_2014_Danone_SA.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/46_2009_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/49_2008_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/50_2008_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="" /></div>
+        </div>
+      </div>
+
+      <!-- Entrepreneurs -->
+      <div style="margin-bottom: 4rem;">
+        <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Entrepreneurs</h3>
+        <div class="tombstone-grid">
+          <div class="tombstone-card"><img src="image_sources/transactions/16_2019_YES_Ltd__Corporate_Events.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/44_2010_Windsor__Brook_Trading_Pte_L.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/45_2010_PT_Jawamanis_Rafinasi.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/54_2008_.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/56_2007_Titan.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/10_2022_Groupe_Safari_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/33_2013_MRI_Trading_AG.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/06_2025_Trinity_Organics_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/18_2018_Ethiopian_Magical_Flowers.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/21_2017_Blue_Nile_Holdings.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/38_2012_Nao_SAS.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/03_2026_EcoBusiness_Pte_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/05_2025_Aymax_Software.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/12_2020_Intercept_Technologies_GmbH.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/13_2020_Groupe_Safari_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/36_2012_Agrinergy_Pte_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/48_2008_OTCEX_SAS.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/19_2017_Cocopain.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/20_2017_Socavins.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/37_2012_Bralico_SA.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/51_2008_IKI.png" loading="lazy" alt="" /></div>
+        </div>
+      </div>
+
+      <!-- Financial sponsors -->
+      <div>
+        <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Financial sponsors</h3>
+        <div class="tombstone-grid">
+          <div class="tombstone-card"><img src="image_sources/transactions/27_2015_Rivertrade_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/28_2015_ABIM.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/35_2013_Citigroup_Venture_Capital_In.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/41_2011_BIH_Ltd_Brewery_Invest_Holdi.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/52_2008_Citigroup_Venture_Capital_In.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/53_2008_Citigroup_Venture_Capital_In.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/11_2021_Montecito_Equity_Partners.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/14_2020_Rivertrade_Ltd.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/17_2018_Firebird_Management_LLC.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/25_2015_Firebird_Management_LLC.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/30_2014_The_Rohatyn_Group_LLC.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/47_2009_Emerging_Capital_Partners_LL.png" loading="lazy" alt="" /></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/42_2011_BIH_Ltd_Brewery_Invest_Holdi.png" loading="lazy" alt="" /></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--bg-alt); border-top: 1px solid var(--rule);">
+    <div style="max-width: 44rem; margin: 0 auto; padding: 8rem 2.5rem; text-align: center;">
+      <p class="label" style="margin-bottom: 2rem;">Get in touch</p>
+      <h2 style="margin-bottom: 1.75rem;">
+        <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">Every mandate here </span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">was led by a partner.</span>
+      </h2>
+      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem; margin-top: 1.75rem;">The same partners whose names appear on these transactions are the people who will lead yours. Senior judgement at every stage, from origination to close.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+        <a href="contact.html" class="btn-navy">Contact us</a>
+        <a href="team.html" class="btn-ghost">Meet the partners</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #fff; border-top: 1px solid var(--rule); padding: 4.5rem 0 0;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="footer-grid">
+        <div>
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height:1.75rem; width:auto; display:block; margin-bottom:0.5rem;" />
+          <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+          </div>
+        </div>
+        <div>
+          <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
+          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br><br>
+            <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
+          </address>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
+        <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
+          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('site-nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>10);},{passive:true});
+    const burgerBtn=document.getElementById('burger-btn'),mob=document.getElementById('mobile-menu'),bi=document.getElementById('burger-icon'),ci=document.getElementById('close-icon');
+    let open=false;
+    function openM(){open=true;mob.style.transform='translateY(0)';mob.style.opacity='1';mob.style.pointerEvents='auto';mob.setAttribute('aria-hidden','false');burgerBtn.setAttribute('aria-expanded','true');bi.style.display='none';ci.style.display='block';document.body.style.overflow='hidden';}
+    function closeM(){open=false;mob.style.transform='translateY(-100%)';mob.style.opacity='0';mob.style.pointerEvents='none';mob.setAttribute('aria-hidden','true');burgerBtn.setAttribute('aria-expanded','false');bi.style.display='block';ci.style.display='none';document.body.style.overflow='';}
+    burgerBtn.addEventListener('click',()=>open?closeM():openM());
+    mob.querySelectorAll('a').forEach(l=>l.addEventListener('click',closeM));
+    window.addEventListener('resize',()=>{if(window.innerWidth>=1024&&open)closeM();});
+  </script>
+
+</body>
+</html>
