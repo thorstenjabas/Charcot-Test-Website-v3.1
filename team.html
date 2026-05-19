@@ -110,19 +110,38 @@
   </div>
 
   <!-- PAGE HERO -->
-  <section style="padding-top: 4.5rem; background: #fff; border-bottom: 1px solid var(--rule);">
-    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 5.5rem;">
+  <section style="padding-top: 4.5rem; background: linear-gradient(to bottom, #fff 42%, #F5F6F8 100%); position: relative; overflow: hidden;">
+    <!-- Desktop: pen anchored to section bottom — ink line falls below body text, image fills to border -->
+    <img aria-hidden="true" src="image_sources/fountain_pen.png" alt=""
+         class="hidden lg:block"
+         style="position: absolute; right: -4%; bottom: -16%; top: auto;
+                width: 62%; height: auto; pointer-events: none; z-index: 0;
+                filter: contrast(1.12) saturate(0.85); opacity: 0.82;" />
+    <!-- Gradient: fades from white (text side) into pen -->
+    <div aria-hidden="true" class="hidden lg:block"
+         style="position: absolute; inset: 0; pointer-events: none; z-index: 1;
+                background: linear-gradient(to right, #fff 28%, rgba(255,255,255,0.82) 42%, rgba(255,255,255,0.14) 60%, rgba(255,255,255,0) 74%);"></div>
+    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 5.5rem; position: relative; z-index: 2;">
       <p class="label" style="margin-bottom: 1.5rem;">Our team</p>
-      <h1 style="margin-bottom: 1rem;">
-        <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">The people behind</span>
-        <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">every mandate.</span>
+      <h1 style="margin-bottom: 2rem;">
+        <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">Experience applied </span>
+        <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">without dilution.</span>
       </h1>
-      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 44rem; margin-top: 1.5rem;">Senior partners with careers at the highest level of international corporate finance, directly involved in every mandate from first conversation to close. Insight and execution are never delegated.</p>
+      <div style="max-width: 44rem; display: flex; flex-direction: column; gap: 1.5rem;">
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75;">The founding partners came from senior advisory roles at leading international investment banks, with three decades of M&A experience across transactions in more than 40 countries. At Charcot, that experience is applied directly: on a deliberately limited number of mandates, by the partners themselves, from first conversation to final close.
+The names in the transaction record are theirs. The partner you meet at the outset is the partner accountable at close.</p>
+      </div>
+      <!-- Mobile: pen image below text, cropped to pen body (ink line falls outside crop) -->
+      <div class="lg:hidden" style="margin: 2.5rem -2.5rem 0; height: 220px; overflow: hidden;">
+        <img src="image_sources/fountain_pen.png" alt=""
+             style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+                    display: block; filter: contrast(1.12) saturate(0.85);" />
+      </div>
     </div>
   </section>
 
   <!-- LEADERSHIP BIOS -->
-  <section style="padding: 2.5rem 0; background: var(--bg);">
+  <section style="padding: 0 0 2.5rem; background: var(--bg);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <!-- Jean-Benoit Terrasse -->

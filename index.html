@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charcot Capital - Independent Mergers and Acquisitions advisory</title>
+  <title>Charcot Capital - Mergers and Acquisitions</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -96,7 +96,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       padding: 0.8125rem 2rem;
       border: 1px solid var(--navy); color: var(--navy);
-      font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em;
+      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em;
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-ghost-navy:hover { border-color: var(--navy-dark); color: var(--navy-dark); }
@@ -152,7 +152,7 @@
       height: 100%;
       object-fit: cover;
       object-position: 82% center;
-      filter: saturate(0.28) brightness(0.96) contrast(0.97);
+      filter: saturate(0.18) brightness(1.12) contrast(0.82);
       -webkit-mask-image:
         linear-gradient(to right,
           transparent      0%,
@@ -260,7 +260,7 @@
     <div style="position: relative; z-index: 1;">
 
       <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; padding-top: 3.5rem; padding-bottom: 2rem;">
-        <p class="label">Independent M&amp;A advice since 2002</p>
+        <p class="label">Mergers and Acquisitions since 2002</p>
       </div>
 
       <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
@@ -310,37 +310,38 @@
   </section>
 
   <!-- PROOF STRIP -->
-  <section style="background: #ECEEF2; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
-    <div style="max-width: 88rem; margin: 0 auto;">
-      <div id="proof-grid" style="display: grid; grid-template-columns: 1fr 1fr;">
+  <section style="background: transparent; border-bottom: 1px solid var(--rule); padding: 1rem 0;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
-        <div id="proof-hero" style="padding: 3.5rem 4.5rem 5.5rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule);">
+      <!-- Outer grid: left tall box + right column of three. Gap is uniform everywhere. -->
+      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 1rem; align-items: stretch;">
+
+        <!-- Left: primary stat — stretches to match total height of right three boxes + their two gaps -->
+        <div style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 3.5rem 4rem; display: flex; flex-direction: column; justify-content: center;">
           <p class="label" style="margin-bottom: 2.5rem;">The number that says most</p>
           <p class="serif" style="font-size: clamp(4rem, 9vw, 8.5rem); color: var(--ink); line-height: 0.88; margin-bottom: 1.75rem;">70%+</p>
           <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; max-width: 24rem;">of our mandates come from <b>referrals</b> - clients who have worked with us before or been referred by someone who has.</p>
         </div>
 
-        <div id="proof-trio" style="display: flex; flex-direction: column;">
-          <div style="padding: 2.75rem 4rem; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 3rem; flex: 1;">
-            <p class="serif" style="font-size: clamp(2rem, 5vw, 3.25rem); color: var(--ink); text-align: right; line-height: 1; flex-shrink: 0; width: 7rem;">&gt;56</p>
-            <div style="min-width: 0; flex: 1;">
-              <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; overflow-wrap: break-word;">completed <b>transactions</b> across public and private markets</p>
-            </div>
-          </div>
-          <div style="padding: 2.75rem 4rem; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 3rem; flex: 1;">
-            <p class="serif" style="font-size: clamp(2rem, 5vw, 3.25rem); color: var(--ink); text-align: right; line-height: 1; flex-shrink: 0; width: 7rem;">5</p>
-            <div style="min-width: 0; flex: 1;">
-              <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; overflow-wrap: break-word;"><b>continents</b> where we have completed transactions</p>
-            </div>
-          </div>
-          <div style="padding: 2.75rem 4rem; display: flex; align-items: center; gap: 3rem; flex: 1;">
-            <p class="serif" style="font-size: clamp(2rem, 5vw, 3.25rem); color: var(--ink); text-align: right; line-height: 1; flex-shrink: 0; width: 7rem;">2002</p>
-            <div style="min-width: 0; flex: 1;">
-              <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; overflow-wrap: break-word;">advising <b>independently</b> - partner-owned, no external shareholders</p>
-            </div>
-          </div>
-        </div>
+        <!-- Right: three equal-height supporting boxes, same gap as outer -->
+        <div style="display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 1rem;">
 
+          <div style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 2.5rem;">
+            <p class="serif" style="font-size: clamp(1.75rem, 4vw, 3rem); color: var(--ink); line-height: 1; flex-shrink: 0; width: 5.5rem; text-align: right;">&gt;56</p>
+            <p style="font-size: 0.9375rem; color: var(--ink-light); line-height: 1.65; min-width: 0;">completed <b>transactions</b> across public and private markets</p>
+          </div>
+
+          <div style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 2.5rem;">
+            <p class="serif" style="font-size: clamp(1.75rem, 4vw, 3rem); color: var(--ink); line-height: 1; flex-shrink: 0; width: 5.5rem; text-align: right;">5</p>
+            <p style="font-size: 0.9375rem; color: var(--ink-light); line-height: 1.65; min-width: 0;"><b>continents</b> where we have completed transactions</p>
+          </div>
+
+          <div style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 2.5rem;">
+            <p class="serif" style="font-size: clamp(1.75rem, 4vw, 3rem); color: var(--ink); line-height: 1; flex-shrink: 0; width: 5.5rem; text-align: right;">2002</p>
+            <p style="font-size: 0.9375rem; color: var(--ink-light); line-height: 1.65; min-width: 0;">advising <b>independently</b> - partner-owned, no external shareholders</p>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -348,9 +349,9 @@
   <!-- WHY IT MATTERS -->
   <section style="padding: 9rem 0; background: var(--bg);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: center;">
+      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: start;">
 
-        <div style="height: 480px; overflow: hidden;">
+        <div style="margin-top: 2rem; height: 480px; overflow: hidden;">
           <img src="image_sources/why_it_matters.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.25) brightness(1.05) contrast(0.92);" />
         </div>
 
@@ -421,7 +422,7 @@
       track.innerHTML='';
       logos.concat(logos).forEach(function(l){
         var c=document.createElement('a');c.href='transactions.html';
-        c.style.cssText='display:flex;align-items:center;justify-content:center;flex-shrink:0;width:'+pct+'%;padding:2.25rem 1.5rem;background:var(--bg-alt);border-right:1px solid var(--rule);box-sizing:border-box;transition:background 0.2s;';
+        c.style.cssText='display:flex;align-items:center;justify-content:center;flex-shrink:0;width:'+pct+'%;padding:2.25rem 1.5rem;background:var(--bg-alt);border-right:1px solid rgba(20,20,20,0.25);box-sizing:border-box;transition:background 0.2s;';
         c.addEventListener('mouseover',function(){this.style.background='var(--bg)';this.querySelector('img').style.filter='grayscale(0%)';});
         c.addEventListener('mouseout',function(){this.style.background='var(--bg-alt)';this.querySelector('img').style.filter='grayscale(100%)';});
         var i=document.createElement('img');i.src=l.src;i.alt=l.alt;
@@ -430,7 +431,11 @@
       });
       xform(false);
     }
-    function xform(a){var v=vis(),p=-(offset/v)*100;track.style.transition=a?'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)':'none';track.style.transform='translateX('+p+'%)';}
+    function updateBorders(){
+      var v=vis(),last=offset+v-1,ch=track.children;
+      for(var i=0;i<ch.length;i++)ch[i].style.borderRight=i===last?'none':'1px solid rgba(20,20,20,0.25)';
+    }
+    function xform(a){var v=vis(),p=-(offset/v)*100;track.style.transition=a?'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)':'none';track.style.transform='translateX('+p+'%)';updateBorders();}
     function goN(){if(animating)return;animating=true;offset++;xform(true);track.addEventListener('transitionend',function h(){track.removeEventListener('transitionend',h);if(offset===total){track.style.transition='none';offset=0;xform(false);void track.getBoundingClientRect();}animating=false;});}
     function goP(){if(animating)return;animating=true;if(offset===0){track.style.transition='none';offset=total;xform(false);void track.getBoundingClientRect();}offset--;xform(true);track.addEventListener('transitionend',function h(){track.removeEventListener('transitionend',h);animating=false;});}
     prev.addEventListener('click',goP);next.addEventListener('click',goN);
@@ -440,7 +445,7 @@
   </script>
 
   <!-- WHO WE WORK WITH -->
-  <section style="background: var(--bg);">
+  <section style="background: var(--bg); padding-bottom: 6.5rem;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 6.5rem 2.5rem 0;">
       <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
         <p class="label">Who we work with</p>
@@ -511,9 +516,9 @@
   <!-- WHAT SETS US APART -->
   <section style="padding: 9rem 0; background: var(--bg); border-top: 1px solid var(--rule);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: center;">
+      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: start;">
 
-        <div class="order-1" style="height: 480px; overflow: hidden;">
+        <div class="order-1" style="margin-top: 2rem; height: 480px; overflow: hidden;">
           <img src="image_sources/compass_rose.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.25) brightness(1.05) contrast(0.92);" />
         </div>
 
