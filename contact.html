@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Charcot Capital</title>
+  <title>Contact Charcot Capital — M&amp;A Advisory, London &amp; Paris</title>
+  <meta name="description" content="Contact Charcot Capital for a confidential conversation with our senior partners. We advise on M&amp;A and cross-border transactions from our offices in London and Paris." />
+  <link rel="canonical" href="https://www.charcotcapital.com/contact.html" />
+  <link rel="icon" href="image_sources/charcot_logos/charcot_logo.webp" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact Charcot Capital" />
+  <meta property="og:description" content="Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries." />
+  <meta property="og:url" content="https://www.charcotcapital.com/contact.html" />
+  <meta property="og:image" content="https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Charcot Capital" />
+  <meta name="twitter:description" content="Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +22,7 @@
   <style>
     :root {
       --bg: #F5F6F8; --bg-alt: #ECEEF2; --ink: #181815; --ink-mid: #3A3A35;
-      --ink-light: #7A7A72; --navy: #002060; --navy-dark: #001540;
+      --ink-light: #5C5C56; --navy: #002060; --navy-dark: #001540;
       --rule: rgba(20,20,20,0.09); --card-black: #1a1917; --card-navy: #1C2E4A; --card-tan: #E2E5EC;
     }
     *, *::before, *::after { box-sizing: border-box; }
@@ -110,6 +121,7 @@
       <!-- Enquiry form -->
       <div style="margin-bottom: 4rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Send an enquiry</p>
+        <p style="font-size: 0.875rem; color: var(--ink-light); margin-bottom: 1.25rem; line-height: 1.65;">Enquiries are reviewed personally by a senior partner. You can expect to hear back within two business days.</p>
         <div style="background: var(--bg); padding: 2.5rem; border-top: 2px solid var(--navy);">
           <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
@@ -153,9 +165,18 @@
                         rows="5"></textarea>
               <span class="field-error" id="err-message">Please enter a message.</span>
             </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-              <p style="font-size: 0.8125rem; color: var(--ink-light); line-height: 1.7; max-width: 28rem; font-style: italic;">All enquiries are treated in strict confidence. For career enquiries please visit <a href="careers.html" style="color: var(--navy); text-decoration: underline; text-underline-offset: 2px;">Careers</a>.</p>
-              <button type="submit" class="btn-navy">Send message</button>
+            <div style="display: flex; align-items: flex-start; flex-direction: column; gap: 1rem;">
+              <p style="font-size: 0.8125rem; color: var(--ink-light); line-height: 1.7; max-width: 36rem; font-style: italic;">All enquiries are treated in strict confidence. By submitting this form you consent to your data being processed as described in our <a href="privacy.html" style="color: var(--navy); text-decoration: underline; text-underline-offset: 2px;">Privacy Policy</a>. For career enquiries please visit <a href="careers.html" style="color: var(--navy); text-decoration: underline; text-underline-offset: 2px;">Careers</a>.</p>
+              <div style="display: flex; justify-content: flex-end; width: 100%;">
+                <button type="submit" class="btn-navy">Send message</button>
+              </div>
+            </div>
+            <div id="form-success" style="display:none; padding: 1.25rem 1.5rem; background: #eaf3ea; border-left: 3px solid #3a6b3a;">
+              <p style="font-size: 0.9375rem; color: #2a4a2a; font-weight: 500;">Your message has been sent.</p>
+              <p style="font-size: 0.875rem; color: #3a5a3a; margin-top: 0.25rem;">A senior partner will be in touch within two business days.</p>
+            </div>
+            <div id="form-error" style="display:none; padding: 1.25rem 1.5rem; background: #fdf0f0; border-left: 3px solid #b94a6a;">
+              <p style="font-size: 0.875rem; color: #8a2a3a;">There was a problem sending your message. Please email us directly at <a href="mailto:info@charcotcapital.com" style="color: var(--navy); text-decoration: underline;">info@charcotcapital.com</a>.</p>
             </div>
           </form>
         </div>
@@ -164,7 +185,7 @@
       <!-- Offices -->
       <div>
         <p class="label" style="margin-bottom: 0.875rem;">Our offices</p>
-        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.75rem;">
+        <div class="grid grid-cols-1 md:grid-cols-3" style="gap: 1.75rem;">
 
           <!-- London -->
           <div style="overflow: hidden; border: 1px solid var(--rule);">
@@ -198,6 +219,22 @@
               <address style="font-style: normal; font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">
                 18 rue Las Cases<br>75007 Paris<br>France
               </address>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule);">
+                <a href="mailto:info@charcotcapital.com" style="font-size: 1rem; color: var(--navy); transition: opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">info@charcotcapital.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Singapore -->
+          <div style="overflow: hidden; border: 1px solid var(--rule);">
+            <div style="height: 14rem; background: var(--card-navy); display: flex; align-items: center; justify-content: center; position: relative;">
+              <div style="position: absolute; inset: 0; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 24px); pointer-events: none;"></div>
+              <span class="serif-italic" style="font-size: 2.5rem; color: rgba(255,255,255,0.15);">Singapore</span>
+            </div>
+            <div style="padding: 1.75rem 2rem;">
+              <p class="label" style="color: var(--navy); margin-bottom: 0.5rem;">Singapore</p>
+              <div style="height: 1px; background: var(--navy); width: 2rem; opacity: 0.25; margin-bottom: 0.875rem;"></div>
+              <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">Asian presence established 2011.<br>Contact our London office for Asian mandates.</p>
               <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule);">
                 <a href="mailto:info@charcotcapital.com" style="font-size: 1rem; color: var(--navy); transition: opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">info@charcotcapital.com</a>
               </div>
@@ -242,11 +279,14 @@
           </address>
         </div>
       </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
-        <div style="display:flex;gap:1.5rem;">
-          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
-          <a href="#" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
+        <p style="font-size:0.6875rem;color:rgba(20,20,20,0.4);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice.</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
+          <div style="display:flex;gap:1.5rem;">
+            <a href="privacy.html" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
+            <a href="privacy.html#terms" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
+          </div>
         </div>
       </div>
     </div>
@@ -279,7 +319,25 @@
       e.preventDefault();
       if(!va()){const f=form.querySelector('.invalid');if(f)f.focus();return;}
       const btn=form.querySelector('button[type="submit"]');
-      btn.textContent='Message sent';btn.disabled=true;btn.style.background='#3a6b3a';
+      const successEl=document.getElementById('form-success');
+      const errorEl=document.getElementById('form-error');
+      btn.textContent='Sending…';btn.disabled=true;
+      fetch('https://formspree.io/info@charcotcapital.com',{
+        method:'POST',
+        body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      }).then(r=>{
+        if(r.ok){
+          form.style.display='none';
+          successEl.style.display='block';
+        } else {
+          btn.textContent='Send message';btn.disabled=false;
+          errorEl.style.display='block';
+        }
+      }).catch(()=>{
+        btn.textContent='Send message';btn.disabled=false;
+        errorEl.style.display='block';
+      });
     });
   </script>
 

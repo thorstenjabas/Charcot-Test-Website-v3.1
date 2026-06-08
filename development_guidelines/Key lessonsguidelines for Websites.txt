@@ -1,0 +1,274 @@
+The attached text outlines a highly practical, conversion-focused philosophy for website design based on experience building hundreds of websites. The core message is that successful websites are not primarily about visual beauty or technical sophistication — they are about clarity, trust, differentiation, and guiding users toward action. 
+
+## Key lessons learned / guidelines for creating a website
+
+### 1. Design for scanners, not readers
+
+Most users do not read websites thoroughly. They skim headlines, images, and highlighted points to decide within seconds whether they are in the right place. Long paragraphs and dense text reduce engagement.
+
+**Guidelines:**
+
+* Use short paragraphs and concise copy
+* Make headlines highly informative
+* Highlight key messages visually
+* Structure content for rapid scanning
+* Use whitespace generously
+
+---
+
+### 2. First impressions determine perceived quality
+
+Visitors judge the professionalism and credibility of a business almost instantly based on website appearance (“halo effect”).
+
+**Guidelines:**
+
+* Invest heavily in visual polish and consistency
+* Ensure typography, spacing, imagery, and layouts feel premium
+* Eliminate anything that appears outdated or amateurish
+* Ask whether the website “passes the blink test”
+
+A professional-looking website increases trust in:
+
+* the company
+* the product/service
+* pricing
+* testimonials
+* expertise
+
+---
+
+### 3. Authenticity builds trust
+
+Generic stock imagery damages credibility because users immediately recognise it as artificial.
+
+**Guidelines:**
+
+* Prefer real photography wherever possible
+* Use authentic imagery, even if imperfect
+* Show real environments, products, processes, or people
+* Avoid generic “corporate stock” clichés
+
+The text argues that in an AI-generated world, “intentional imperfection” becomes a trust signal.
+
+---
+
+### 4. Clarity converts better than beauty
+
+A visually impressive website that does not communicate clearly will fail commercially.
+
+**Guidelines:**
+
+* Users should understand:
+
+  * what you do
+  * who you help
+  * why it matters
+  * what action to take
+    within seconds
+* Design should support communication, not distract from it
+* Every page should have a clear objective and CTA
+
+---
+
+### 5. Ruthlessly reduce copy
+
+Most websites contain far too much text.
+
+**Guidelines:**
+
+* Cut copy aggressively
+* Every sentence must justify its existence
+* Remove anything that does not directly improve understanding or conversion
+* Prioritise concise, high-impact language
+
+This aligns strongly with premium investment banking and luxury branding approaches where brevity signals confidence.
+
+---
+
+### 6. Be transparent about pricing and positioning
+
+Hiding pricing often creates friction and attracts poorly qualified leads.
+
+**Guidelines:**
+
+* Consider displaying pricing ranges or “starting from” levels
+* Clearly define ideal clients
+* Use the website to filter out unsuitable prospects
+
+A good website should attract the right audience while discouraging the wrong one.
+
+---
+
+### 7. Differentiate or become a commodity
+
+If a website looks identical to competitors, the business competes primarily on price.
+
+**Guidelines:**
+
+* Develop a distinctive visual identity
+* Communicate personality, philosophy, and process
+* Demonstrate unique expertise or worldview
+* Avoid templated or generic design patterns
+
+The website should express a clear point of view.
+
+---
+
+### 8. Speed matters enormously
+
+Slow websites lose visitors before content is even seen.
+
+**Guidelines:**
+
+* Optimise image sizes
+* Minimise unnecessary plugins/scripts
+* Avoid heavy animations
+* Design for mobile and weak network conditions first
+* Prioritise fast loading over visual gimmicks
+
+---
+
+### 9. Use animation sparingly
+
+Complex animations often impress designers more than users.
+
+**Guidelines:**
+
+* Use subtle motion only where it improves UX
+* Avoid distracting 3D/parallax effects
+* Prioritise usability and clarity over novelty
+* Ensure animations never delay interaction
+
+Good interaction design should feel effortless and natural.
+
+---
+
+### 10. Design for the customer, not the founder
+
+Businesses often design websites around personal preferences rather than user needs.
+
+**Guidelines:**
+
+* Focus messaging on customer problems and outcomes
+* Base decisions on analytics and user behaviour
+* Optimise for what visitors actually engage with
+* Avoid excessive internal/company-centric content
+
+Users care primarily about whether you can solve their problem.
+
+---
+
+### 11. Fewer pages are often better
+
+Too many pages create confusion and increase drop-off risk.
+
+**Guidelines:**
+
+* Simplify navigation
+* Consolidate information
+* Focus on a small number of strong, purposeful pages
+* Ensure clear user journeys
+
+Complex site structures reduce conversion.
+
+---
+
+### 12. The About page is critical
+
+The About page is often one of the most visited pages but is commonly misused.
+
+**Guidelines:**
+
+* Focus less on company history
+* Focus more on credibility and outcomes
+* Include:
+
+  * metrics
+  * track record
+  * experience
+  * case studies
+  * proof points
+* Demonstrate understanding of client problems
+
+Numbers and evidence build trust faster than generic statements.
+
+---
+
+### 13. Strong positioning is beneficial
+
+Trying to appeal to everyone weakens resonance.
+
+**Guidelines:**
+
+* Be explicit about:
+
+  * who you serve
+  * who you do not serve
+  * your quality level
+  * your process/style
+* Use positioning to qualify leads early
+
+Strong positioning improves perceived value.
+
+---
+
+### 14. A website is never “finished”
+
+Launch is the beginning, not the endpoint.
+
+**Guidelines:**
+
+* Continuously test and improve
+* Analyse visitor behaviour
+* Optimise conversion rates
+* Refresh content and positioning over time
+* Treat the website as a living commercial tool
+
+---
+
+### 15. Sell outcomes, not features
+
+People do not want a “website” or a “service” — they want results.
+
+**Guidelines:**
+
+* Focus messaging on transformation and outcomes
+* Explain how the client’s situation improves
+* Emphasise business impact, not technical details
+* Shift copy from features → benefits → outcomes
+
+---
+
+# Overall strategic takeaway
+
+The text argues that great websites are fundamentally about:
+
+* clarity
+* trust
+* authenticity
+* differentiation
+* conversion psychology
+* user empathy
+
+rather than:
+
+* excessive creativity
+* complexity
+* animations
+* volume of content
+* trend-following
+
+The strongest websites communicate:
+
+> “We understand your problem, we are credible, and we can help you achieve a better outcome.”
+
+For a premium advisory business such as [Charcot Capital](https://charcotcapital.com?utm_source=chatgpt.com), many of these principles align particularly well with:
+
+* concise copy
+* differentiated positioning
+* high-end but restrained design
+* authentic visual identity
+* strong proof points
+* clear client targeting
+* premium trust signalling
+* outcome-focused messaging rather than service descriptions

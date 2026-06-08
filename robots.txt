@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /image_sources/
+
+Sitemap: https://www.charcotcapital.com/sitemap.xml

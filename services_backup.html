@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -45,71 +45,15 @@
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* Sector images */
     .sector-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
     @media (max-width: 767px) { .sector-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 479px) { .sector-grid { grid-template-columns: 1fr; } }
+
     .scope-list { list-style: none; padding-left: 0; }
     .scope-list li { padding-left: 1rem; position: relative; }
     .scope-list li::before { content: '-'; position: absolute; left: 0; color: var(--ink-light); }
-
-    /* Hero image */
-    .hero-img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 42%;
-      filter: saturate(0.15) brightness(1.08) contrast(0.84);
-      -webkit-mask-image:
-        linear-gradient(to right,
-          transparent      0%,
-          rgba(0,0,0,0.03) 5%,
-          rgba(0,0,0,0.22) 13%,
-          rgba(0,0,0,0.62) 23%,
-          rgba(0,0,0,0.92) 34%,
-          black            44%,
-          black            100%
-        ),
-        linear-gradient(to bottom,
-          black            0%,
-          black            90%,
-          rgba(0,0,0,0.45) 96%,
-          rgba(0,0,0,0.08) 99%,
-          transparent      100%
-        );
-      -webkit-mask-composite: destination-in;
-      mask-image:
-        linear-gradient(to right,
-          transparent      0%,
-          rgba(0,0,0,0.03) 5%,
-          rgba(0,0,0,0.22) 13%,
-          rgba(0,0,0,0.62) 23%,
-          rgba(0,0,0,0.92) 34%,
-          black            44%,
-          black            100%
-        ),
-        linear-gradient(to bottom,
-          black            0%,
-          black            90%,
-          rgba(0,0,0,0.45) 96%,
-          rgba(0,0,0,0.08) 99%,
-          transparent      100%
-        );
-      mask-composite: intersect;
-    }
-
-    /* Hero responsive */
-    @media (min-width: 768px) and (max-width: 1199px) {
-      .hero-img-wrap { width: 64% !important; }
-    }
-
-    .bearing-link { display: flex; align-items: center; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; transition: padding-left 0.25s; }
-    .bearing-link:hover { padding-left: 0.375rem; }
-    .bearing-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; color: var(--ink-light); text-transform: uppercase; flex-shrink: 0; min-width: 3rem; font-variant-numeric: tabular-nums; }
-    .bearing-name { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; letter-spacing: -0.012em; line-height: 1.02; font-size: clamp(1.125rem, 2vw, 1.625rem); color: var(--ink-mid); transition: color 0.2s; }
-    .bearing-arrow { flex-shrink: 0; color: var(--ink-light); transition: color 0.2s, transform 0.2s; }
-    .bearing-link:hover .bearing-name { color: var(--ink); }
-    .bearing-link:hover .bearing-arrow { color: var(--ink); transform: translateX(3px); }
   </style>
 </head>
 <body>
@@ -128,6 +72,7 @@
           <a href="transactions.html" class="nav-link">Transactions</a>
           <a href="team.html" class="nav-link">Team</a>
           <a href="careers.html" class="nav-link">Careers</a>
+
           <a href="contact.html" class="btn-navy" style="padding: 0.5625rem 1.25rem;">Get in touch</a>
         </div>
         <button id="burger-btn" class="flex lg:hidden" style="background:none;border:none;cursor:pointer;padding:0.25rem;color:var(--ink);" aria-label="Menu" aria-expanded="false">
@@ -143,63 +88,56 @@
        style="position:fixed;top:4.5rem;left:0;right:0;bottom:0;z-index:49;background:#fff;border-top:1px solid var(--rule);overflow-y:auto;transform:translateY(-100%);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;">
     <div style="padding:2rem 2.5rem;">
       <nav style="display:flex;flex-direction:column;">
-        <a href="about.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);color:var(--ink-light);">About</a>
-        <a href="services.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);color:var(--ink);">Services</a>
-        <a href="transactions.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);color:var(--ink-light);">Transactions</a>
-        <a href="team.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);color:var(--ink-light);">Team</a>
-        <a href="careers.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);color:var(--ink-light);">Careers</a>
+        <a href="about.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">About</a>
+        <a href="services.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Services</a>
+        <a href="transactions.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Transactions</a>
+        <a href="team.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Team</a>
+        <a href="careers.html" class="nav-link" style="display:block;padding:1.125rem 0;border-bottom:1px solid var(--rule);">Careers</a>
+
       </nav>
       <div style="margin-top:2rem;"><a href="contact.html" class="btn-navy" style="width:100%;">Get in touch</a></div>
     </div>
   </div>
 
-  <!-- PAGE HERO — COMPASS -->
-  <section style="position:relative; padding-top:4.5rem; min-height:720px; background:var(--bg); overflow:hidden;">
+  <!-- PAGE HERO -->
+  <section style="padding-top: 4.5rem; background: #fff; overflow: hidden;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 5.5rem;">
+      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 4rem; align-items: flex-start;">
 
-    <!-- Compass image (desktop) -->
-    <div class="hero-img-wrap hidden md:block" style="
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 65%;
-      pointer-events: none;
-      z-index: 0;
-    ">
-      <img src="image_sources/compass_4.png"
-           alt="" aria-hidden="true"
-           class="hero-img" />
-    </div>
+        <!-- Left: text -->
+        <div>
+          <p class="label" style="margin-bottom: 1.5rem;">Capabilities</p>
+          <h1 style="margin-bottom: 1rem;">
+            <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">Three areas of expertise.</span>
+            <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">One standard of advice.</span>
+          </h1>
+          <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-top: 1.5rem;">
+            Every mandate is led personally by a senior partner  -  whether advising on a transaction, structuring capital, or investing alongside you where conviction aligns. Your outcome is the only measure of our success.
+          </p>
+        </div>
 
-    <!-- Content -->
-    <div style="position:relative;z-index:2;max-width:88rem;margin:0 auto;padding:0 2.5rem;width:100%;min-height:calc(720px - 4.5rem);display:flex;align-items:center;">
-      <div style="max-width:42rem;padding:5rem 0;">
+        <!-- Right: ghosted numerals with service names -->
+        <div class="hidden lg:flex" style="flex-direction: column; gap: 1.75rem; padding-top: 3rem; user-select: none;">
+          <a href="#pane-ma" style="display: flex; align-items: baseline; gap: 1.25rem; text-decoration: none;">
+            <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3.25rem); color: rgba(0,32,96,0.12); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0;">01</span>
+            <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3.25rem); color: rgba(0,32,96,0.12); line-height: 1; letter-spacing: -0.02em;">Mergers &amp; Acquisitions</span>
+          </a>
+          <a href="#pane-capital" style="display: flex; align-items: baseline; gap: 1.25rem; text-decoration: none;">
+            <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3.25rem); color: rgba(0,32,96,0.12); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0;">02</span>
+            <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3.25rem); color: rgba(0,32,96,0.12); line-height: 1; letter-spacing: -0.02em;">Capital Solutions</span>
+          </a>
+          <a href="#pane-merchant" style="display: flex; align-items: baseline; gap: 1.25rem; text-decoration: none;">
+            <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3.25rem); color: rgba(0,32,96,0.12); line-height: 1; letter-spacing: -0.02em; flex-shrink: 0;">03</span>
+            <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3.25rem); color: rgba(0,32,96,0.12); line-height: 1; letter-spacing: -0.02em;">Merchant Banking</span>
+          </a>
+        </div>
 
-        <!-- Eyebrow -->
-        <p class="label" style="margin-bottom:2rem;">Capabilities</p>
-
-        <!-- Headline -->
-        <h1 style="margin-bottom:1.75rem;">
-          <span class="serif" style="font-size:clamp(2.75rem,5.25vw,5.25rem);color:var(--ink);display:block;line-height:1.0;">Three areas of expertise.</span>
-          <span class="serif-italic" style="font-size:clamp(2.75rem,5.25vw,5.25rem);color:var(--navy);display:block;line-height:1.05;margin-top:0.1em;">One standard of advice.</span>
-        </h1>
-
-        <!-- Compass metaphor line -->
-        <p style="font-size:1rem;color:var(--ink-light);line-height:1.75;max-width:32rem;">
-          A compass has many bearings but one true north. Whatever the transaction, one standard of senior-led judgement points the way - partner-led from first conversation to close.
-        </p>
       </div>
     </div>
-
-    <!-- Mobile compass image (shown below md, hidden on desktop) -->
-    <div class="block md:hidden" style="margin-top:2rem;">
-      <img src="image_sources/compass_4.png"
-           alt="" aria-hidden="true"
-           style="display:block; width:100%; height:60vw; object-fit:cover; object-position:50% 42%; filter:saturate(0.15) brightness(1.08) contrast(0.84); -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%); mask-image:linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);" />
-    </div>
-
   </section>
 
   <!-- 01 MERGERS & ACQUISITIONS -->
-  <section id="pane-ma" style="padding: 6.5rem 0; background: var(--bg-alt);">
+  <section id="pane-ma" style="padding: 6.5rem 0; background: var(--bg);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.75rem;">
         <p class="label">01</p>
@@ -265,7 +203,7 @@
   </section>
 
   <!-- 03 MERCHANT BANKING -->
-  <section id="pane-merchant" style="padding: 6.5rem 0; background: var(--bg-alt);">
+  <section id="pane-merchant" style="padding: 6.5rem 0; background: var(--bg);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.75rem;">
         <p class="label">03</p>
@@ -445,19 +383,16 @@
   </footer>
 
   <script>
-    const nav = document.getElementById('site-nav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('nav-scrolled', window.scrollY > 10); }, { passive: true });
+    const nav=document.getElementById('site-nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>10);},{passive:true});
+    const burgerBtn=document.getElementById('burger-btn'),mob=document.getElementById('mobile-menu'),bi=document.getElementById('burger-icon'),ci=document.getElementById('close-icon');
+    let open=false;
+    function openM(){open=true;mob.style.transform='translateY(0)';mob.style.opacity='1';mob.style.pointerEvents='auto';mob.setAttribute('aria-hidden','false');burgerBtn.setAttribute('aria-expanded','true');bi.style.display='none';ci.style.display='block';document.body.style.overflow='hidden';}
+    function closeM(){open=false;mob.style.transform='translateY(-100%)';mob.style.opacity='0';mob.style.pointerEvents='none';mob.setAttribute('aria-hidden','true');burgerBtn.setAttribute('aria-expanded','false');bi.style.display='block';ci.style.display='none';document.body.style.overflow='';}
+    burgerBtn.addEventListener('click',()=>open?closeM():openM());
+    mob.querySelectorAll('a').forEach(l=>l.addEventListener('click',closeM));
+    window.addEventListener('resize',()=>{if(window.innerWidth>=1024&&open)closeM();});
 
-    const burgerBtn = document.getElementById('burger-btn');
-    const mob = document.getElementById('mobile-menu');
-    const bi = document.getElementById('burger-icon');
-    const ci = document.getElementById('close-icon');
-    let open = false;
-    function openM() { open=true; mob.style.transform='translateY(0)'; mob.style.opacity='1'; mob.style.pointerEvents='auto'; mob.setAttribute('aria-hidden','false'); burgerBtn.setAttribute('aria-expanded','true'); bi.style.display='none'; ci.style.display='block'; document.body.style.overflow='hidden'; }
-    function closeM() { open=false; mob.style.transform='translateY(-100%)'; mob.style.opacity='0'; mob.style.pointerEvents='none'; mob.setAttribute('aria-hidden','true'); burgerBtn.setAttribute('aria-expanded','false'); bi.style.display='block'; ci.style.display='none'; document.body.style.overflow=''; }
-    burgerBtn.addEventListener('click', () => open ? closeM() : openM());
-    mob.querySelectorAll('a').forEach(l => l.addEventListener('click', closeM));
-    window.addEventListener('resize', () => { if (window.innerWidth >= 1024 && open) closeM(); });
   </script>
 
 </body>
