@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charcot Capital — Senior-Led M&amp;A Advisory</title>
+  <title>Charcot Capital Mergers and Acquisitions</title>
   <meta name="description" content="Charcot Capital is a partner-owned M&amp;A advisory firm advising boards, founders, and financial sponsors on mergers, acquisitions, and cross-border transactions. Senior-led and independent since 2002." />
   <link rel="canonical" href="https://www.charcotcapital.com/" />
   <link rel="icon" href="image_sources/charcot_logos/charcot_logo.webp" />
@@ -74,14 +74,14 @@
     }
 
     .nav-link {
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       font-weight: 400;
       letter-spacing: 0.02em;
       color: var(--ink-light);
       transition: color 0.15s;
     }
     .nav-link:hover { color: var(--ink); }
-    .nav-link.active { color: var(--ink); }
+    .nav-link.active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: var(--navy); }
     .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
 
     .btn-navy {
@@ -149,7 +149,7 @@
       gap: 3rem; padding-bottom: 1.75rem;
       border-bottom: 1px solid rgba(20,20,20,0.06);
     }
-    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px)  { .footer-grid { grid-template-columns: 1fr; } }
 
     /* CTA section */
@@ -162,8 +162,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 82% center;
-      filter: saturate(0.18) brightness(1.12) contrast(0.82);
+      object-position: right center;
+      filter: saturate(0.95) brightness(1.02);
       -webkit-mask-image:
         linear-gradient(to right,
           transparent      0%,
@@ -216,7 +216,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -254,7 +254,7 @@
   </div>
 
   <!-- HERO -->
-  <section style="padding-top: 4.5rem; background: var(--bg); position: relative; overflow: hidden; min-height: 720px;">
+  <section style="padding-top: 4.5rem; background: #fff; position: relative; overflow: hidden; min-height: 720px;">
 
     <div class="hero-img-wrap hidden md:block" style="
       position: absolute;
@@ -263,7 +263,10 @@
       pointer-events: none;
       z-index: 0;
     ">
-      <img src="image_sources/sextant_wide_horizon.png"
+      <img src="image_sources/sextant_hero.webp"
+           srcset="image_sources/sextant_hero.webp 2400w, image_sources/sextant_hero_2x.webp 3000w"
+           sizes="65vw" width="2400" height="1200"
+           fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
            class="hero-img" />
     </div>
@@ -276,29 +279,28 @@
 
       <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
         <h1 style="margin: 0; max-width: 42rem;">
-          <span class="serif" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--ink);">Every transaction<br>has its own</span>
+          <span class="serif" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--ink);">Every M&A transaction<br>has its own</span>
           <span class="serif-italic" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--navy); display: block;">true bearing.</span>
         </h1>
       </div>
 
       <div class="md:hidden" style="margin-top: 0.5rem; margin-bottom: 1.5rem; overflow: hidden;">
-        <img src="image_sources/sextant_wide_horizon.png"
-             alt="Nautical sextant against ocean horizon"
+        <img src="image_sources/sextant_hero.webp"
+             srcset="image_sources/sextant_hero.webp 2400w, image_sources/sextant_hero_2x.webp 3000w"
+             sizes="100vw" width="2400" height="1200"
+             alt="Nautical sextant against the ocean horizon"
              style="
                width: 100%; height: 55vw; max-height: 280px;
-               object-fit: cover; object-position: 60% center; display: block;
-               filter: saturate(0.26) brightness(0.97) contrast(0.96);
+               object-fit: cover; object-position: 78% center; display: block;
+               filter: saturate(0.95) brightness(1.0);
                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
                mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
              " />
       </div>
 
       <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; padding-top: 2.25rem; padding-bottom: 8rem;">
-        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; max-width: 32rem; margin-bottom: 0.875rem;">
-          Charcot Capital advises boards, founders, and financial sponsors on mergers, acquisitions, and cross-border M&amp;A. As merchant bankers, we selectively co-invest alongside clients.
-        </p>
-        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; max-width: 32rem; margin-bottom: 2.75rem;">
-          Senior-led, partner-owned, and independent since 2002. Over <strong>70% of our mandates come from referrals or repeat clients</strong> — a measure of the trust we build.
+        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; max-width: 32rem; margin-bottom: 2.25rem;">
+          Charcot Capital advises boards, founders, and financial sponsors on cross-border mergers and acquisitions. As merchant bankers, we selectively co-invest alongside clients.
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.875rem;">
           <a href="contact.html" class="btn-navy">Discuss your situation</a>
@@ -321,7 +323,7 @@
   </section>
 
   <!-- PROOF STRIP -->
-  <section style="background: transparent; border-bottom: 1px solid var(--rule); padding: 1rem 0;">
+  <section style="background: transparent; border-bottom: 1px solid var(--rule); padding: 4rem 0;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <!-- Outer grid: left tall box + right column of three. Gap is uniform everywhere. -->
@@ -357,51 +359,13 @@
     </div>
   </section>
 
-  <!-- WHY IT MATTERS -->
-  <section style="padding: 9rem 0; background: var(--bg);">
-    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: start;">
-
-        <div style="margin-top: 2rem; height: 480px; overflow: hidden;">
-          <img src="image_sources/why_it_matters.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.25) brightness(1.05) contrast(0.92);" />
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 2rem;">
-          <div>
-            <p class="label" style="margin-bottom: 0.875rem;">Why it matters</p>
-            <h2 style="margin-bottom: 2rem;">
-              <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">The outcome you achieve depends entirely on</span><span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);"> who is working for it.</span>
-            </h2>
-          </div>
-          <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.52;">Whether you are selling a business built over decades, acquiring a strategic target, or steering a board through a critical decision - this is likely one of the most consequential transactions of your career. The quality of the advice you receive, and the commitment of the person giving it, will shape what is achievable.</p>
-          <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.52;">When you work with Charcot Capital, you have direct access to the senior partners throughout your mandate. The same people who designed your strategy are the ones in the room at every negotiation.</p>
-          <ul style="display: flex; flex-direction: column; gap: 1rem; padding: 0; list-style: none;">
-            <li style="display: flex; gap: 1.25rem; align-items: baseline;">
-              <span style="flex-shrink: 0; color: var(--navy);"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-              <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">The same senior partner from your first conversation to the day you close</span>
-            </li>
-            <li style="display: flex; gap: 1.25rem; align-items: baseline;">
-              <span style="flex-shrink: 0; color: var(--navy);"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-              <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Full commitment to your mandate - we take a limited number each year, by design</span>
-            </li>
-            <li style="display: flex; gap: 1.25rem; align-items: baseline;">
-              <span style="flex-shrink: 0; color: var(--navy);"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-              <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Advice shaped entirely by your situation and your goals</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- CLIENTS -->
   <section style="padding: 6.5rem 0; background: #ECEEF2; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <div style="margin-bottom: 3rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Selected clients and counterparties</p>
-        <h2 class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); font-weight: 400; color: var(--navy);">Trusted <span style="color: var(--ink);">with transactions that define industries.</span></h2>
+        <h2 class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); font-weight: 400; color: var(--navy);">Trusted <span style="color: var(--ink);">by global industry leaders.</span></h2>
       </div>
 
       <div id="logo-carousel" style="position:relative;overflow:hidden;">
@@ -424,7 +388,7 @@
 
   <script>
   (function(){
-    var logos=[{src:'image_sources/landing_logos/ge.png',alt:'General Electric'},{src:'image_sources/landing_logos/danone.png',alt:'Danone'},{src:'image_sources/landing_logos/smithnephew.png',alt:'Smith & Nephew'},{src:'image_sources/landing_logos/United_Rentals.png',alt:'United Rentals'},{src:'image_sources/landing_logos/CVCI_Citi.png',alt:'Citi Venture Capital International'},{src:'image_sources/landing_logos/louis_dreyfus.png',alt:'Louis Dreyfus Commodities'},{src:'image_sources/landing_logos/bracco.png',alt:'Bracco'},{src:'image_sources/landing_logos/rwe.svg',alt:'RWE'},{src:'image_sources/landing_logos/carlyle.svg',alt:'The Carlyle Group'},{src:'image_sources/landing_logos/rewe.svg',alt:'REWE'},{src:'image_sources/landing_logos/carlsberg.svg',alt:'Carlsberg'},{src:'image_sources/landing_logos/internova.svg',alt:'Internova Travel Group'}];
+    var logos=[{src:'image_sources/landing_logos/ge.webp',alt:'General Electric'},{src:'image_sources/landing_logos/danone.webp',alt:'Danone'},{src:'image_sources/landing_logos/smithnephew.webp',alt:'Smith & Nephew'},{src:'image_sources/landing_logos/united_rentals.webp',alt:'United Rentals'},{src:'image_sources/landing_logos/cvci_citi.webp',alt:'Citi Venture Capital International'},{src:'image_sources/landing_logos/louis_dreyfus.webp',alt:'Louis Dreyfus Commodities'},{src:'image_sources/landing_logos/bracco.webp',alt:'Bracco'},{src:'image_sources/landing_logos/carlyle.webp',alt:'The Carlyle Group'},{src:'image_sources/landing_logos/rwe.webp',alt:'RWE'},{src:'image_sources/landing_logos/thales.webp',alt:'Thales'},{src:'image_sources/landing_logos/rewe.webp',alt:'REWE'},{src:'image_sources/landing_logos/carlsberg.webp',alt:'Carlsberg'},{src:'image_sources/landing_logos/internova.webp',alt:'Internova Travel Group'}];
     var total=logos.length,offset=0,animating=false;
     var track=document.getElementById('logo-track'),prev=document.getElementById('carousel-prev'),next=document.getElementById('carousel-next');
     function vis(){var w=window.innerWidth;return w>=1280?7:w>=1024?5:w>=768?4:w>=480?3:2;}
@@ -456,7 +420,7 @@
   </script>
 
   <!-- WHO WE WORK WITH -->
-  <section style="background: var(--bg); padding-bottom: 6.5rem;">
+  <section style="background: #fff; padding-bottom: 6.5rem;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 6.5rem 2.5rem 0;">
       <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
         <p class="label">Who we work with</p>
@@ -472,15 +436,11 @@
 
       <div class="who-card" style="background: var(--card-black);">
         <div style="flex: 1;">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
-            <span class="label" style="color: rgba(255,255,255,0.65);">01</span>
-            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.08);"></div>
-          </div>
-          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.25rem); color: #fff; margin-bottom: 2rem;">Boards &amp;<br>corporates</p>
+          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: #fff; margin-bottom: 2rem; margin-top: 0;">Boards &amp;<br>corporates</p>
           <p style="font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.52;">You are navigating a major acquisition or a strategic crossroads that will define the company's direction. You need independent advice that tells you what is true - not what you expect to hear.</p>
         </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.75rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
-          <span class="label" style="color: rgba(255,255,255,0.65);">Acquisition - Strategic crossroads</span>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.75rem; margin-top: 2.5rem; min-height: 4.25rem; display: flex; gap: 1rem; justify-content: space-between; align-items: flex-end;">
+          <span class="label" style="color: rgba(255,255,255,0.65); max-width: 62%; line-height: 1.4;">Acquisition - Strategic crossroad</span>
           <a href="contact.html" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.65); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
             Discuss <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -489,15 +449,11 @@
 
       <div class="who-card" style="background: var(--card-navy);">
         <div style="flex: 1;">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
-            <span class="label" style="color: rgba(255,255,255,0.65);">02</span>
-            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.08);"></div>
-          </div>
-          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.25rem); color: #fff; margin-bottom: 2rem;">Founders &amp;<br>owners</p>
+          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: #fff; margin-bottom: 2rem; margin-top: 0;">Founders &amp;<br>owners</p>
           <p style="font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.52;">You are selling a business that took decades to build. The stakes are personal as much as financial. You need an adviser whose judgement you trust completely - present from the first conversation to the last signature.</p>
         </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.75rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
-          <span class="label" style="color: rgba(255,255,255,0.65);">Sell-side - Succession</span>
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.75rem; margin-top: 2.5rem; min-height: 4.25rem; display: flex; gap: 1rem; justify-content: space-between; align-items: flex-end;">
+          <span class="label" style="color: rgba(255,255,255,0.65); max-width: 62%; line-height: 1.4;">Sell-side - Succession</span>
           <a href="contact.html" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.65); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
             Discuss <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -506,71 +462,17 @@
 
       <div class="who-card" style="background: var(--card-tan);">
         <div style="flex: 1;">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
-            <span class="label" style="color: rgba(20,20,20,0.7);">03</span>
-            <div style="flex: 1; height: 1px; background: rgba(20,20,20,0.1);"></div>
-          </div>
-          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.25rem); color: var(--navy); margin-bottom: 2rem;">Financial<br>sponsors</p>
+          <p class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy); margin-bottom: 2rem; margin-top: 0;">Financial<br>sponsors</p>
           <p style="font-size: 0.875rem; color: rgba(20,20,20,0.7); line-height: 1.52;">You need senior-led execution across the full investment lifecycle - buy-side, sell-side, or exit. On selected mandates, we invest our own capital alongside yours, on the same terms.</p>
         </div>
-        <div style="border-top: 1px solid rgba(20,20,20,0.1); padding-top: 1.75rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
-          <span class="label" style="color: rgba(20,20,20,0.7);">Buy-side - Exit - Co-invest</span>
+        <div style="border-top: 1px solid rgba(20,20,20,0.1); padding-top: 1.75rem; margin-top: 2.5rem; min-height: 4.25rem; display: flex; gap: 1rem; justify-content: space-between; align-items: flex-end;">
+          <span class="label" style="color: rgba(20,20,20,0.7); max-width: 62%; line-height: 1.4;">Buy-side - Exit - Co-invest</span>
           <a href="contact.html" style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(20,20,20,0.7); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.15s;" onmouseover="this.style.color='var(--navy)'" onmouseout="this.style.color='rgba(20,20,20,0.7)'">
             Discuss <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- WHAT SETS US APART -->
-  <section style="padding: 9rem 0; background: var(--bg); border-top: 1px solid var(--rule);">
-    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 6rem; align-items: start;">
-
-        <div class="order-1" style="margin-top: 2rem; height: 480px; overflow: hidden;">
-          <img src="image_sources/bridge_mirrored.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.25) brightness(1.05) contrast(0.92);" />
-        </div>
-
-        <div class="order-2" style="display: flex; flex-direction: column; gap: 2rem;">
-          <div>
-            <p class="label" style="margin-bottom: 0.875rem;">What sets us apart</p>
-            <h2 style="margin-bottom: 2rem;">
-              <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">Uncompromised financial advice </span><span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">on strategic transactions.</span>
-            </h2>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 2.5rem;">
-
-            <div style="display: flex; gap: 1.75rem; align-items: baseline;">
-              <span style="flex-shrink: 0; color: var(--navy); opacity: 0.5;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-              <div>
-                <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.625rem; letter-spacing: -0.01em;">Senior partners throughout</h3>
-                <p style="font-size: 0.875rem; color: var(--ink-light); line-height: 1.7;">Every mandate is led personally by a senior partner, from first conversation to final close. We take on a deliberately limited number of engagements at any one time - so that attention is never divided and the partner who opens the conversation is the partner who delivers the outcome.</p>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 1.75rem; align-items: baseline;">
-              <span style="flex-shrink: 0; color: var(--navy); opacity: 0.5;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-              <div>
-                <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.625rem; letter-spacing: -0.01em;">Independent by structure</h3>
-                <p style="font-size: 0.875rem; color: var(--ink-light); line-height: 1.7;">Wholly partner-owned since incorporation, with no external shareholders and no institutional affiliations. Every partner's interest is identical to every client's: the quality of the outcome, and nothing else.</p>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 1.75rem; align-items: baseline;">
-              <span style="flex-shrink: 0; color: var(--navy); opacity: 0.5;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" style="display:inline-block;vertical-align:middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-              <div>
-                <h3 style="font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.625rem; letter-spacing: -0.01em;">Advice shaped by judgement</h3>
-                <p style="font-size: 0.875rem; color: var(--ink-light); line-height: 1.7;">Every mandate begins with what is right for your specific situation - not what fits a product category or a house specialisation. Senior partners bring genuine analytical conviction to every engagement, and it is that judgement, applied without external constraint, that determines the quality of the outcome.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -582,10 +484,10 @@
         <div style="padding: 8rem 0;">
           <p class="label" style="color: rgba(255,255,255,0.25); margin-bottom: 2rem;">Confidential enquiry</p>
           <h2 style="margin-bottom: 2.25rem;">
-            <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5.25rem); color: #fff;">What does the right outcome </span>
-            <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5.25rem); color: #C4A45A;">look like for you?</span>
+            <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: #fff;">What does the right outcome </span>
+            <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: #C4A45A;">look like for you?</span>
           </h2>
-          <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.35); line-height: 1.52; max-width: 34rem; margin-bottom: 3rem;">Senior partners are available for an initial conversation at any stage - no intermediaries.</p>
+          <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.35); line-height: 1.52; max-width: 34rem; margin-bottom: 3rem;">Senior partners are available for a confidential conversation at any stage - no intermediaries.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
             <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;flex:1;min-width:13rem;padding:0.875rem 2.25rem;background:#fff;color:var(--navy);font-size:0.875rem;font-weight:500;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Start a conversation</a>
             <a href="about.html" style="display:inline-flex;align-items:center;justify-content:center;flex:1;min-width:13rem;padding:0.875rem 2.25rem;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7);font-size:0.875rem;font-weight:400;letter-spacing:0.02em;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)';this.style.color='rgba(255,255,255,0.7)'">About the firm</a>
@@ -650,17 +552,17 @@
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>

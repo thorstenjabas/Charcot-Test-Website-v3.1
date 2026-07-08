@@ -34,17 +34,66 @@
     .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: normal; letter-spacing: -0.012em; line-height: 1.02; }
     .serif-italic { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; letter-spacing: -0.012em; line-height: 1.02; }
     .label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-light); }
-    .nav-link { font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
+    .nav-link { font-size: 0.875rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
     .nav-link:hover { color: var(--ink); }
-    .nav-link.active { color: var(--ink); }
+    .nav-link.active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: var(--navy); }
     .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
     .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
     .btn-navy:hover { background: var(--navy-dark); }
     .btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; border: 1px solid var(--rule); color: var(--ink-mid); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
-    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* Hero image */
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      filter: saturate(0.95) brightness(1.02);
+      -webkit-mask-image:
+        linear-gradient(to right,
+          transparent      0%,
+          rgba(0,0,0,0.03) 5%,
+          rgba(0,0,0,0.22) 13%,
+          rgba(0,0,0,0.62) 23%,
+          rgba(0,0,0,0.92) 34%,
+          black            44%,
+          black            100%
+        ),
+        linear-gradient(to bottom,
+          black            0%,
+          black            90%,
+          rgba(0,0,0,0.45) 96%,
+          rgba(0,0,0,0.08) 99%,
+          transparent      100%
+        );
+      -webkit-mask-composite: destination-in;
+      mask-image:
+        linear-gradient(to right,
+          transparent      0%,
+          rgba(0,0,0,0.03) 5%,
+          rgba(0,0,0,0.22) 13%,
+          rgba(0,0,0,0.62) 23%,
+          rgba(0,0,0,0.92) 34%,
+          black            44%,
+          black            100%
+        ),
+        linear-gradient(to bottom,
+          black            0%,
+          black            90%,
+          rgba(0,0,0,0.45) 96%,
+          rgba(0,0,0,0.08) 99%,
+          transparent      100%
+        );
+      mask-composite: intersect;
+    }
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .hero-img-wrap { width: 64% !important; }
+    }
 
     /* Bio cards */
     .bio-card {
@@ -63,10 +112,10 @@
       width: 100%; height: 320px;
       object-fit: cover; object-position: center 20%;
       display: block;
-      filter: saturate(0.1) brightness(1.02) contrast(0.97);
+      filter: none;
       transition: filter 0.35s;
     }
-    .bio-card:hover .bio-photo img { filter: saturate(0.2) brightness(1.04); }
+    .bio-card:hover .bio-photo img { filter: brightness(1.05); }
     @media (max-width: 767px) { .bio-photo img { height: 280px; } }
     @media (min-width: 768px) and (max-width: 1023px) { .bio-photo img { height: 260px; } }
 
@@ -85,7 +134,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -121,19 +170,22 @@
   </div>
 
   <!-- PAGE HERO -->
-  <section style="padding-top: 4.5rem; background: linear-gradient(to bottom, #fff 42%, #F5F6F8 100%); position: relative; overflow: hidden;">
-    <!-- Desktop: pen anchored to section bottom — ink line falls below body text, image fills to border -->
-    <img aria-hidden="true" src="image_sources/fountain_pen.png" alt=""
-         class="hidden lg:block"
-         style="position: absolute; right: -4%; bottom: -16%; top: auto;
-                width: 62%; height: auto; pointer-events: none; z-index: 0;
-                filter: contrast(1.12) saturate(0.85); opacity: 0.82;" />
-    <!-- Gradient: fades from white (text side) into pen -->
-    <div aria-hidden="true" class="hidden lg:block"
-         style="position: absolute; inset: 0; pointer-events: none; z-index: 1;
-                background: linear-gradient(to right, #fff 28%, rgba(255,255,255,0.82) 42%, rgba(255,255,255,0.14) 60%, rgba(255,255,255,0) 74%);"></div>
-    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 5.5rem; position: relative; z-index: 2;">
-      <p class="label" style="margin-bottom: 1.5rem;">Our team</p>
+  <section style="padding-top: 4.5rem; background: #fff; position: relative; overflow: hidden; min-height: 720px;">
+
+    <div class="hero-img-wrap hidden md:block" style="
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 65%;
+      pointer-events: none;
+      z-index: 0;
+    ">
+      <img src="image_sources/gyroscope.webp"
+           alt="" aria-hidden="true"
+           class="hero-img" />
+    </div>
+
+    <div style="position: relative; z-index: 1; max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 5.5rem;">
+      <p class="label" style="margin-bottom: 1.5rem;">Direct access</p>
       <h1 style="margin-bottom: 2rem;">
         <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">Experience applied </span>
         <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">without dilution.</span>
@@ -142,39 +194,47 @@
         <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75;">The founding partners came from senior advisory roles at leading international investment banks, with three decades of M&A experience across transactions in more than 40 countries. At Charcot, that experience is applied directly: on a deliberately limited number of mandates, by the partners themselves, from first conversation to final close.
 The names in the transaction record are theirs. The partner you meet at the outset is the partner accountable at close.</p>
       </div>
-      <!-- Mobile: pen image below text, cropped to pen body (ink line falls outside crop) -->
-      <div class="lg:hidden" style="margin: 2.5rem -2.5rem 0; height: 220px; overflow: hidden;">
-        <img src="image_sources/fountain_pen.png" alt=""
-             style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
-                    display: block; filter: contrast(1.12) saturate(0.85);" />
+      <div class="md:hidden" style="margin: 2.5rem -2.5rem 0; overflow: hidden;">
+        <img src="image_sources/gyroscope.webp" alt="" aria-hidden="true"
+             style="display:block; width:100%; height:60vw; object-fit:cover; object-position:right center; filter:saturate(0.95) brightness(1.02); -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%); mask-image:linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);" />
       </div>
     </div>
+
   </section>
 
   <!-- LEADERSHIP BIOS -->
-  <section style="padding: 0 0 2.5rem; background: var(--bg);">
+  <section style="padding: 0 0 2.5rem; background: #fff;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+
+      <!-- Section headline -->
+      <div style="padding: 4.5rem 0 0; max-width: 52rem;">
+        <p class="label" style="margin-bottom: 1.5rem;">Partners and leadership team</p>
+        <h2>
+          <span class="serif" style="font-size: clamp(1.75rem, 3vw, 2.75rem); color: var(--ink); line-height: 1.3;">The partner who opens your conversation is the partner </span><span class="serif-italic" style="font-size: clamp(1.75rem, 3vw, 2.75rem); color: var(--navy);">in the room at close, and at every meeting in between.</span>
+        </h2>
+      </div>
 
       <!-- Jean-Benoit Terrasse -->
       <div class="bio-card">
         <div class="bio-photo">
-          <img src="image_sources/leadership/jeanbenoit.png" alt="Jean-Beno&#xEE;t Terrasse, Founding Partner, Charcot Capital" style="object-position: center 30%;" />
+          <img src="image_sources/leadership/jeanbenoit.webp" alt="Jean-Beno&#xEE;t Terrasse, Founding Partner, Charcot Capital" style="object-position: center 30%;" />
         </div>
         <div>
-          <p class="label" style="margin-bottom: 0.375rem;">Founding Partner</p>
+          <p class="label" style="margin-bottom: 0.375rem;">Founding Partner &middot; London Office</p>
           <h3 style="font-size: clamp(1.375rem, 2.5vw, 2rem); font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem;">Jean-Beno&#xEE;t Terrasse</h3>
           <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Jean-Beno&#xEE;t Terrasse began his investment banking career in the early 1990s and co-founded Charcot Capital in 2008, building on the founding partners' independent advisory work that began in 2002. He heads the London office. He brings more than three decades of experience advising corporates, entrepreneurs and investors on mergers and acquisitions, disposals, joint ventures, privatisations, LBOs and takeover transactions across Western Europe, the United States and a broad range of emerging markets.</p>
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Prior to Charcot Capital, Jean-Beno&#xEE;t held senior roles at JPMorgan and Baring Brothers. He also served as an officer in the French Navy - an experience that informs the discipline and composure he brings to complex, high-stakes mandates.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Jean-Beno&#xEE;t Terrasse leads the firm's London office and has spent more than three decades advising corporates, entrepreneurs, and investors on mergers and acquisitions, disposals, joint ventures, privatisations, and contested public transactions across Western Europe, the United States, and a broad range of emerging markets. He began advising independently in 2002 and co-founded Charcot Capital in 2008.</p>
+            <p class="serif-italic" style="font-size: 1.1875rem; color: var(--navy); line-height: 1.5; padding-left: 1.5rem;">Three decades in advisory have not dulled the naval officer's instinct: prepare exhaustively, stay calm when the room does not, and never mistake motion for progress.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Before Charcot Capital he held senior roles at JPMorgan and Baring Brothers, and served as an officer in the French Navy. Jean-Beno&#xEE;t is a graduate of Hautes Etudes Commerciales (HEC) in Paris. He works in French, English, Spanish, Portuguese, and Arabic.</p>
           </div>
           <div style="margin-bottom: 2rem;">
             <p class="label" style="margin-bottom: 0.75rem;">Selected transactions</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem;">
-              <p class="bio-tx-item">Takeover bid on Worms &amp; Cie by Artemis</p>
-              <p class="bio-tx-item">Privatisation of Maroc Telecom</p>
-              <p class="bio-tx-item">Disposal of Thales' testing instruments division</p>
-              <p class="bio-tx-item">Acquisition of Brasseries Internationales Holdings</p>
-              <p class="bio-tx-item">Disposal of General Electric's train inspection activities to Caterpillar</p>
+              <p class="bio-tx-item"><b>Public takeover:</b> Takeover bid on Worms &amp; Cie by Artemis</p>
+              <p class="bio-tx-item"><b>Take private:</b> Privatisation of Maroc Telecom</p>
+              <p class="bio-tx-item"><b>Sell-side M&amp;A:</b> Disposal of Thales' testing instruments division</p>
+              <p class="bio-tx-item"><b>Buy-side M&amp;A:</b> Acquisition of Brasseries Internationales Holdings</p>
+              <p class="bio-tx-item"><b>Carve-out:</b> Disposal of General Electric's train inspection activities to Caterpillar</p>
             </div>
           </div>
           <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.625rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;color:var(--navy);transition:opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">
@@ -187,23 +247,24 @@ The names in the transaction record are theirs. The partner you meet at the outs
       <!-- Clement Lavallard -->
       <div class="bio-card">
         <div class="bio-photo">
-          <img src="image_sources/leadership/clement.png" alt="Cl&#xE9;ment Lavallard, Founding Partner, Charcot Capital" />
+          <img src="image_sources/leadership/clement.webp" alt="Cl&#xE9;ment Lavallard, Founding Partner, Charcot Capital" />
         </div>
         <div>
-          <p class="label" style="margin-bottom: 0.375rem;">Founding Partner</p>
+          <p class="label" style="margin-bottom: 0.375rem;">Founding Partner &middot; Paris Office</p>
           <h3 style="font-size: clamp(1.375rem, 2.5vw, 2rem); font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem;">Cl&#xE9;ment Lavallard</h3>
           <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Cl&#xE9;ment Lavallard co-founded Charcot Capital in 2008, having spent the preceding two decades at the forefront of international investment banking. He has advised on the full spectrum of corporate finance transactions - disposals, acquisitions, mergers, joint ventures, LBOs, takeover bids and takeover defences, restructurings and complex special situations - with a particular depth of experience in cross-border and multi-jurisdictional mandates.</p>
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Cl&#xE9;ment established Charcot Capital's Singapore presence in 2011, reflecting a long-standing expertise in Asian markets and a network built through completed transactions across the region.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Cl&#xE9;ment Lavallardadvises across the full spectrum of corporate finance, disposals, acquisitions, mergers, joint ventures, leveraged buyouts, takeover bids and defences, restructurings, and complex special situations, with particular depth in cross-border and multi-jurisdictional mandates. He partnered with Jean-Benoit Terrasse in 2002 and co-founded Charcot Capital in 2008.</p>
+            <p class="serif-italic" style="font-size: 1.1875rem; color: var(--navy); line-height: 1.5; padding-left: 1.5rem;">Years spent moving between Paris, Singapore, and the markets in between have left him with a simple rule: the deal closes in whichever time zone is still paying attention when it matters.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">He established the firm's Asia presence in Singapore in 2011 and continues to draw on that network for cross-border mandates from his base in France. Cl&#xE9;ment is a graduate of Hautes Etudes Commerciales (HEC) in Paris. He speaks French, English, and German.</p>
           </div>
           <div style="margin-bottom: 2rem;">
             <p class="label" style="margin-bottom: 0.75rem;">Selected transactions</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem;">
-              <p class="bio-tx-item">Takeover defence and sale of Mannesmann to Vodafone</p>
-              <p class="bio-tx-item">Privatisation of Maroc Telecom</p>
-              <p class="bio-tx-item">Public takeover of Filofax</p>
-              <p class="bio-tx-item">Disposal of Jawamanis Rafinasi to Wilmar International</p>
-              <p class="bio-tx-item">Acquisition of the Salof Group by GE Oil and Gas</p>
+              <p class="bio-tx-item"><b>Takeover defence:</b> Sale of Mannesmann to Vodafone</p>
+              <p class="bio-tx-item"><b>Take private:</b> Privatisation of Maroc Telecom</p>
+              <p class="bio-tx-item"><b>Public takeover:</b> Takeover of Filofax</p>
+              <p class="bio-tx-item"><b>Sell-side M&amp;A:</b> Disposal of Jawamanis Rafinasi to Wilmar International</p>
+              <p class="bio-tx-item"><b>Buy-side M&amp;A:</b> Acquisition of the Salof Group by GE Oil and Gas</p>
             </div>
           </div>
           <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.625rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;color:var(--navy);transition:opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">
@@ -216,21 +277,24 @@ The names in the transaction record are theirs. The partner you meet at the outs
       <!-- Marc van den Berg -->
       <div class="bio-card">
         <div class="bio-photo">
-          <img src="image_sources/leadership/marc.png" alt="Marc van den Berg, Partner, Charcot Capital" />
+          <img src="image_sources/leadership/marc.webp" alt="Marc van den Berg, Partner, Charcot Capital" />
         </div>
         <div>
-          <p class="label" style="margin-bottom: 0.375rem;">Partner</p>
+          <p class="label" style="margin-bottom: 0.375rem;">Partner &middot; London Office</p>
           <h3 style="font-size: clamp(1.375rem, 2.5vw, 2rem); font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem;">Marc van den Berg</h3>
           <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Marc van den Berg joined Charcot Capital at its founding in 2008 and is based in the London office. He advises on mergers and acquisitions, disposals, joint ventures, LBOs and private investment transactions, with experience spanning both developed and emerging markets across Europe, Asia and Latin America.</p>
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Prior to joining Charcot Capital, Marc worked at Lehman Brothers, where he began his investment banking career. He brings a rigorous analytical approach to transaction structuring and a particular interest in principal investment alongside corporate and entrepreneurial clients.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Marc van den Berg advises on mergers and acquisitions, disposals, joint ventures, and leveraged buyouts, and on principal investment alongside corporate and entrepreneurial clients, across both developed and emerging markets in Europe, Asia, and Latin America. He joined Charcot Capital at its formation in 2008.</p>
+            <p class="serif-italic" style="font-size: 1.1875rem; color: var(--navy); line-height: 1.5; padding-left: 1.5rem;">Starting an investment banking career in 2008 teaches a particular kind of caution - he has never since taken a number at face value until he has checked it twice himself.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Marc began his career at Lehman Brothers and read Economics and Politics at the University of Edinburgh. He works in English, German, Dutch, and French.</p>
           </div>
           <div style="margin-bottom: 2rem;">
             <p class="label" style="margin-bottom: 0.75rem;">Selected transactions</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem;">
-              <p class="bio-tx-item">General Electric - disposal of assets in the transportation sector</p>
-              <p class="bio-tx-item">Private investment into Nao do Brasil</p>
-              <p class="bio-tx-item">Acquisition, LBO and subsequent listing of Dockwise</p>
+              <p class="bio-tx-item"><b>Carve-out:</b> General Electric - disposal of assets in the transportation sector</p>
+              <p class="bio-tx-item"><b>Principal investment:</b> Co-investment into Nao do Brasil</p>
+              <p class="bio-tx-item"><b>Buy-side M&amp;A and IPO:</b> Acquisition, LBO, and subsequent listing of Dockwise</p>
+              <p class="bio-tx-item"><b>Buy-side M&amp;A:</b> Acquisition, MBO, and refinancing of international hospitality group</p>
+              <p class="bio-tx-item"><b>Sell-side M&amp;A:</b> Exit of founder in internationl travel and event management business</p>
             </div>
           </div>
           <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.625rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;color:var(--navy);transition:opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">
@@ -243,14 +307,26 @@ The names in the transaction record are theirs. The partner you meet at the outs
       <!-- Thorsten Jabas -->
       <div class="bio-card">
         <div class="bio-photo">
-          <img src="image_sources/leadership/thorsten.png" alt="Thorsten Jabas, Director, Charcot Capital" style="object-position: center 30%;" />
+          <img src="image_sources/leadership/thorsten.webp" alt="Thorsten Jabas, Director, Charcot Capital" style="object-position: center 30%;" />
         </div>
         <div>
-          <p class="label" style="margin-bottom: 0.375rem;">Director</p>
+          <p class="label" style="margin-bottom: 0.375rem;">Director &middot; London Office</p>
           <h3 style="font-size: clamp(1.375rem, 2.5vw, 2rem); font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem;">Thorsten Jabas</h3>
           <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Thorsten Jabas joined Charcot Capital in 2021, advising corporates, entrepreneurs and shareholders on M&amp;A and capital raising. He plays a central role in the execution of transactions, supporting clients through the full process from preparation and positioning to negotiation and closing.</p>
-            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Prior to joining Charcot Capital, he held roles at Lehman Brothers, Nomura and Banco Santander, serving institutional investors on public and private transactions. He also served as CFO to high-growth software, technology and MedTech businesses. This combination of advisory and operating experience enables him to anticipate buyer requirements, shape equity stories and run disciplined, outcome-focused processes alongside senior deal leads.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Thorsten Jabas leads transaction execution at Charcot Capital, running live mandates alongside the senior partners from preparation and positioning through to close.
+His vantage point is unusual for an adviser. He has been a chief financial officer of high-growth technology and medtech businesses and has built his own venture, and he began his career in 2005 in at Lehman Brothers, Nomura, and Banco Santander, rising to Executive Director and placing more than $500m of debt securities.</p>
+            <p class="serif-italic" style="font-size: 1.1875rem; color: var(--navy); line-height: 1.5; padding-left: 1.5rem;">Having sat in the chief financial officer's chair, he reads a management team's numbers the way a buyer will, before the buyer does.</p>
+            <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Thorsten graduated magna cum laude in Finance from the University of Basel and works in English, German, and French.</p>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <p class="label" style="margin-bottom: 0.75rem;">Areas of focus</p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem;">
+              <p class="bio-tx-item"><b>Sell-side M&amp;A:</b> Vendor Due Diligence (VDD), preparation and positioning of sell-side targets</p>
+              <p class="bio-tx-item"><b>Sell-side M&amp;A:</b> Equity story, buyer qualification, carve-out management</p>
+              <p class="bio-tx-item"><b>Capital raising:</b> Investor engagement and capital raising (debt and equity)</p>
+              <p class="bio-tx-item"><b>Valuation:</b> Financial modelling, valuation, fairness opinion, portfolio valuation</p>
+              <p class="bio-tx-item"><b>Transaction execution:</b> Deal execution and process leadership</p>
+            </div>
           </div>
           <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.625rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;color:var(--navy);transition:opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">
             Get in touch
@@ -289,17 +365,17 @@ The names in the transaction record are theirs. The partner you meet at the outs
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>

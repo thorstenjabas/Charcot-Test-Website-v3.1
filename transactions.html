@@ -34,16 +34,16 @@
     .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: normal; letter-spacing: -0.012em; line-height: 1.02; }
     .serif-italic { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; letter-spacing: -0.012em; line-height: 1.02; }
     .label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-light); }
-    .nav-link { font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
+    .nav-link { font-size: 0.875rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
     .nav-link:hover { color: var(--ink); }
-    .nav-link.active { color: var(--ink); }
+    .nav-link.active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: var(--navy); }
     .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
     .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
     .btn-navy:hover { background: var(--navy-dark); }
     .btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; border: 1px solid var(--rule); color: var(--ink-mid); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
-    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
 
     /* Tombstones */
@@ -66,7 +66,7 @@
     .tombstone-caption { display: none; }
 
     /* KPI bar */
-    .kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; background: transparent; }
     @media (max-width: 767px) { .kpi-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -78,7 +78,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -120,16 +120,20 @@
       <div style="max-width: 54rem; margin: 0 0 1.5rem;">
         <p class="label" style="margin-bottom: 1.5rem;">Geographic footprint</p>
         <h1 style="margin-bottom: 1rem;">
-          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 4.5rem); color: var(--ink);">A track record built across</span>
-          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 4.5rem); color: var(--navy); display: block;">five continents.</span>
+          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">A track record built across</span>
+          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">five continents.</span>
         </h1>
       </div>
-      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 56rem; margin-bottom: 2.5rem;">
-        Since advising on our first transaction in 2002, Charcot Capital has built a record spanning more than 50 mandates across a broad range of sectors, geographies, and deal structures - from mid-market M&amp;A in Europe to complex cross-border transactions spanning Africa, Asia, and the Americas. The common thread across this record is not sector or size, but the quality of the client and the complexity of the challenge.
-      </p>
+
+      <!-- Map -->
+      <div style="max-width: 68rem; margin: 0 auto;">
+        <img src="image_sources/map/transactions_map.svg"
+             alt="World map showing Charcot Capital deal geographies - primary markets in dark navy, secondary markets in light blue"
+             style="width: 100%; height: auto; display: block;" />
+      </div>
 
       <!-- Map legend -->
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem; max-width: 68rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; max-width: 68rem;">
         <div style="display: flex; align-items: center; gap: 0.625rem;">
           <div style="width: 1rem; height: 1rem; background: var(--navy); flex-shrink: 0;"></div>
           <span style="font-size: 0.8125rem; color: var(--ink-light);">Primary deal geography - multiple transactions or deep market presence</span>
@@ -140,28 +144,21 @@
         </div>
       </div>
 
-      <!-- Map -->
-      <div style="max-width: 68rem; margin: 0 auto;">
-        <img src="image_sources/map/transactions_map.svg"
-             alt="World map showing Charcot Capital deal geographies - primary markets in dark navy, secondary markets in light blue"
-             style="width: 100%; height: auto; display: block;" />
-      </div>
-
     </div>
 
     <!-- KPI bar -->
     <div style="background: #fff; border-top: 1px solid var(--rule);">
       <div style="max-width: 88rem; margin: 0 auto;">
         <div class="kpi-grid">
-          <div style="padding: 1.75rem 2.25rem; border-right: 1px solid var(--rule);">
+          <div style="padding: 1.75rem 2.25rem; background: var(--bg-alt);">
             <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1; margin-bottom: 0.5rem;">&gt; 56 transactions</p>
             <p class="label" style="color: var(--ink-light);">Across public and private markets since 2002</p>
           </div>
-          <div style="padding: 1.75rem 2.25rem; border-right: 1px solid var(--rule);">
+          <div style="padding: 1.75rem 2.25rem; background: var(--bg-alt);">
             <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1; margin-bottom: 0.5rem;">&gt; 43 countries</p>
             <p class="label" style="color: var(--ink-light);">Spanning Europe, the Americas, Africa, Asia, and Australia</p>
           </div>
-          <div style="padding: 1.75rem 2.25rem;">
+          <div style="padding: 1.75rem 2.25rem; background: var(--bg-alt);">
             <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1; margin-bottom: 0.5rem;">&gt; 70% referral</p>
             <p class="label" style="color: var(--ink-light);">Referral and repeat clients - a measure of the trust we build</p>
           </div>
@@ -171,7 +168,7 @@
   </section>
 
   <!-- TOMBSTONES -->
-  <section style="padding: 6.5rem 0; background: var(--bg);">
+  <section style="padding: 6.5rem 0; background: #fff;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <div style="margin-bottom: 3.5rem;">
@@ -185,8 +182,9 @@
 
       <!-- Blue chips -->
       <div style="margin-bottom: 4rem;">
-        <h2 style="font-size: 1.125rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Blue chips</h2>
+        <h2 style="font-size: 1.125rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Retained by global corporates, across successive mandates</h2>
         <div class="tombstone-grid">
+          <div class="tombstone-card"><img src="image_sources/transactions/04_2026_United_Rentals_Inc.png" loading="lazy" alt="United Rentals — Sell-side M&amp;A" /><div class="tombstone-caption"><p>United Rentals — Sell-side M&amp;A</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/15_2019_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew — Sell-side M&amp;A</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/22_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew — Sell-side M&amp;A</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/34_2013_Danone_SA.png" loading="lazy" alt="Danone — Buy-side M&amp;A" /><div class="tombstone-caption"><p>Danone — Buy-side M&amp;A</p></div></div>
@@ -212,7 +210,7 @@
 
       <!-- Entrepreneurs -->
       <div style="margin-bottom: 4rem;">
-        <h2 style="font-size: 1.125rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Entrepreneurs</h2>
+        <h2 style="font-size: 1.125rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Trusted adviser to founders and owner-managers</h2>
         <div class="tombstone-grid">
           <div class="tombstone-card"><img src="image_sources/transactions/16_2019_YES_Ltd__Corporate_Events.png" loading="lazy" alt="YES Ltd — Sell-side M&amp;A" /><div class="tombstone-caption"><p>YES Ltd — Sell-side M&amp;A</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/44_2010_Windsor__Brook_Trading_Pte_L.png" loading="lazy" alt="Windsor &amp; Brook Trading — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Windsor &amp; Brook Trading — Sell-side M&amp;A</p></div></div>
@@ -221,7 +219,7 @@
           <div class="tombstone-card"><img src="image_sources/transactions/56_2007_Titan.png" loading="lazy" alt="Titan — M&amp;A Advisory" /><div class="tombstone-caption"><p>Titan — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/10_2022_Groupe_Safari_Ltd.png" loading="lazy" alt="Groupe Safari — M&amp;A Advisory" /><div class="tombstone-caption"><p>Groupe Safari — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/33_2013_MRI_Trading_AG.png" loading="lazy" alt="MRI Trading — M&amp;A Advisory" /><div class="tombstone-caption"><p>MRI Trading — M&amp;A Advisory</p></div></div>
-          <div class="tombstone-card"><img src="image_sources/transactions/06_2025_Trinity_Organics_Ltd.png" loading="lazy" alt="Trinity Organics — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Trinity Organics — Sell-side M&amp;A</p></div></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/51_2008_IKI.png" loading="lazy" alt="IKI — M&amp;A Advisory" /><div class="tombstone-caption"><p>IKI — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/18_2018_Ethiopian_Magical_Flowers.png" loading="lazy" alt="Ethiopian Magical Flowers — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Ethiopian Magical Flowers — Sell-side M&amp;A</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/21_2017_Blue_Nile_Holdings.png" loading="lazy" alt="Blue Nile Holdings — M&amp;A Advisory" /><div class="tombstone-caption"><p>Blue Nile Holdings — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/38_2012_Nao_SAS.png" loading="lazy" alt="Nao — Principal Investment" /><div class="tombstone-caption"><p>Nao — Principal Investment</p></div></div>
@@ -234,13 +232,13 @@
           <div class="tombstone-card"><img src="image_sources/transactions/19_2017_Cocopain.png" loading="lazy" alt="Cocopain — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Cocopain — Sell-side M&amp;A</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/20_2017_Socavins.png" loading="lazy" alt="Socavins — M&amp;A Advisory" /><div class="tombstone-caption"><p>Socavins — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/37_2012_Bralico_SA.png" loading="lazy" alt="Bralico — M&amp;A Advisory" /><div class="tombstone-caption"><p>Bralico — M&amp;A Advisory</p></div></div>
-          <div class="tombstone-card"><img src="image_sources/transactions/51_2008_IKI.png" loading="lazy" alt="IKI — M&amp;A Advisory" /><div class="tombstone-caption"><p>IKI — M&amp;A Advisory</p></div></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/06_2025_Trinity_Organics_Ltd.png" loading="lazy" alt="Trinity Organics — Sell-side M&amp;A" /><div class="tombstone-caption"><p>Trinity Organics — Sell-side M&amp;A</p></div></div>
         </div>
       </div>
 
       <!-- Financial sponsors -->
       <div>
-        <h2 style="font-size: 1.125rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Financial sponsors</h2>
+        <h2 style="font-size: 1.125rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5rem; padding-top: 2rem;">Advisory and co-investment alongside institutional capital</h2>
         <div class="tombstone-grid">
           <div class="tombstone-card"><img src="image_sources/transactions/27_2015_Rivertrade_Ltd.png" loading="lazy" alt="Rivertrade — M&amp;A Advisory" /><div class="tombstone-caption"><p>Rivertrade — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/28_2015_ABIM.png" loading="lazy" alt="ABIM — M&amp;A Advisory" /><div class="tombstone-caption"><p>ABIM — M&amp;A Advisory</p></div></div>
@@ -255,6 +253,7 @@
           <div class="tombstone-card"><img src="image_sources/transactions/30_2014_The_Rohatyn_Group_LLC.png" loading="lazy" alt="The Rohatyn Group — M&amp;A Advisory" /><div class="tombstone-caption"><p>The Rohatyn Group — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/47_2009_Emerging_Capital_Partners_LL.png" loading="lazy" alt="Emerging Capital Partners — M&amp;A Advisory" /><div class="tombstone-caption"><p>Emerging Capital Partners — M&amp;A Advisory</p></div></div>
           <div class="tombstone-card"><img src="image_sources/transactions/42_2011_BIH_Ltd_Brewery_Invest_Holdi.png" loading="lazy" alt="Brewery Invest Holdings — Co-investment" /><div class="tombstone-caption"><p>Brewery Invest Holdings — Co-investment</p></div></div>
+          <div class="tombstone-card"><img src="image_sources/transactions/58_2018_Farallon_Capital.png" loading="lazy" alt="Farallon Capital — Buy-side M&amp;A" /><div class="tombstone-caption"><p>Farallon Capital — Buy-side M&amp;A</p></div></div>
         </div>
       </div>
 
@@ -288,17 +287,17 @@
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>

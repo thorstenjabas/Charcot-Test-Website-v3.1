@@ -34,14 +34,14 @@
     .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: normal; letter-spacing: -0.012em; line-height: 1.02; }
     .serif-italic { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; letter-spacing: -0.012em; line-height: 1.02; }
     .label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-light); }
-    .nav-link { font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
+    .nav-link { font-size: 0.875rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); transition: color 0.15s; }
     .nav-link:hover { color: var(--ink); }
-    .nav-link.active { color: var(--ink); }
+    .nav-link.active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: var(--navy); }
     .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
     .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
     .btn-navy:hover { background: var(--navy-dark); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
-    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
 
     /* Form */
@@ -68,7 +68,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 2.2rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -123,7 +123,8 @@
         <p class="label" style="margin-bottom: 0.875rem;">Send an enquiry</p>
         <p style="font-size: 0.875rem; color: var(--ink-light); margin-bottom: 1.25rem; line-height: 1.65;">Enquiries are reviewed personally by a senior partner. You can expect to hear back within two business days.</p>
         <div style="background: var(--bg); padding: 2.5rem; border-top: 2px solid var(--navy);">
-          <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/xaqzodnr" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
+            <input type="hidden" name="_subject" value="New enquiry from charcotcapital.com" />
             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
               <div>
                 <label class="form-label" for="contact-name">Name</label>
@@ -182,16 +183,18 @@
         </div>
       </div>
 
+      <div style="height: 1px; background: var(--rule); width: 2.5rem; margin: 1.5rem 0 1.5rem;"></div>
+
       <!-- Offices -->
       <div>
         <p class="label" style="margin-bottom: 0.875rem;">Our offices</p>
-        <div class="grid grid-cols-1 md:grid-cols-3" style="gap: 1.75rem;">
+        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.75rem;">
 
           <!-- London -->
           <div style="overflow: hidden; border: 1px solid var(--rule);">
             <div style="position: relative; overflow: hidden; line-height: 0;">
-              <img src="image_sources/offices/london.png" alt="London office"
-                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center top; display: block; filter: saturate(0.15) brightness(1.02) contrast(0.96);" />
+              <img src="image_sources/offices/london.webp" alt="London office"
+                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center top; display: block; filter: none;" />
               <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.2); mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
             <div style="padding: 1.75rem 2rem;">
@@ -209,8 +212,8 @@
           <!-- Paris -->
           <div style="overflow: hidden; border: 1px solid var(--rule);">
             <div style="position: relative; overflow: hidden; line-height: 0;">
-              <img src="image_sources/offices/paris.png" alt="Paris office"
-                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center 15%; display: block; filter: saturate(0.15) brightness(1.02) contrast(0.96);" />
+              <img src="image_sources/offices/paris.webp" alt="Paris office"
+                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center 15%; display: block; filter: none;" />
               <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.2); mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
             <div style="padding: 1.75rem 2rem;">
@@ -219,22 +222,6 @@
               <address style="font-style: normal; font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">
                 18 rue Las Cases<br>75007 Paris<br>France
               </address>
-              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule);">
-                <a href="mailto:info@charcotcapital.com" style="font-size: 1rem; color: var(--navy); transition: opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">info@charcotcapital.com</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Singapore -->
-          <div style="overflow: hidden; border: 1px solid var(--rule);">
-            <div style="height: 14rem; background: var(--card-navy); display: flex; align-items: center; justify-content: center; position: relative;">
-              <div style="position: absolute; inset: 0; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 24px); pointer-events: none;"></div>
-              <span class="serif-italic" style="font-size: 2.5rem; color: rgba(255,255,255,0.15);">Singapore</span>
-            </div>
-            <div style="padding: 1.75rem 2rem;">
-              <p class="label" style="color: var(--navy); margin-bottom: 0.5rem;">Singapore</p>
-              <div style="height: 1px; background: var(--navy); width: 2rem; opacity: 0.25; margin-bottom: 0.875rem;"></div>
-              <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">Asian presence established 2011.<br>Contact our London office for Asian mandates.</p>
               <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule);">
                 <a href="mailto:info@charcotcapital.com" style="font-size: 1rem; color: var(--navy); transition: opacity 0.15s;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">info@charcotcapital.com</a>
               </div>
@@ -258,17 +245,17 @@
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
           <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>
