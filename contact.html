@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Charcot Capital — M&amp;A Advisory, London &amp; Paris</title>
+  <title>Contact Charcot Capital - M&amp;A Advisory, London &amp; Paris</title>
   <meta name="description" content="Contact Charcot Capital for a confidential conversation with our senior partners. We advise on M&amp;A and cross-border transactions from our offices in London and Paris." />
   <link rel="canonical" href="https://www.charcotcapital.com/contact.html" />
   <link rel="icon" href="image_sources/charcot_logos/charcot_logo.webp" />
@@ -38,6 +38,34 @@
     .nav-link:hover { color: var(--ink); }
     .nav-link.active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: var(--navy); }
     .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
+
+    /* Hero: matches about.html hero - background photo and panel both bounded to the
+       nav container width, panel width/spacing/title size scale via clamp(). */
+    .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; }
+    .hero-bg {
+      position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;
+      max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; box-sizing: border-box;
+    }
+    .hero-bg img {
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; object-position: 70% 20%;
+    }
+    .hero-panel {
+      background: #fff; width: 100%;
+      max-width: clamp(29rem, 41vw, 47rem);
+      margin-top: clamp(2.5rem, 6vw, 6rem);
+      padding: clamp(2.25rem, 3vw, 3.25rem) clamp(2rem, 2.5vw, 3rem) clamp(2.25rem, 3vw, 3.25rem) 0;
+    }
+    .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; }
+    .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
+
+    @media (max-width: 1024px) {
+      .hero-bg img { object-position: 58% 18%; }
+    }
+    @media (max-width: 767px) {
+      .hero-section { min-height: 0; }
+    }
+
     .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
     .btn-navy:hover { background: var(--navy-dark); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
@@ -68,7 +96,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -103,26 +131,60 @@
     </div>
   </div>
 
-  <!-- CONTACT SECTION -->
-  <section style="padding-top: 4.5rem; background: #fff; border-bottom: 1px solid var(--rule);">
-    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 6.5rem;">
+  <!-- PAGE HERO -->
+  <section class="hero-section hidden md:block" style="background: #fff;">
 
-      <!-- Intro -->
-      <div style="margin-bottom: 3rem;">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="image_sources/contact_fence.png"
+           fetchpriority="high" decoding="async"
+           alt="" />
+    </div>
+
+    <div style="position: relative; z-index: 1; max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="hero-panel">
         <p class="label" style="margin-bottom: 1.5rem;">Contact Charcot Capital</p>
-        <h1 style="margin-bottom: 1rem;">
-          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">A conversation</span>
-          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">in confidence.</span>
+        <h1 class="hero-title" style="margin: 0 0 1.5rem;">
+          <span class="serif" style="color: var(--ink);">A conversation</span>
+          <span class="serif-italic" style="color: var(--navy); display: block;">in confidence.</span>
         </h1>
-        <div style="height: 1px; background: var(--rule); width: 2.5rem; margin: 1.5rem 0 1.5rem;"></div>
-        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 44rem;">Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.</p>
+        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6;">
+          Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.
+        </p>
       </div>
+    </div>
+
+  </section>
+
+  <!-- PAGE HERO (mobile) -->
+  <section class="md:hidden" style="padding-top: 4.5rem; background: #fff;">
+    <div style="padding: 2.25rem 1.5rem 0;">
+      <p class="label" style="margin-bottom: 1.5rem;">Contact Charcot Capital</p>
+      <h1 style="margin: 0;">
+        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--ink);">A conversation</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">in confidence.</span>
+      </h1>
+    </div>
+    <div style="overflow: hidden; margin-top: 1.5rem;">
+      <img src="image_sources/contact_fence.png"
+           alt="Wrought-iron railings outside a London townhouse"
+           style="width: 100%; height: 62vw; max-height: 320px; object-fit: cover; object-position: center 30%; display: block;" />
+    </div>
+    <div style="padding: 1.5rem 1.5rem 3.5rem;">
+      <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6;">
+        Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section style="background: #fff; border-bottom: 1px solid var(--rule); margin-top: 3rem;">
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem 6.5rem;">
 
       <!-- Enquiry form -->
       <div style="margin-bottom: 4rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Send an enquiry</p>
         <p style="font-size: 0.875rem; color: var(--ink-light); margin-bottom: 1.25rem; line-height: 1.65;">Enquiries are reviewed personally by a senior partner. You can expect to hear back within two business days.</p>
-        <div style="background: var(--bg); padding: 2.5rem; border-top: 2px solid var(--navy);">
+        <div style="background: var(--bg-alt); padding: 2.5rem; border-top: 2px solid var(--navy);">
           <form id="contact-form" action="https://formspree.io/f/xaqzodnr" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
             <input type="hidden" name="_subject" value="New enquiry from charcotcapital.com" />
             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
@@ -239,47 +301,44 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div class="footer-grid">
         <div>
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height:1.75rem; width:auto; display:block; margin-bottom:0.5rem;" />
+          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;" />
           <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+          <div style="line-height:2;">
+            <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+          <div style="line-height:2;">
+            <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
           <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
-            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br><br>
+            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.6875rem;color:rgba(20,20,20,0.4);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-          <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
-          <div style="display:flex;gap:1.5rem;">
-            <a href="privacy.html" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
-            <a href="privacy.html#terms" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
-          </div>
+          <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    document.getElementById('copyright-year').textContent=new Date().getFullYear();
     const nav=document.getElementById('site-nav');
     window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>10);},{passive:true});
     const burgerBtn=document.getElementById('burger-btn'),mob=document.getElementById('mobile-menu'),bi=document.getElementById('burger-icon'),ci=document.getElementById('close-icon');

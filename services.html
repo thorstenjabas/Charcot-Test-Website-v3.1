@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — M&amp;A, Capital Solutions &amp; Merchant Banking | Charcot Capital</title>
-  <meta name="description" content="Charcot Capital offers senior-led advice across Mergers &amp; Acquisitions, Capital Solutions, and Merchant Banking. One standard of advice on every mandate — partner-led from first conversation to close." />
+  <title>Services - M&amp;A, Capital Solutions &amp; Merchant Banking | Charcot Capital</title>
+  <meta name="description" content="Charcot Capital offers senior-led advice across Mergers &amp; Acquisitions, Capital Solutions, and Merchant Banking. One standard of advice on every mandate - partner-led from first conversation to close." />
   <link rel="canonical" href="https://www.charcotcapital.com/services.html" />
   <link rel="icon" href="image_sources/charcot_logos/charcot_logo.webp" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Services — Charcot Capital" />
+  <meta property="og:title" content="Services - Charcot Capital" />
   <meta property="og:description" content="Three areas of expertise, one standard of advice: M&amp;A advisory, capital solutions, and merchant banking co-investment." />
   <meta property="og:url" content="https://www.charcotcapital.com/services.html" />
   <meta property="og:image" content="https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Services — Charcot Capital" />
+  <meta name="twitter:title" content="Services - Charcot Capital" />
   <meta name="twitter:description" content="Three areas of expertise, one standard of advice: M&amp;A advisory, capital solutions, and merchant banking co-investment." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,55 +62,31 @@
     .capability-scope .scope-list { flex: 1; justify-content: space-between; }
     @media (max-width: 1023px) { .capability-scope { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: var(--space-5); } }
 
-    /* Hero image */
-    .hero-img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: right center;
-      filter: saturate(0.95) brightness(1.02);
-      -webkit-mask-image:
-        linear-gradient(to right,
-          transparent      0%,
-          rgba(0,0,0,0.03) 5%,
-          rgba(0,0,0,0.22) 13%,
-          rgba(0,0,0,0.62) 23%,
-          rgba(0,0,0,0.92) 34%,
-          black            44%,
-          black            100%
-        ),
-        linear-gradient(to bottom,
-          black            0%,
-          black            90%,
-          rgba(0,0,0,0.45) 96%,
-          rgba(0,0,0,0.08) 99%,
-          transparent      100%
-        );
-      -webkit-mask-composite: destination-in;
-      mask-image:
-        linear-gradient(to right,
-          transparent      0%,
-          rgba(0,0,0,0.03) 5%,
-          rgba(0,0,0,0.22) 13%,
-          rgba(0,0,0,0.62) 23%,
-          rgba(0,0,0,0.92) 34%,
-          black            44%,
-          black            100%
-        ),
-        linear-gradient(to bottom,
-          black            0%,
-          black            90%,
-          rgba(0,0,0,0.45) 96%,
-          rgba(0,0,0,0.08) 99%,
-          transparent      100%
-        );
-      mask-composite: intersect;
+    /* Hero: matches about.html hero - background photo and panel both bounded to the
+       nav container width, panel width/spacing/title size scale via clamp(). */
+    .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; }
+    .hero-bg {
+      position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;
+      max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; box-sizing: border-box;
     }
+    .hero-bg img {
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; object-position: 75% 100%;
+    }
+    .hero-panel {
+      background: #fff; width: 100%;
+      max-width: clamp(29rem, 41vw, 47rem);
+      margin-top: clamp(2.5rem, 6vw, 6rem);
+      padding: clamp(2.25rem, 3vw, 3.25rem) clamp(2rem, 2.5vw, 3rem) clamp(2.25rem, 3vw, 3.25rem) 0;
+    }
+    .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; }
+    .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
 
-    /* Hero responsive */
-    @media (min-width: 768px) and (max-width: 1199px) {
-      .hero-img-wrap { width: 64% !important; }
+    @media (max-width: 1024px) {
+      .hero-bg img { object-position: 65% 100%; }
+    }
+    @media (max-width: 767px) {
+      .hero-section { min-height: 0; }
     }
 
     .bearing-link { display: flex; align-items: center; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; transition: padding-left 0.25s; }
@@ -130,7 +106,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -163,56 +139,56 @@
     </div>
   </div>
 
-  <!-- PAGE HERO — COMPASS -->
-  <section style="position:relative; padding-top:4.5rem; min-height:720px; background:#fff; overflow:hidden;">
+  <!-- PAGE HERO -->
+  <section class="hero-section hidden md:block" style="background: #fff;">
 
-    <!-- Compass image (desktop) -->
-    <div class="hero-img-wrap hidden md:block" style="
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 65%;
-      pointer-events: none;
-      z-index: 0;
-    ">
-      <img src="image_sources/three_sails.webp"
-           alt="" aria-hidden="true"
-           class="hero-img" />
+    <div class="hero-bg" aria-hidden="true">
+      <img src="image_sources/services_chart.png"
+           fetchpriority="high" decoding="async"
+           alt="" />
     </div>
 
-    <!-- Content -->
-    <div style="position:relative;z-index:2;max-width:88rem;margin:0 auto;padding:0 2.5rem;width:100%;min-height:calc(720px - 4.5rem);display:flex;align-items:center;">
-      <div style="max-width:42rem;padding:5rem 0;">
-
-        <!-- Eyebrow -->
-        <p class="label" style="margin-bottom:2rem;">Capabilities</p>
-
-        <!-- Headline -->
-        <h1 style="margin-bottom: 1rem;">
-          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink); display: block;">Three areas of expertise.</span>
-          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">One standard of advice.</span>
+    <div style="position: relative; z-index: 1; max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="hero-panel">
+        <p class="label" style="margin-bottom: 1.5rem;">Capabilities</p>
+        <h1 class="hero-title" style="margin: 0 0 1.5rem;">
+          <span class="serif" style="color: var(--ink);">Three areas of expertise.</span>
+          <span class="serif-italic" style="color: var(--navy); display: block;">One standard of advice.</span>
         </h1>
-
-        <!-- Compass metaphor line -->
-        <p style="font-size:1rem;color:var(--ink-light);line-height:1.75;max-width:32rem;">
-          A compass has many bearings but one true north. Whatever the transaction, one standard of senior-led judgement points the way - partner-led from first conversation to close.
+        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6;">
+          A single measurement, taken with care, can chart a course across open water. Whatever the transaction, we apply that same precision - considered judgement, calculated to the degree, partner-led from first conversation to close.
         </p>
       </div>
     </div>
 
-    <!-- Mobile compass image (shown below md, hidden on desktop) -->
-    <div class="block md:hidden" style="margin-top:2rem;">
-      <img src="image_sources/three_sails.webp"
-           alt="" aria-hidden="true"
-           style="display:block; width:100%; height:60vw; object-fit:cover; object-position:right center; filter:saturate(0.95) brightness(1.02); -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%); mask-image:linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);" />
-    </div>
+  </section>
 
+  <!-- PAGE HERO (mobile) -->
+  <section class="md:hidden" style="padding-top: 4.5rem; background: #fff;">
+    <div style="padding: 2.25rem 1.5rem 0;">
+      <p class="label" style="margin-bottom: 1.5rem;">Capabilities</p>
+      <h1 style="margin: 0;">
+        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--ink);">Three areas of expertise.</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">One standard of advice.</span>
+      </h1>
+    </div>
+    <div style="overflow: hidden; margin-top: 1.5rem;">
+      <img src="image_sources/services_chart.png"
+           alt="Navigational compass on a chart"
+           style="width: 100%; height: 62vw; max-height: 320px; object-fit: cover; object-position: center 100%; display: block;" />
+    </div>
+    <div style="padding: 1.5rem 1.5rem 3.5rem;">
+      <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6;">
+        A single measurement, taken with care, can chart a course across open water. Whatever the transaction, we apply that same precision - considered judgement, calculated to the degree, partner-led from first conversation to close.
+      </p>
+    </div>
   </section>
 
   <!-- 01 MERGERS & ACQUISITIONS -->
   <section id="pane-ma" style="padding: var(--space-7) 0; background: var(--bg-alt);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <h2 style="margin-bottom: var(--space-6);">
-        <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy);">Mergers &amp; Acquisitions</span>
+        <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--navy);">Mergers &amp; Acquisitions</span>
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 capability-grid" style="gap: var(--space-6);">
         <div class="capability-narrative" style="display: flex; flex-direction: column; gap: var(--space-4);">
@@ -241,7 +217,7 @@
   <section id="pane-capital" style="padding: var(--space-7) 0; background: #fff;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <h2 style="margin-bottom: var(--space-6);">
-        <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy);">Capital Solutions</span>
+        <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--navy);">Capital Solutions</span>
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 capability-grid" style="gap: var(--space-6);">
         <div class="capability-narrative" style="display: flex; flex-direction: column; gap: var(--space-4);">
@@ -270,7 +246,7 @@
   <section id="pane-merchant" style="padding: var(--space-7) 0; background: var(--bg-alt);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <h2 style="margin-bottom: var(--space-6);">
-        <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy);">Merchant Banking</span>
+        <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--navy);">Merchant Banking</span>
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 capability-grid" style="gap: var(--space-6);">
         <div class="capability-narrative" style="display: flex; flex-direction: column; gap: var(--space-4);">
@@ -369,47 +345,44 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div class="footer-grid">
         <div>
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height:1.75rem; width:auto; display:block; margin-bottom:0.5rem;" />
+          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;" />
           <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+          <div style="line-height:2;">
+            <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+          <div style="line-height:2;">
+            <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
           <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
-            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br><br>
+            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.6875rem;color:rgba(20,20,20,0.4);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-          <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
-          <div style="display:flex;gap:1.5rem;">
-            <a href="privacy.html" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
-            <a href="privacy.html#terms" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
-          </div>
+          <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    document.getElementById('copyright-year').textContent=new Date().getFullYear();
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('nav-scrolled', window.scrollY > 10); }, { passive: true });
 

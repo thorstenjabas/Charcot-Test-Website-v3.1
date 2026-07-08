@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://www.charcotcapital.com/" />
   <meta property="og:image" content="https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Charcot Capital — Senior-Led M&amp;A Advisory" />
+  <meta name="twitter:title" content="Charcot Capital - Senior-Led M&amp;A Advisory" />
   <meta name="twitter:description" content="Partner-owned merchant bank advising boards, founders, and financial sponsors on mergers, acquisitions, and cross-border transactions." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,17 +112,6 @@
     }
     .btn-ghost-navy:hover { border-color: var(--navy-dark); color: var(--navy-dark); }
 
-    .rule-with-label {
-      display: flex; align-items: center; gap: 1.25rem;
-    }
-    .rule-with-label .label { white-space: nowrap; }
-    .rule-with-label::before {
-      content: ''; display: block; height: 1px;
-      background: var(--rule); width: 4rem; flex-shrink: 0;
-    }
-
-    .h-rule { height: 1px; background: var(--rule); }
-
     /* Proof strip responsive */
     @media (max-width: 767px) {
       #proof-grid { grid-template-columns: 1fr !important; }
@@ -156,55 +145,35 @@
     .cta-grid { display: grid; grid-template-columns: 55fr 45fr; gap: 4rem; align-items: center; }
     @media (max-width: 767px) { .cta-grid { grid-template-columns: 1fr; } .cta-right { display: none; } }
 
-    /* Hero image: left-edge mask only */
-    .hero-img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: right center;
-      filter: saturate(0.95) brightness(1.02);
-      -webkit-mask-image:
-        linear-gradient(to right,
-          transparent      0%,
-          rgba(0,0,0,0.03) 5%,
-          rgba(0,0,0,0.22) 13%,
-          rgba(0,0,0,0.62) 23%,
-          rgba(0,0,0,0.92) 34%,
-          black            44%,
-          black            100%
-        ),
-        linear-gradient(to bottom,
-          black            0%,
-          black            90%,
-          rgba(0,0,0,0.45) 96%,
-          rgba(0,0,0,0.08) 99%,
-          transparent      100%
-        );
-      -webkit-mask-composite: destination-in;
-      mask-image:
-        linear-gradient(to right,
-          transparent      0%,
-          rgba(0,0,0,0.03) 5%,
-          rgba(0,0,0,0.22) 13%,
-          rgba(0,0,0,0.62) 23%,
-          rgba(0,0,0,0.92) 34%,
-          black            44%,
-          black            100%
-        ),
-        linear-gradient(to bottom,
-          black            0%,
-          black            90%,
-          rgba(0,0,0,0.45) 96%,
-          rgba(0,0,0,0.08) 99%,
-          transparent      100%
-        );
-      mask-composite: intersect;
+    /* Hero: background photo and panel both bounded to the nav container width.
+       Panel width/spacing and title size scale smoothly with clamp() (no vw-driven
+       font size fighting a fixed-width box - that combination is what made the box
+       grow taller as the screen widened, right up against the image's bottom edge). */
+    .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 54rem; }
+    .hero-bg {
+      position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;
+      max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; box-sizing: border-box;
     }
+    .hero-bg img {
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; object-position: 70% 20%;
+    }
+    .hero-panel {
+      background: #fff; width: 100%;
+      max-width: clamp(29rem, 41vw, 47rem);
+      margin-top: clamp(2.5rem, 6vw, 6rem);
+      padding: clamp(2.25rem, 3vw, 3.25rem) clamp(2rem, 2.5vw, 3rem) clamp(2.25rem, 3vw, 3.25rem) 0;
+    }
+    /* Must never render smaller than the clamp(2.25rem, 3.5vw, 3.5rem) used by
+       section titles below (floor, slope, and cap are all set higher). */
+    .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; }
+    .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
 
-    /* Hero responsive */
-    @media (min-width: 768px) and (max-width: 1199px) {
-      .hero-img-wrap { width: 64% !important; }
+    @media (max-width: 1024px) {
+      .hero-bg img { object-position: 58% 18%; }
+    }
+    @media (max-width: 767px) {
+      .hero-section { min-height: 0; }
     }
   </style>
 </head>
@@ -216,7 +185,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -254,72 +223,59 @@
   </div>
 
   <!-- HERO -->
-  <section style="padding-top: 4.5rem; background: #fff; position: relative; overflow: hidden; min-height: 720px;">
+  <section class="hero-section hidden md:block" style="background: #fff;">
 
-    <div class="hero-img-wrap hidden md:block" style="
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 65%;
-      pointer-events: none;
-      z-index: 0;
-    ">
-      <img src="image_sources/sextant_hero.webp"
-           srcset="image_sources/sextant_hero.webp 2400w, image_sources/sextant_hero_2x.webp 3000w"
-           sizes="65vw" width="2400" height="1200"
+    <div class="hero-bg" aria-hidden="true">
+      <img src="image_sources/mast_and_sail.jpg"
+           width="4032" height="3024"
            fetchpriority="high" decoding="async"
-           alt="" aria-hidden="true"
-           class="hero-img" />
+           alt="" />
     </div>
 
-    <div style="position: relative; z-index: 1;">
-
-      <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; padding-top: 3.5rem; padding-bottom: 2rem;">
-        <p class="label">56+ transactions &middot; 5 continents &middot; Independent since 2002</p>
-      </div>
-
-      <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-        <h1 style="margin: 0; max-width: 42rem;">
-          <span class="serif" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--ink);">Every M&A transaction<br>has its own</span>
-          <span class="serif-italic" style="font-size: clamp(3.5rem, 6.5vw, 7rem); color: var(--navy); display: block;">true bearing.</span>
+    <div style="position: relative; z-index: 1; max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <div class="hero-panel">
+        <p class="label" style="margin-bottom: 1.5rem;">56+ transactions &middot; 5 continents &middot; Independent since 2002</p>
+        <h1 class="hero-title" style="margin: 0 0 1.5rem;">
+          <span class="serif" style="color: var(--ink);">Every M&amp;A transaction<br>has its own</span>
+          <span class="serif-italic" style="color: var(--navy); display: block;">true bearing.</span>
         </h1>
-      </div>
-
-      <div class="md:hidden" style="margin-top: 0.5rem; margin-bottom: 1.5rem; overflow: hidden;">
-        <img src="image_sources/sextant_hero.webp"
-             srcset="image_sources/sextant_hero.webp 2400w, image_sources/sextant_hero_2x.webp 3000w"
-             sizes="100vw" width="2400" height="1200"
-             alt="Nautical sextant against the ocean horizon"
-             style="
-               width: 100%; height: 55vw; max-height: 280px;
-               object-fit: cover; object-position: 78% center; display: block;
-               filter: saturate(0.95) brightness(1.0);
-               -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
-               mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
-             " />
-      </div>
-
-      <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; padding-top: 2.25rem; padding-bottom: 8rem;">
-        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; max-width: 32rem; margin-bottom: 2.25rem;">
-          Charcot Capital advises boards, founders, and financial sponsors on cross-border mergers and acquisitions. As merchant bankers, we selectively co-invest alongside clients.
+        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; margin-bottom: 2rem;">
+          Charcot Capital advises boards, founders, and financial sponsors on cross-border mergers and acquisitions. As merchant bankers, we selectively co-invest alongside our clients.
         </p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.875rem;">
-          <a href="contact.html" class="btn-navy">Discuss your situation</a>
-          <a href="transactions.html" class="btn-ghost-navy">View track record</a>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.875rem; padding-left: clamp(2rem, 2.5vw, 3rem);">
+          <a href="contact.html" class="btn-navy" style="width: 11.7rem; white-space: nowrap;">Discuss your situation</a>
+          <a href="transactions.html" class="btn-ghost-navy" style="width: 11.7rem; white-space: nowrap;">View track record</a>
         </div>
       </div>
-
     </div>
 
-    <div aria-hidden="true" style="
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 8rem; pointer-events: none; z-index: 0;
-      background: linear-gradient(to bottom,
-        transparent        0%,
-        rgba(236,238,242,0.5)  50%,
-        #ECEEF2            100%
-      );
-    "></div>
+  </section>
 
+  <!-- HERO (mobile) -->
+  <section class="md:hidden" style="padding-top: 4.5rem; background: #fff;">
+    <div style="padding: 2.25rem 1.5rem 0;">
+      <p class="label" style="margin-bottom: 1.5rem;">56+ transactions &middot; 5 continents &middot; Independent since 2002</p>
+      <h1 style="margin: 0;">
+        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--ink);">Every M&amp;A transaction has its own</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">true bearing.</span>
+      </h1>
+    </div>
+    <div style="overflow: hidden; margin-top: 1.5rem;">
+      <img src="image_sources/mast_and_sail.jpg"
+           width="4032" height="3024"
+           fetchpriority="high" decoding="async"
+           alt="Mast and sail against the sky"
+           style="width: 100%; height: 62vw; max-height: 320px; object-fit: cover; object-position: 60% 40%; display: block;" />
+    </div>
+    <div style="padding: 1.5rem 1.5rem 3.5rem;">
+      <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6; margin-bottom: 2rem;">
+        Charcot Capital advises boards, founders, and financial sponsors on cross-border mergers and acquisitions. As merchant bankers, we selectively co-invest alongside clients.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.875rem;">
+        <a href="contact.html" class="btn-navy">Discuss your situation</a>
+        <a href="transactions.html" class="btn-ghost-navy">View track record</a>
+      </div>
+    </div>
   </section>
 
   <!-- PROOF STRIP -->
@@ -327,17 +283,17 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <!-- Outer grid: left tall box + right column of three. Gap is uniform everywhere. -->
-      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 1rem; align-items: stretch;">
+      <div id="proof-grid" class="grid grid-cols-1 lg:grid-cols-2" style="gap: 1rem; align-items: stretch;">
 
-        <!-- Left: primary stat — stretches to match total height of right three boxes + their two gaps -->
-        <div style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 3.5rem 4rem; display: flex; flex-direction: column; justify-content: center;">
+        <!-- Left: primary stat - stretches to match total height of right three boxes + their two gaps -->
+        <div id="proof-hero" style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 3.5rem 4rem; display: flex; flex-direction: column; justify-content: center;">
           <p class="label" style="margin-bottom: 2.5rem;">The number that says most</p>
           <p class="serif" style="font-size: clamp(4rem, 9vw, 8.5rem); color: var(--ink); line-height: 0.88; margin-bottom: 1.75rem;">70%+</p>
           <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.75; max-width: 24rem;">of our mandates come from <b>referrals</b> - clients who have worked with us before or been referred by someone who has.</p>
         </div>
 
         <!-- Right: three equal-height supporting boxes, same gap as outer -->
-        <div style="display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 1rem;">
+        <div id="proof-trio" style="display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 1rem;">
 
           <div style="background: #fff; border: 1px solid rgba(20,20,20,0.25); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 2.5rem;">
             <p class="serif" style="font-size: clamp(1.75rem, 4vw, 3rem); color: var(--ink); line-height: 1; flex-shrink: 0; width: 5.5rem; text-align: right;">&gt;56</p>
@@ -364,7 +320,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <div style="margin-bottom: 3rem;">
-        <p class="label" style="margin-bottom: 0.875rem;">Selected clients and counterparties</p>
+        <p class="label" style="margin-bottom: 1.5rem;">Selected clients and counterparties</p>
         <h2 class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); font-weight: 400; color: var(--navy);">Trusted <span style="color: var(--ink);">by global industry leaders.</span></h2>
       </div>
 
@@ -422,7 +378,7 @@
   <!-- WHO WE WORK WITH -->
   <section style="background: #fff; padding-bottom: 6.5rem;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 6.5rem 2.5rem 0;">
-      <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+      <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
         <p class="label">Who we work with</p>
       </div>
       <h2>
@@ -482,19 +438,19 @@
       <div class="cta-grid">
 
         <div style="padding: 8rem 0;">
-          <p class="label" style="color: rgba(255,255,255,0.25); margin-bottom: 2rem;">Confidential enquiry</p>
+          <p class="label" style="color: rgba(255,255,255,0.25); margin-bottom: 1.5rem;">Confidential enquiry</p>
           <h2 style="margin-bottom: 2.25rem;">
-            <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: #fff;">What does the right outcome </span>
-            <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: #C4A45A;">look like for you?</span>
+            <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: #fff;">What does the right outcome<br></span>
+            <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: #C4A45A;">look like for you?</span>
           </h2>
           <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.35); line-height: 1.52; max-width: 34rem; margin-bottom: 3rem;">Senior partners are available for a confidential conversation at any stage - no intermediaries.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-            <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;flex:1;min-width:13rem;padding:0.875rem 2.25rem;background:#fff;color:var(--navy);font-size:0.875rem;font-weight:500;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Start a conversation</a>
-            <a href="about.html" style="display:inline-flex;align-items:center;justify-content:center;flex:1;min-width:13rem;padding:0.875rem 2.25rem;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7);font-size:0.875rem;font-weight:400;letter-spacing:0.02em;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)';this.style.color='rgba(255,255,255,0.7)'">About the firm</a>
+            <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;width:14rem;padding:0.875rem 2.25rem;background:#fff;color:var(--navy);font-size:0.875rem;font-weight:500;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Start a conversation</a>
+            <a href="about.html" style="display:inline-flex;align-items:center;justify-content:center;width:14rem;padding:0.875rem 2.25rem;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7);font-size:0.875rem;font-weight:400;letter-spacing:0.02em;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)';this.style.color='rgba(255,255,255,0.7)'">About the firm</a>
           </div>
         </div>
 
-        <div class="cta-right" style="position: relative; min-height: 500px; overflow: visible;">
+        <div class="cta-right" style="position: relative; min-height: 500px; overflow: hidden;">
           <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg"
                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none;"
                aria-hidden="true">
@@ -546,47 +502,44 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div class="footer-grid">
         <div>
-          <img src="image_sources/charcot_logos/charcot_logo.webp" alt="Charcot Capital" style="height:1.75rem; width:auto; display:block; margin-bottom:0.5rem;" />
+          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;" />
           <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="transactions.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
-            <a href="team.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
-            <a href="about.html" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
+          <div style="line-height:2;">
+            <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
+            <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
+            <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <a href="services.html#pane-ma" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
-            <a href="services.html#pane-capital" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
-            <a href="services.html#pane-merchant" style="font-size:0.875rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
+          <div style="line-height:2;">
+            <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
+            <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
+            <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
           </div>
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
           <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
-            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br><br>
+            18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.6875rem;color:rgba(20,20,20,0.4);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-          <p style="font-size:0.75rem;color:rgba(20,20,20,0.55);">&copy; 2026 Charcot Capital (UK) LLP. All rights reserved.</p>
-          <div style="display:flex;gap:1.5rem;">
-            <a href="privacy.html" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Privacy</a>
-            <a href="privacy.html#terms" style="font-size:0.75rem;color:rgba(20,20,20,0.55);transition:color 0.15s;" onmouseover="this.style.color='rgba(20,20,20,0.8)'" onmouseout="this.style.color='rgba(20,20,20,0.55)'">Terms</a>
-          </div>
+          <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    document.getElementById('copyright-year').textContent=new Date().getFullYear();
     const nav=document.getElementById('site-nav');
     window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>10);},{passive:true});
     const burgerBtn=document.getElementById('burger-btn'),mob=document.getElementById('mobile-menu'),bi=document.getElementById('burger-icon'),ci=document.getElementById('close-icon');
