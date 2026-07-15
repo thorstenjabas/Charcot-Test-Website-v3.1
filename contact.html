@@ -39,23 +39,28 @@
     .nav-link.active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-color: var(--navy); }
     .nav-scrolled { box-shadow: 0 1px 0 var(--rule), 0 4px 24px rgba(20,20,20,0.05); }
 
-    /* Hero: matches about.html hero - background photo and panel both bounded to the
-       nav container width, panel width/spacing/title size scale via clamp(). */
-    .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; }
-    .hero-bg {
-      position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;
-      max-width: 88rem; margin: 0 auto; padding: 0 2.5rem; box-sizing: border-box;
-    }
+    /* Hero: full-bleed photo, text overlaid directly on the image (no white card panel). */
+    .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; background: #0b0c0f; }
+    .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; }
     .hero-bg img {
       display: block; width: 100%; height: 100%;
       object-fit: cover; object-position: 70% 20%;
+      filter: brightness(0.62);
     }
-    .hero-panel {
-      background: #fff; width: 100%;
-      max-width: clamp(29rem, 41vw, 47rem);
-      margin-top: clamp(2.5rem, 6vw, 6rem);
-      padding: clamp(2.25rem, 3vw, 3.25rem) clamp(2rem, 2.5vw, 3rem) clamp(2.25rem, 3vw, 3.25rem) 0;
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: linear-gradient(90deg,
+        rgba(8,9,10,0.8) 0%,
+        rgba(8,9,10,0.6) 30%,
+        rgba(8,9,10,0.3) 50%,
+        rgba(8,9,10,0) 68%);
     }
+    .hero-text, .hero-text * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
+    .hero-content {
+      position: relative; z-index: 1; max-width: 88rem; margin: 0 auto;
+      padding: clamp(6.5rem, 15vw, 10.5rem) 2.5rem clamp(4.5rem, 9vw, 6.5rem);
+    }
+    .hero-text { max-width: clamp(28rem, 40vw, 44rem); }
     .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; }
     .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
 
@@ -132,22 +137,23 @@
   </div>
 
   <!-- PAGE HERO -->
-  <section class="hero-section hidden md:block" style="background: #fff;">
+  <section class="hero-section hidden md:block">
 
     <div class="hero-bg" aria-hidden="true">
-      <img src="image_sources/contact_fence.png"
+      <img src="image_sources/contact_fence.webp"
            fetchpriority="high" decoding="async"
            alt="" />
     </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-    <div style="position: relative; z-index: 1; max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-      <div class="hero-panel">
-        <p class="label" style="margin-bottom: 1.5rem;">Contact Charcot Capital</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Contact Charcot Capital</p>
         <h1 class="hero-title" style="margin: 0 0 1.5rem;">
-          <span class="serif" style="color: var(--ink);">A conversation</span>
+          <span class="serif" style="color: #fff;">A conversation</span>
           <span class="serif-italic" style="color: var(--navy); display: block;">in confidence.</span>
         </h1>
-        <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6;">
+        <p style="font-size: 1rem; color: #fff; line-height: 1.6; max-width: 30rem;">
           Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.
         </p>
       </div>
@@ -156,21 +162,21 @@
   </section>
 
   <!-- PAGE HERO (mobile) -->
-  <section class="md:hidden" style="padding-top: 4.5rem; background: #fff;">
-    <div style="padding: 2.25rem 1.5rem 0;">
-      <p class="label" style="margin-bottom: 1.5rem;">Contact Charcot Capital</p>
-      <h1 style="margin: 0;">
-        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--ink);">A conversation</span>
+  <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
+    <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
+      <img src="image_sources/contact_fence.webp"
+           fetchpriority="high" decoding="async"
+           alt="" aria-hidden="true"
+           style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: brightness(0.62);" />
+    </div>
+    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(8,9,10,0.78) 0%, rgba(8,9,10,0.58) 35%, rgba(8,9,10,0.34) 55%, rgba(8,9,10,0.15) 75%, rgba(8,9,10,0) 90%);"></div>
+    <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
+      <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Contact Charcot Capital</p>
+      <h1 style="margin: 0 0 1.5rem;">
+        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">A conversation</span>
         <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">in confidence.</span>
       </h1>
-    </div>
-    <div style="overflow: hidden; margin-top: 1.5rem;">
-      <img src="image_sources/contact_fence.png"
-           alt="Wrought-iron railings outside a London townhouse"
-           style="width: 100%; height: 62vw; max-height: 320px; object-fit: cover; object-position: center 30%; display: block;" />
-    </div>
-    <div style="padding: 1.5rem 1.5rem 3.5rem;">
-      <p style="font-size: 1rem; color: var(--ink-mid); line-height: 1.6;">
+      <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
         Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.
       </p>
     </div>
