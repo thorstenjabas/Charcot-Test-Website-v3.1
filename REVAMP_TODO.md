@@ -1,6 +1,6 @@
 # Charcot Capital website revamp — working to-do list
 
-Status as at 6 June 2026. Grouped by theme, numbered for tracking. Priority: P0 before launch, P1 shortly after, P2 polish.
+Status as at 17 July 2026 (last full pass 6 June 2026). Grouped by theme, numbered for tracking. Priority: P0 before launch, P1 shortly after, P2 polish.
 
 ---
 
@@ -8,73 +8,88 @@ Status as at 6 June 2026. Grouped by theme, numbered for tracking. Priority: P0 
 
 - [x] 0.1 Aligned the "Who we work with" card feet so the three "Discuss" links sit on one baseline (index.html).
 - [x] 0.2 Removed the duplicated, off-theme bridge image on About; "What sets us apart" now uses the compass motif (about.html).
-- [x] 0.3 Standardised About section vertical padding to a single 6.5rem rhythm (about.html).
+- [x] 0.3 ~~Standardised About section vertical padding to a single 6.5rem rhythm~~ — correction: this was not actually consistent (About mixed 3.5/5/6.5rem). Superseded by 0.7 below.
 - [x] 0.4 Gave Thorsten Jabas an "Areas of focus" block so all four team bios carry equal weight (team.html). Replace with real selected transactions when available.
 - [x] 0.5 Added Open Graph / Twitter tags to privacy.html for head consistency.
 - [x] 0.6 Confirmed the transaction figures now reconcile (56+ throughout; referral 70%); no "50 mandates" remaining.
+- [x] 0.7 Unified the hero-to-first-section gap to 4rem on all seven pages, replacing five different values (3/4/4.5/5/6/6.5rem). Removed Services' page-local `--space-*` token scale and hardcoded its section padding to match sitewide values. Resolves item 13 and the spacing half of item 12.
+- [x] 0.8 Standardised section-intro paragraph width to 52rem (About, Services, Careers - Careers previously had no width constraint at all and ran full-page-width lines). Transactions and Team already matched.
+- [x] 0.9 Converted all six sector tiles on Services to a uniform black-and-white grade (`*_bw.webp` filenames) and updated the links. Resolves items 17 and 18.
+- [x] 0.10 Normalised the repeated bottom CTA band (About/Services/Transactions/Team): removed About's one-off hardcoded button widths so all four now share identical container sizing and auto-width buttons.
+- [x] 0.11 Verified the contact form now posts to a proper Formspree endpoint (`/f/xaqzodnr`, not the deprecated email-in-URL format). Resolves item 1 - still needs one live end-to-end send to fully close out.
+- [x] 0.12 Verified hero system is already unified: all seven pages share one `.hero-section` treatment (44rem min-height, same overlay/text-shadow structure), and Contact and Careers both now carry full photographic heroes. Resolves items 12 and 15.
+- [x] 0.13 Verified the About "bridge" image is fully gone (no trace in source) and the office photos on Contact are real building photography (London/Paris doors), not generic stock cityscapes. Resolves items 19 and 21.
+- [x] 0.14 Tombstone logos confirmed as an intentional design choice, not a defect - kept in original brand colour. Item 14's greyscale requirement is dropped; see note under item 14 below.
+- [x] 0.15 Replaced the Tailwind CDN script with a hand-written `tailwind-utilities.css` covering the ~28 utility classes actually used site-wide (verified against the full class inventory across all 8 pages). Removes the render-blocking script and the CDN production warning. Resolves item 7. Verified: full-page screenshots plus a live mobile-menu open/close test at 375px, no visual or functional regressions.
+- [x] 0.16 Added explicit `width`/`height` attributes to every `<img>` on the site (104 tags across 8 pages, SVG included via its own intrinsic width/height), sourced from each file's real pixel dimensions. Resolves item 9.
+- [x] 0.17 Extended `loading="lazy"` to every below-the-fold image site-wide (portraits, sector tiles, office photos, footer logo, transactions map), while leaving hero images (`fetchpriority="high"`) and the nav logo eager. Resolves item 10.
+- [x] 0.18 Added `FinancialService` (Organization) JSON-LD to all 8 pages, plus a `Person` graph for all four team members on team.html, worksFor-linked to the organization. Keywords used: investment banking, merchant banking, financial services, mergers and acquisitions, M&A. Resolves item 26.
+- [x] 0.19 Updated the homepage `<title>` to "Mergers and Acquisitions - Charcot Capital" (stakeholder choice). Resolves item 27.
+- [x] 0.20 Re-checked every page at tablet (768px) and mobile (375px) after all of today's spacing and build changes - no regressions found (hero images, capability grid, sector grid, CTA band buttons, mobile nav all confirmed). Resolves item 16.
+- [x] 0.21 Investigated item 8: total image weight is 11.8MB/98 files, mostly fine. Two clear outliers - `energy_bw.webp` (4288x2848, 1.7MB) and `tmt_bw.webp` (5472x3648, 1.2MB) - both added this session, both several times larger than their ~480px display size warrants. Not yet resized (pending decision, see item 8 note below).
 
 ---
 
 ## 1. Pre-launch blockers (P0)
 
-1. Verify the contact form actually delivers. It posts to `https://formspree.io/info@charcotcapital.com`, the deprecated email-in-URL format that usually fails to the error fallback. Create a Formspree form (or a serverless endpoint), use the `/f/{id}` URL, and send one live end-to-end test.
-2. State the regulatory position in the footer. The line currently shows company registration only. Add FCA status and FRN if authorised or an appointed representative, or confirm in writing that none is required.
-3. Confirm office reality. The contact page shows London and Paris; the team narrative references a Singapore presence (2011, since relocated). Decide the current office list and make every page agree.
+1. ~~Verify the contact form actually delivers.~~ **Done (0.11)** - now posts to `https://formspree.io/f/xaqzodnr`. Still needs one live end-to-end test to fully close out.
+2. ~~State the regulatory position in the footer.~~ **Decided: no FCA status to add** - confirmed not applicable, footer stays as company-registration only.
+3. ~~Confirm office reality.~~ **Decided: Singapore wording is fine as-is** - team.html's historical/network framing stands, no change needed.
 
 ---
 
 ## 2. Conversion and trust (P1)
 
-4. Add a clickable firm telephone number (contact page and footer). Senior clients expect a direct line; only a form phone field exists today.
-5. Consider partner-level contact or a scheduling link, to match the "speak directly with the partners" promise.
-6. Make the referral statistic more prominent near the primary calls to action.
+4. ~~Add a clickable firm telephone number.~~ **Decided: no phone numbers on the site.** Form-only contact stands.
+5. Consider partner-level contact or a scheduling link, to match the "speak directly with the partners" promise. **Still open.**
+6. ~~Make the referral statistic more prominent near the primary calls to action.~~ **Decided: current homepage treatment is fine**, no change needed.
 
 ---
 
 ## 3. Performance and build (P1)
 
-7. Replace the Tailwind CDN runtime with a compiled static CSS file (build step). Removes the render-blocking script and the production warning.
-8. Optimise all photography: convert to WebP/AVIF, resize to displayed dimensions, and compress. Priority offenders: About (~6 MB), office PNGs (~2 MB each), leadership portraits, decorative compass/bridge art, the 2.2 MB transactions map SVG.
-9. Add width and height (or aspect-ratio) to all 104 images to remove layout shift.
-10. Lazy-load below-the-fold images beyond the tombstones.
-11. Use the Vercel image optimisation pipeline once images are rationalised.
+7. ~~Replace the Tailwind CDN runtime with a compiled static CSS file.~~ **Done (0.15)**.
+8. ~~Optimise all photography.~~ **Done** - `energy_bw.webp` and `tmt_bw.webp` resized from full camera resolution (4288x2848 / 5472x3648) to 1100px wide, matching the other four sector tiles. 1714KB→82KB and 1168KB→76KB (2.7MB saved; site image total now 9.1MB, down from 11.8MB). Verified visually, no quality loss at display size.
+9. ~~Add width and height to all images.~~ **Done (0.16)** - all 104 `<img>` tags across 8 pages.
+10. ~~Lazy-load below-the-fold images.~~ **Done (0.17)** - every below-fold image site-wide, hero/nav images correctly left eager.
+11. Use the Vercel image optimisation pipeline. **Explained, not actioned** - no `vercel.json` exists, so Vercel's automatic image optimisation is not currently active (it requires framework-level wiring this static site doesn't have). Given images are already reasonably sized by hand, treating as a separate deliberate task rather than folding in here - flag if you want it scoped.
 
 ---
 
 ## 4. Visual consistency (P1)
 
-12. Unify the hero system across all pages: one architecture (e.g. left text, right motif), one fixed height, one eyebrow style. Today there are five different hero treatments (photographic, single-object, tinted, and two with no image at all on Contact and Careers).
-13. Balance the Services capability sections: align the narrative column and the Scope list to a shared top baseline and even out the large vertical voids; apply one vertical spacing scale site-wide.
-14. Normalise tombstone cards: uniform logo max-height, equal padding, single greyscale/opacity treatment, consistent card height, and no orphan cells in the final row of each group. (Asset-level: the logos are baked into the tombstone PNGs.)
-15. Give Contact and Careers heroes a consistent visual motif so they do not read as bare next to the other pages.
-16. Re-check all spacing fixes at tablet and mobile breakpoints.
+12. ~~Unify the hero system across all pages.~~ **Done (0.12)** - one shared hero treatment, fixed 44rem height, Contact and Careers both carry full photographic heroes.
+13. ~~Balance the Services capability sections... apply one vertical spacing scale site-wide.~~ **Done (0.7)** - Services' local spacing tokens removed, section rhythm aligned to the sitewide values.
+14. Normalise tombstone cards: uniform logo max-height, equal padding, consistent card height, no orphan cells in the final row. **Decision: keep logos in original brand colour** (0.14) - greyscale requirement dropped per stakeholder call; card sizing/padding already reads consistent, no further action needed there.
+15. ~~Give Contact and Careers heroes a consistent visual motif.~~ **Done (0.12)** - subsumed by item 12.
+16. ~~Re-check all spacing fixes at tablet and mobile breakpoints.~~ **Done (0.20)**.
 
 ---
 
 ## 5. Image language (P1/P2)
 
-17. Commit to one coherent image system and one grade. Pull every photograph to a single cool, desaturated tone at consistent contrast and opacity; the greyscale partner portraits are the right reference.
-18. Replace the AI/stock-looking sector tiles with a uniform duotone treatment or a more ownable motif.
-19. Replace stock cityscapes (London, Paris) with real photography of the actual buildings; removes the iStock watermark dependency.
-20. Remove remaining watermarked stock images before finalising (noted as in hand).
-21. Re-theme or remove the remaining bridge image on About ("Why it matters") so the page is fully on the nautical/archival theme.
+17. ~~Commit to one coherent image system and one grade.~~ **Done (0.9)** - all sector tiles now match the black-and-white grade already used across every hero photo and the portraits.
+18. ~~Replace the AI/stock-looking sector tiles with a uniform duotone treatment.~~ **Done (0.9)**.
+19. ~~Replace stock cityscapes (London, Paris) with real photography of the actual buildings.~~ **Done (0.13)** - Contact page office photos are specific building doors/facades, not generic stock.
+20. ~~Remove remaining watermarked stock images before finalising.~~ **Done - confirmed no watermarks remain.**
+21. ~~Re-theme or remove the remaining bridge image on About.~~ **Done (0.13)** - confirmed no trace of it in source; already fully resolved by 0.2.
 
 ---
 
 ## 6. Proof and credibility (P2, competitive gap)
 
-22. Launch a light Insights / News section (start with three or four pieces). Every credible peer (Rothschild, Lazard, Evercore, Houlihan Lokey, Perella Weinberg, Ondra) runs one; Charcot has none. Highest-value strategic addition.
-23. Enrich the track record: add deal role and, where disclosable, value; add two or three short case studies.
+22. Launch a light Insights / News section. **Deferred - not for now.**
+23. Enrich the track record: add deal role and, where disclosable, value; add two or three short case studies. **Deferred - not for now.**
 24. Replace synthetic-looking imagery with authentic photography wherever trust matters (portraits already improved).
-25. Add partner-level contact or LinkedIn links on the team page.
+25. ~~Add partner-level contact or LinkedIn links on the team page.~~ **Decided: no LinkedIn links.**
 
 ---
 
 ## 7. SEO and structured data (P2)
 
-26. Add Organization / FinancialService and Person JSON-LD structured data.
-27. Sharpen remaining page titles with geography and intent keywords where useful.
-28. Keep robots.txt and sitemap.xml in sync as pages (e.g. Insights) are added.
+26. ~~Add Organization / FinancialService and Person JSON-LD structured data.~~ **Done (0.18)**.
+27. ~~Sharpen remaining page titles.~~ **Done (0.19)** - homepage title updated; every page now has a specific, keyword-rich title.
+28. Keep robots.txt and sitemap.xml in sync as pages (e.g. Insights) are added. **Mostly fine** - sitemap lists all 7 core pages; privacy.html is the only omission, likely intentional.
 
 ---
 

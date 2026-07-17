@@ -6,7 +6,7 @@
   <title>Services - M&amp;A, Capital Solutions &amp; Merchant Banking | Charcot Capital</title>
   <meta name="description" content="Charcot Capital offers senior-led advice across Mergers &amp; Acquisitions, Capital Solutions, and Merchant Banking. One standard of advice on every mandate - partner-led from first conversation to close." />
   <link rel="canonical" href="https://www.charcotcapital.com/services.html" />
-  <link rel="icon" href="image_sources/charcot_logos/charcot_logo.webp" />
+  <link rel="icon" href="image_sources/charcot_logos/charcot_capital_sails_icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Services - Charcot Capital" />
   <meta property="og:description" content="Three areas of expertise, one standard of advice: M&amp;A advisory, capital solutions, and merchant banking co-investment." />
@@ -15,7 +15,44 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Services - Charcot Capital" />
   <meta name="twitter:description" content="Three areas of expertise, one standard of advice: M&amp;A advisory, capital solutions, and merchant banking co-investment." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "@id": "https://www.charcotcapital.com/#organization",
+    "name": "Charcot Capital",
+    "alternateName": "Charcot Capital (UK) LLP",
+    "url": "https://www.charcotcapital.com/",
+    "logo": "https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp",
+    "image": "https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp",
+    "description": "Charcot Capital is a wholly partner-owned merchant bank and independent investment banking advisory firm, providing mergers and acquisitions (M&A), capital solutions, and merchant banking services to boards, founders, and financial sponsors. Advising independently since 2002.",
+    "foundingDate": "2008",
+    "founders": [
+      { "@type": "Person", "name": "Jean-Benoît Terrasse" },
+      { "@type": "Person", "name": "Clément Lavallard" }
+    ],
+    "areaServed": "Worldwide",
+    "knowsAbout": ["Mergers and Acquisitions", "M&A Advisory", "Investment Banking", "Merchant Banking", "Capital Solutions", "Financial Services"],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "18 Nevern Square",
+        "addressLocality": "London",
+        "postalCode": "SW5 9PD",
+        "addressCountry": "GB"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "18 rue Las Cases",
+        "addressLocality": "Paris",
+        "postalCode": "75007",
+        "addressCountry": "FR"
+      }
+    ],
+    "email": "info@charcotcapital.com"
+  }
+  </script>
+  <link rel="stylesheet" href="tailwind-utilities.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -24,9 +61,6 @@
       --bg: #F5F6F8; --bg-alt: #ECEEF2; --ink: #181815; --ink-mid: #3A3A35;
       --ink-light: #5C5C56; --navy: #002060; --navy-dark: #001540;
       --rule: rgba(20,20,20,0.09); --card-black: #1a1917; --card-navy: #1C2E4A; --card-tan: #E2E5EC;
-      /* Vertical spacing scale */
-      --space-2: 0.5rem; --space-3: 1rem; --space-4: 1.5rem; --space-5: 2.5rem;
-      --space-6: 4rem; --space-7: 6rem; --space-8: 8rem;
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { overflow-x: hidden; }
@@ -93,7 +127,7 @@
     .capability-scope .scope-list { flex: 1; justify-content: space-between; }
 
     /* Capabilities intro: three areas subordinated under one shared section */
-    .capability-area + .capability-area { margin-top: var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
+    .capability-area + .capability-area { margin-top: 4rem; padding-top: 4rem; border-top: 1px solid var(--rule); }
 
     /* Hero: full-bleed photo, text overlaid directly on the image (no white card panel). */
     .hero-link { color: #fff; opacity: 0.85; transition: opacity 0.15s; }
@@ -145,7 +179,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;"  width="927" height="400"/>
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -184,7 +218,7 @@
     <div class="hero-bg" aria-hidden="true">
       <img src="image_sources/services_chart.webp"
            fetchpriority="high" decoding="async"
-           alt="" />
+           alt=""  width="2400" height="1800"/>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -216,7 +250,7 @@
       <img src="image_sources/services_chart.webp"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
-           style="width: 100%; height: 100%; object-fit: cover; object-position: center 100%; display: block;" />
+           style="width: 100%; height: 100%; object-fit: cover; object-position: center 100%; display: block;"  width="2400" height="1800"/>
     </div>
     <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
     <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
@@ -239,24 +273,24 @@
   </section>
 
   <!-- CAPABILITIES -->
-  <section style="padding: var(--space-7) 0; background: #fff;">
+  <section style="padding: 4rem 0; background: #fff;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
       <!-- 01 MERGERS & ACQUISITIONS -->
       <div id="pane-ma" class="capability-area" style="scroll-margin-top: 6rem;">
-        <div class="grid grid-cols-1 lg:grid-cols-[13rem_1fr_18rem] capability-grid" style="gap: var(--space-6);">
+        <div class="grid grid-cols-1 lg:grid-cols-[13rem_1fr_18rem] capability-grid" style="gap: 4rem;">
           <div class="capability-name">
             <h3><span class="serif-italic" style="font-size: clamp(1.375rem, 1.6vw, 1.625rem); color: var(--navy); line-height: 1.15;">Mergers &amp; Acquisitions</span></h3>
           </div>
-          <div class="capability-narrative" style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <div class="capability-narrative" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">We act for founders, shareholders, boards, and corporate clients across the full range of transaction situations  -  business sales and founder exits, strategic acquisitions, management buyouts, cross-border combinations, and corporate carve-outs. Senior partners lead every process personally: designing the strategy, managing counterparties, and applying the judgement that marks the difference between a good outcome and the right one.</p>
             <p style="font-size: 0.9375rem; font-weight: 500; color: var(--ink-mid);">We do not manage volume. We manage your transaction.</p>
           </div>
           <div class="capability-scope">
             <div class="capability-scope-bar"></div>
             <div class="capability-scope-card">
-              <p class="label" style="margin-bottom: var(--space-3);">Examples</p>
-              <ul class="scope-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <p class="label" style="margin-bottom: 1rem;">Examples</p>
+              <ul class="scope-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Sell-side M&amp;A</li>
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Buy-side M&amp;A</li>
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Cross-border transactions</li>
@@ -273,19 +307,19 @@
 
       <!-- 02 CAPITAL SOLUTIONS -->
       <div id="pane-capital" class="capability-area" style="scroll-margin-top: 6rem;">
-        <div class="grid grid-cols-1 lg:grid-cols-[13rem_1fr_18rem] capability-grid" style="gap: var(--space-6);">
+        <div class="grid grid-cols-1 lg:grid-cols-[13rem_1fr_18rem] capability-grid" style="gap: 4rem;">
           <div class="capability-name">
             <h3><span class="serif-italic" style="font-size: clamp(1.375rem, 1.6vw, 1.625rem); color: var(--navy); line-height: 1.15;">Capital Solutions</span></h3>
           </div>
-          <div class="capability-narrative" style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <div class="capability-narrative" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Every transaction has a financing dimension. Whether structuring capital for an acquisition, raising growth equity at an inflection point, or refinancing ahead of a sale, we advise shareholders, boards, and management teams on how to structure, raise, and optimise capital across the full transaction lifecycle  -  independently of any lender relationship or balance sheet interest. Capital advisory and transaction strategy are always designed together, never as separate workstreams.</p>
             <p style="font-size: 0.9375rem; font-weight: 500; color: var(--ink-mid);">Access to capital is rarely the constraint. The quality of advice on how to structure it is.</p>
           </div>
           <div class="capability-scope">
             <div class="capability-scope-bar"></div>
             <div class="capability-scope-card">
-              <p class="label" style="margin-bottom: var(--space-3);">Examples</p>
-              <ul class="scope-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <p class="label" style="margin-bottom: 1rem;">Examples</p>
+              <ul class="scope-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Acquisition financing advisory</li>
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Equity capital raising</li>
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Debt advisory &amp; placement</li>
@@ -302,19 +336,19 @@
 
       <!-- 03 MERCHANT BANKING -->
       <div id="pane-merchant" class="capability-area" style="scroll-margin-top: 6rem;">
-        <div class="grid grid-cols-1 lg:grid-cols-[13rem_1fr_18rem] capability-grid" style="gap: var(--space-6);">
+        <div class="grid grid-cols-1 lg:grid-cols-[13rem_1fr_18rem] capability-grid" style="gap: 4rem;">
           <div class="capability-name">
             <h3><span class="serif-italic" style="font-size: clamp(1.375rem, 1.6vw, 1.625rem); color: var(--navy); line-height: 1.15;">Merchant Banking</span></h3>
           </div>
-          <div class="capability-narrative" style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <div class="capability-narrative" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Where we have advised on a transaction and share the long-term view of the business, we selectively invest our own capital alongside clients  -  as partners in the outcome, not just the process. Co-investment is available on transactions where our assessment of the business, the terms, and the management team gives us the same conviction we ask our clients to have. The structures reflect the full range of transactions we advise on: from minority equity participation to structured arrangements and long-term equity partnership.</p>
             <p style="font-size: 0.9375rem; font-weight: 500; color: var(--ink-mid);">We recommend nothing we would not fund ourselves. Every opportunity we bring you is one we back with our own capital.</p>
           </div>
           <div class="capability-scope">
             <div class="capability-scope-bar"></div>
             <div class="capability-scope-card">
-              <p class="label" style="margin-bottom: var(--space-3);">Examples</p>
-              <ul class="scope-list" style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <p class="label" style="margin-bottom: 1rem;">Examples</p>
+              <ul class="scope-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Principal co-investment</li>
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Minority equity participation</li>
                 <li style="font-size: 0.875rem; color: var(--ink-mid);">Structured equity arrangements</li>
@@ -329,13 +363,13 @@
         </div>
       </div>
 
-      <div style="margin-top: var(--space-6); border-top: 1px solid var(--rule);"></div>
+      <div style="margin-top: 4rem; border-top: 1px solid var(--rule);"></div>
 
     </div>
   </section>
 
   <!-- SECTOR COVERAGE -->
-  <section style="padding: var(--space-7) 0 var(--space-8); background: #fff;">
+  <section style="padding: 6.5rem 0 8rem; background: #fff;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="margin-bottom: 3.5rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Sector coverage</p>
@@ -343,48 +377,50 @@
           <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">Generalist </span>
           <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">by conviction.</span>
         </h2>
-        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 44rem;">Every client comes with a different strategic situation and our advice is shaped by that, not by a house specialism. We work across the full breadth of the market. Where we have advised repeatedly over many years, deeper pattern recognition compounds.</p>
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 52rem;">Every client comes with a different strategic situation and our advice is shaped by that, not by a house specialism. We work across the full breadth of the market. Where we have advised repeatedly over many years, deeper pattern recognition compounds.</p>
       </div>
       <div class="sector-grid" role="group" aria-label="Filter sector examples">
         <div class="sector-tile active" data-sector="consumer" style="position:relative; aspect-ratio:3/2; overflow:hidden;">
-          <img src="image_sources/sectors/consumer.webp" alt="Consumer" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <img src="image_sources/sectors/consumer_bw.webp" alt="Consumer" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"  width="1100" height="733" loading="lazy" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);pointer-events:none;"></div>
           <div style="position:absolute;inset:0;background:rgba(0,32,96,0.2);mix-blend-mode:multiply;pointer-events:none;"></div>
           <p class="sector-tile-label" style="position:absolute;bottom:0.875rem;left:0;right:0;text-align:center;font-size:0.8125rem;font-weight:500;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">Consumer</p>
         </div>
         <div class="sector-tile" data-sector="industrials" style="position:relative; aspect-ratio:3/2; overflow:hidden;">
-          <img src="image_sources/sectors/industrials.webp" alt="Industrials" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <img src="image_sources/sectors/industrials_bw.webp" alt="Industrials" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"  width="1100" height="733" loading="lazy" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);pointer-events:none;"></div>
           <div style="position:absolute;inset:0;background:rgba(0,32,96,0.2);mix-blend-mode:multiply;pointer-events:none;"></div>
           <p class="sector-tile-label" style="position:absolute;bottom:0.875rem;left:0;right:0;text-align:center;font-size:0.8125rem;font-weight:500;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">Industrials</p>
         </div>
         <div class="sector-tile" data-sector="business" style="position:relative; aspect-ratio:3/2; overflow:hidden;">
-          <img src="image_sources/sectors/business_services.webp" alt="Business Services" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <img src="image_sources/sectors/business_services_bw.webp" alt="Business Services" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"  width="1100" height="733" loading="lazy" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);pointer-events:none;"></div>
           <div style="position:absolute;inset:0;background:rgba(0,32,96,0.2);mix-blend-mode:multiply;pointer-events:none;"></div>
           <p class="sector-tile-label" style="position:absolute;bottom:0.875rem;left:0;right:0;text-align:center;font-size:0.8125rem;font-weight:500;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">Business Services</p>
         </div>
         <div class="sector-tile" data-sector="energy" style="position:relative; aspect-ratio:3/2; overflow:hidden;">
-          <img src="image_sources/sectors/energy.webp" alt="Energy" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <img src="image_sources/sectors/energy_bw.webp" alt="Energy" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"  width="1100" height="731" loading="lazy" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);pointer-events:none;"></div>
           <div style="position:absolute;inset:0;background:rgba(0,32,96,0.2);mix-blend-mode:multiply;pointer-events:none;"></div>
           <p class="sector-tile-label" style="position:absolute;bottom:0.875rem;left:0;right:0;text-align:center;font-size:0.8125rem;font-weight:500;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">Energy</p>
         </div>
         <div class="sector-tile" data-sector="tmt" style="position:relative; aspect-ratio:3/2; overflow:hidden;">
-          <img src="image_sources/sectors/tmt.webp" alt="TMT" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <img src="image_sources/sectors/tmt_bw.webp" alt="TMT" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"  width="1100" height="733" loading="lazy" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);pointer-events:none;"></div>
           <div style="position:absolute;inset:0;background:rgba(0,32,96,0.2);mix-blend-mode:multiply;pointer-events:none;"></div>
           <p class="sector-tile-label" style="position:absolute;bottom:0.875rem;left:0;right:0;text-align:center;font-size:0.8125rem;font-weight:500;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">TMT</p>
         </div>
         <div class="sector-tile" data-sector="life-sciences" style="position:relative; aspect-ratio:3/2; overflow:hidden;">
-          <img src="image_sources/sectors/life_sciences.webp" alt="Life Sciences" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <img src="image_sources/sectors/life_sciences_bw.webp" alt="Life Sciences" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.95) brightness(1.02);transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"  width="1100" height="733" loading="lazy" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);pointer-events:none;"></div>
           <div style="position:absolute;inset:0;background:rgba(0,32,96,0.2);mix-blend-mode:multiply;pointer-events:none;"></div>
           <p class="sector-tile-label" style="position:absolute;bottom:0.875rem;left:0;right:0;text-align:center;font-size:0.8125rem;font-weight:500;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">Life Sciences</p>
         </div>
       </div>
 
-      <div id="sector-tables" style="margin-top: 3rem;">
+      <p id="sector-eyebrow" class="label" style="margin-top: 3rem;">Selected transactions in <span id="sector-eyebrow-name" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: var(--navy);">Consumer</span></p>
+
+      <div id="sector-tables" style="margin-top: 1.25rem;">
 
         <div class="sector-table" data-sector="consumer">
           <div class="sector-table-row">
@@ -650,11 +686,14 @@
   (function(){
     var tiles = document.querySelectorAll('.sector-tile');
     var tables = document.querySelectorAll('.sector-table');
+    var eyebrowName = document.getElementById('sector-eyebrow-name');
+    var sectorNames = { consumer: 'Consumer', industrials: 'Industrials', business: 'Business Services', energy: 'Energy', tmt: 'TMT', 'life-sciences': 'Life Sciences' };
     tiles.forEach(function(tile){
       tile.addEventListener('click', function(){
         var sector = tile.dataset.sector;
         tiles.forEach(function(t){ t.classList.toggle('active', t === tile); });
         tables.forEach(function(tbl){ tbl.style.display = (tbl.dataset.sector === sector) ? '' : 'none'; });
+        eyebrowName.textContent = sectorNames[sector];
       });
     });
   })();
@@ -662,7 +701,7 @@
 
   <!-- CTA -->
   <section style="background: var(--bg-alt); border-top: 1px solid var(--rule);">
-    <div style="max-width: 44rem; margin: 0 auto; padding: var(--space-8) 2.5rem; text-align: center;">
+    <div style="max-width: 44rem; margin: 0 auto; padding: 8rem 2.5rem; text-align: center;">
       <p class="label" style="margin-bottom: 2rem;">Confidential enquiry</p>
       <h2 style="margin-bottom: 3.5rem;">
         <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">Discuss your situation </span>
@@ -681,7 +720,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div class="footer-grid">
         <div>
-          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;" />
+          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;"  width="927" height="171" loading="lazy" />
           <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
         </div>
         <div>

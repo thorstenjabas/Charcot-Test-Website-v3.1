@@ -6,7 +6,7 @@
   <title>Contact Charcot Capital - M&amp;A Advisory, London &amp; Paris</title>
   <meta name="description" content="Contact Charcot Capital for a confidential conversation with our senior partners. We advise on M&amp;A and cross-border transactions from our offices in London and Paris." />
   <link rel="canonical" href="https://www.charcotcapital.com/contact.html" />
-  <link rel="icon" href="image_sources/charcot_logos/charcot_logo.webp" />
+  <link rel="icon" href="image_sources/charcot_logos/charcot_capital_sails_icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact Charcot Capital" />
   <meta property="og:description" content="Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries." />
@@ -15,7 +15,44 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Charcot Capital" />
   <meta name="twitter:description" content="Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "@id": "https://www.charcotcapital.com/#organization",
+    "name": "Charcot Capital",
+    "alternateName": "Charcot Capital (UK) LLP",
+    "url": "https://www.charcotcapital.com/",
+    "logo": "https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp",
+    "image": "https://www.charcotcapital.com/image_sources/charcot_logos/charcot_logo.webp",
+    "description": "Charcot Capital is a wholly partner-owned merchant bank and independent investment banking advisory firm, providing mergers and acquisitions (M&A), capital solutions, and merchant banking services to boards, founders, and financial sponsors. Advising independently since 2002.",
+    "foundingDate": "2008",
+    "founders": [
+      { "@type": "Person", "name": "Jean-Benoît Terrasse" },
+      { "@type": "Person", "name": "Clément Lavallard" }
+    ],
+    "areaServed": "Worldwide",
+    "knowsAbout": ["Mergers and Acquisitions", "M&A Advisory", "Investment Banking", "Merchant Banking", "Capital Solutions", "Financial Services"],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "18 Nevern Square",
+        "addressLocality": "London",
+        "postalCode": "SW5 9PD",
+        "addressCountry": "GB"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "18 rue Las Cases",
+        "addressLocality": "Paris",
+        "postalCode": "75007",
+        "addressCountry": "FR"
+      }
+    ],
+    "email": "info@charcotcapital.com"
+  }
+  </script>
+  <link rel="stylesheet" href="tailwind-utilities.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -110,7 +147,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;" />
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;"  width="927" height="400"/>
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -151,7 +188,7 @@
     <div class="hero-bg" aria-hidden="true">
       <img src="image_sources/contact_fence.webp"
            fetchpriority="high" decoding="async"
-           alt="" />
+           alt=""  width="2400" height="1600"/>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -176,7 +213,7 @@
       <img src="image_sources/contact_fence.webp"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
-           style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" />
+           style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"  width="2400" height="1600"/>
     </div>
     <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
     <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
@@ -192,7 +229,7 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section style="background: #fff; border-bottom: 1px solid var(--rule); margin-top: 3rem;">
+  <section style="background: #fff; border-bottom: 1px solid var(--rule); margin-top: 4rem;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem 6.5rem;">
 
       <!-- Enquiry form -->
@@ -200,7 +237,7 @@
         <p class="label" style="margin-bottom: 0.875rem;">Send an enquiry</p>
         <p style="font-size: 0.875rem; color: var(--ink-light); margin-bottom: 1.25rem; line-height: 1.65;">Enquiries are reviewed personally by a senior partner. You can expect to hear back within two business days.</p>
         <div style="background: var(--bg-alt); padding: 2.5rem;">
-          <form id="contact-form" action="https://formspree.io/f/xaqzodnr" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/xlgqjvvn" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
             <input type="hidden" name="_subject" value="New enquiry from charcotcapital.com" />
             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
               <div>
@@ -268,7 +305,7 @@
           <!-- London -->
           <div class="office-card">
             <div class="office-photo">
-              <img src="image_sources/offices/london.webp" alt="London office" style="transform: translateX(5.2%) scale(1.1); transform-origin: center center;" />
+              <img src="image_sources/offices/london.webp" alt="London office" style="transform: translateX(5.2%) scale(1.1); transform-origin: center center;"  width="900" height="1350" loading="lazy" />
               <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.08); mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
             <div class="office-body">
@@ -285,7 +322,7 @@
           <!-- Paris -->
           <div class="office-card">
             <div class="office-photo">
-              <img src="image_sources/offices/paris.webp" alt="Paris office" style="transform: scale(1.0); transform-origin: center center;" />
+              <img src="image_sources/offices/paris.webp" alt="Paris office" style="transform: scale(1.0); transform-origin: center center;"  width="900" height="1350" loading="lazy" />
               <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.08); mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
             <div class="office-body">
@@ -310,7 +347,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div class="footer-grid">
         <div>
-          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;" />
+          <img src="image_sources/charcot_logos/charcot_logo_footer.webp" alt="Charcot Capital" style="height:1.8rem; width:auto; display:block; margin-bottom:0.75rem;"  width="927" height="171" loading="lazy" />
           <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.85;max-width:18rem;">Wholly partner-owned merchant bank. Independent and senior-led since 2002.</p>
         </div>
         <div>
@@ -377,7 +414,7 @@
       const successEl=document.getElementById('form-success');
       const errorEl=document.getElementById('form-error');
       btn.textContent='Sending…';btn.disabled=true;
-      fetch('https://formspree.io/f/xaqzodnr',{
+      fetch('https://formspree.io/f/xlgqjvvn',{
         method:'POST',
         body:new FormData(form),
         headers:{'Accept':'application/json'}
