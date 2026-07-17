@@ -45,15 +45,14 @@
     .hero-bg img {
       display: block; width: 100%; height: 100%;
       object-fit: cover; object-position: 70% 20%;
-      filter: brightness(0.62);
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: linear-gradient(90deg,
-        rgba(8,9,10,0.8) 0%,
-        rgba(8,9,10,0.6) 30%,
-        rgba(8,9,10,0.3) 50%,
-        rgba(8,9,10,0) 68%);
+        rgba(52,54,58,0.58) 0%,
+        rgba(52,54,58,0.38) 26%,
+        rgba(52,54,58,0.14) 46%,
+        rgba(52,54,58,0) 62%);
     }
     .hero-text, .hero-text * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
     .hero-content {
@@ -73,7 +72,7 @@
 
     .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
     .btn-navy:hover { background: var(--navy-dark); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
 
@@ -91,6 +90,16 @@
     .form-input.invalid { border-color: #b94a6a; box-shadow: 0 0 0 3px rgba(185,74,106,0.08); }
     .field-error { display: none; font-size: 0.75rem; color: #b94a6a; margin-top: 0.375rem; }
     .field-error.visible { display: block; }
+
+    /* Office cards */
+    .office-card { display: flex; align-items: stretch; border: 1px solid var(--rule); overflow: hidden; }
+    .office-card .office-photo { position: relative; flex: 0 0 12.35rem; overflow: hidden; line-height: 0; }
+    .office-card .office-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: none; }
+    .office-card .office-body { flex: 1 1 auto; padding: 1.75rem 1.75rem; }
+    @media (max-width: 480px) {
+      .office-card { flex-direction: column; }
+      .office-card .office-photo { flex-basis: 18.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -149,9 +158,9 @@
     <div class="hero-content">
       <div class="hero-text">
         <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Contact Charcot Capital</p>
-        <h1 class="hero-title" style="margin: 0 0 1.5rem;">
+        <h1 class="hero-title" style="margin: 2rem 0;">
           <span class="serif" style="color: #fff;">A conversation</span>
-          <span class="serif-italic" style="color: var(--navy); display: block;">in confidence.</span>
+          <span class="serif-italic" style="color: #fff; display: block;">in confidence.</span>
         </h1>
         <p style="font-size: 1rem; color: #fff; line-height: 1.6; max-width: 30rem;">
           Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.
@@ -167,14 +176,14 @@
       <img src="image_sources/contact_fence.webp"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
-           style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: brightness(0.62);" />
+           style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" />
     </div>
-    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(8,9,10,0.78) 0%, rgba(8,9,10,0.58) 35%, rgba(8,9,10,0.34) 55%, rgba(8,9,10,0.15) 75%, rgba(8,9,10,0) 90%);"></div>
+    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
     <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
       <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Contact Charcot Capital</p>
-      <h1 style="margin: 0 0 1.5rem;">
+      <h1 style="margin: 1.5rem 0;">
         <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">A conversation</span>
-        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">in confidence.</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff; display: block;">in confidence.</span>
       </h1>
       <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
         Our senior partners are directly accessible from the first conversation. No gatekeepers. No intermediaries. If you have a transaction to discuss, or simply want to understand how we work, we welcome the approach.
@@ -190,7 +199,7 @@
       <div style="margin-bottom: 4rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Send an enquiry</p>
         <p style="font-size: 0.875rem; color: var(--ink-light); margin-bottom: 1.25rem; line-height: 1.65;">Enquiries are reviewed personally by a senior partner. You can expect to hear back within two business days.</p>
-        <div style="background: var(--bg-alt); padding: 2.5rem; border-top: 2px solid var(--navy);">
+        <div style="background: var(--bg-alt); padding: 2.5rem;">
           <form id="contact-form" action="https://formspree.io/f/xaqzodnr" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
             <input type="hidden" name="_subject" value="New enquiry from charcotcapital.com" />
             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.25rem;">
@@ -251,23 +260,19 @@
         </div>
       </div>
 
-      <div style="height: 1px; background: var(--rule); width: 2.5rem; margin: 1.5rem 0 1.5rem;"></div>
-
       <!-- Offices -->
       <div>
         <p class="label" style="margin-bottom: 0.875rem;">Our offices</p>
         <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.75rem;">
 
           <!-- London -->
-          <div style="overflow: hidden; border: 1px solid var(--rule);">
-            <div style="position: relative; overflow: hidden; line-height: 0;">
-              <img src="image_sources/offices/london.webp" alt="London office"
-                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center top; display: block; filter: none;" />
-              <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.2); mix-blend-mode: multiply; pointer-events: none;"></div>
+          <div class="office-card">
+            <div class="office-photo">
+              <img src="image_sources/offices/london.webp" alt="London office" style="transform: translateX(5.2%) scale(1.1); transform-origin: center center;" />
+              <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.08); mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
-            <div style="padding: 1.75rem 2rem;">
-              <p class="label" style="color: var(--navy); margin-bottom: 0.5rem;">London</p>
-              <div style="height: 1px; background: var(--navy); width: 2rem; opacity: 0.25; margin-bottom: 0.875rem;"></div>
+            <div class="office-body">
+              <p class="label" style="color: var(--navy); margin-bottom: 1.375rem;">London</p>
               <address style="font-style: normal; font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">
                 18 Nevern Square<br>London SW5 9PD<br>United Kingdom
               </address>
@@ -278,15 +283,13 @@
           </div>
 
           <!-- Paris -->
-          <div style="overflow: hidden; border: 1px solid var(--rule);">
-            <div style="position: relative; overflow: hidden; line-height: 0;">
-              <img src="image_sources/offices/paris.webp" alt="Paris office"
-                   style="width: 100%; height: 14rem; object-fit: cover; object-position: center 15%; display: block; filter: none;" />
-              <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.2); mix-blend-mode: multiply; pointer-events: none;"></div>
+          <div class="office-card">
+            <div class="office-photo">
+              <img src="image_sources/offices/paris.webp" alt="Paris office" style="transform: scale(1.0); transform-origin: center center;" />
+              <div style="position: absolute; inset: 0; background: rgba(0,32,96,0.08); mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
-            <div style="padding: 1.75rem 2rem;">
-              <p class="label" style="color: var(--navy); margin-bottom: 0.5rem;">Paris</p>
-              <div style="height: 1px; background: var(--navy); width: 2rem; opacity: 0.25; margin-bottom: 0.875rem;"></div>
+            <div class="office-body">
+              <p class="label" style="color: var(--navy); margin-bottom: 1.375rem;">Paris</p>
               <address style="font-style: normal; font-size: 1rem; color: var(--ink-mid); line-height: 1.9;">
                 18 rue Las Cases<br>75007 Paris<br>France
               </address>
@@ -335,7 +338,7 @@
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
           <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>

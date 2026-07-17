@@ -42,7 +42,7 @@
     .btn-navy:hover { background: var(--navy-dark); }
     .btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; border: 1px solid var(--rule); color: var(--ink-mid); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
 
@@ -62,6 +62,7 @@
         rgba(52,54,58,0) 62%);
     }
     .hero-text, .hero-text * { text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+    .hero-text-m, .hero-text-m * { text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
     .hero-content {
       position: relative; z-index: 1; max-width: 88rem; margin: 0 auto;
       padding: clamp(6.5rem, 15vw, 10.5rem) 2.5rem clamp(4.5rem, 9vw, 6.5rem);
@@ -76,6 +77,11 @@
     @media (max-width: 767px) {
       .hero-section { min-height: 0; }
     }
+
+    /* Dash list (matches scope-list / who-list / bio-tx-item pattern site-wide) */
+    .dash-list { list-style: none; padding-left: 0; }
+    .dash-list li { padding-left: 1.25rem; position: relative; }
+    .dash-list li::before { content: '-'; position: absolute; left: 0; color: var(--navy); opacity: 0.5; }
 
     /* Value cards */
     .value-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5rem; }
@@ -139,9 +145,9 @@
     <div class="hero-content">
       <div class="hero-text">
         <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Our origins</p>
-        <h1 class="hero-title" style="margin: 0 0 1.5rem;">
+        <h1 class="hero-title" style="margin: 2rem 0;">
           <span class="serif" style="color: #fff;">Built by practitioners,</span>
-          <span class="serif-italic" style="color: var(--navy); display: block;">for clients.</span>
+          <span class="serif-italic" style="color: #fff; display: block;">for clients.</span>
         </h1>
         <p style="font-size: 1rem; color: #fff; line-height: 1.6; max-width: 30rem;">
           The founding partners shared a background in bulge-bracket investment banking and began working together as independent advisers in 2002. Charcot Capital was formally established in 2008 as the vehicle for that partnership. Their purpose was clear from the outset: to build something different - a platform structured around the client's interests alone.
@@ -160,11 +166,11 @@
            style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" />
     </div>
     <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
-    <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
+    <div class="hero-text-m" style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
       <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Our origins</p>
-      <h1 style="margin: 0 0 1.5rem;">
+      <h1 style="margin: 1.5rem 0;">
         <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">Built by practitioners,</span>
-        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">for clients.</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff; display: block;">for clients.</span>
       </h1>
       <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
         The founding partners shared a background in bulge-bracket investment banking and began working together as independent advisers in 2002. Charcot Capital was formally established in 2008 as the vehicle for that partnership. Their purpose was clear from the outset: to build something different - a platform structured around the client's interests alone.
@@ -172,29 +178,20 @@
     </div>
   </section>
 
-  <!-- PULL QUOTE -->
-  <section style="padding: 5rem 0; background: var(--card-navy); position: relative; overflow: hidden; margin-top: 6.5rem;">
-    <div style="max-width: 56rem; margin: 0 auto; padding: 0 2.5rem; text-align: center;">
-      <p class="serif-italic" style="font-size: clamp(1.75rem, 3.25vw, 2.5rem); color: #fff; line-height: 1.45; letter-spacing: -0.015em;">
-        "At the moments that define a business - a sale, an acquisition, a strategic crossroads - the quality of advice and the character of the adviser matter above all else."
-      </p>
-    </div>
-  </section>
-
   <!-- POURQUOI-PAS -->
   <section style="padding: 6.5rem 0 3rem; background: #fff;">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
-      <div class="grid grid-cols-1 lg:grid-cols-2" style="gap: 5rem; align-items: start;">
 
-        <!-- Left: text -->
-        <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+      <!-- Row 1: heading + intro paragraph / portrait -->
+      <div class="flex flex-col lg:flex-row" style="gap: 3rem; align-items: flex-start;">
+
+        <div style="display: flex; flex-direction: column; gap: 1.75rem; max-width: 44rem;">
           <div>
             <p class="label" style="margin-bottom: 0.875rem;">Pourquoi-Pas?</p>
             <h2 style="margin-bottom: 1.5rem;">
               <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">We chose our firm's name </span>
               <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy); display: block;">with clear intent.</span>
             </h2>
-            <div style="height: 1px; background: var(--rule); width: 2.5rem;"></div>
           </div>
 
           <p style="color: var(--ink-light); line-height: 1.7;">
@@ -203,7 +200,7 @@
 
           <!-- Mobile portrait -->
           <div class="lg:hidden">
-            <div style="overflow: hidden; aspect-ratio: 3/2;">
+            <div style="overflow: hidden; aspect-ratio: 4/5;">
               <img src="image_sources/Jean_Baptiste_Charcot.webp"
                    alt="Commandant Jean-Baptiste Charcot, French explorer and naval officer"
                    style="width:100%; height:100%; object-fit:cover; object-position:center 10%; display:block;" />
@@ -213,12 +210,45 @@
               <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">Commandant Jean-Baptiste Charcot<br><span style="font-size: 0.75rem; color: var(--ink-light);">French scientist, explorer, naval officer (1867-1936)</span></p>
             </div>
           </div>
+        </div>
 
+        <!-- Portrait (desktop only), sized to 60% of the text-column image width -->
+        <div class="hidden lg:block" style="flex: 0 0 26rem;">
+          <div style="overflow: hidden; aspect-ratio: 4/5; width: 26rem;">
+            <img src="image_sources/Jean_Baptiste_Charcot.webp"
+                 alt="Commandant Jean-Baptiste Charcot, French explorer and naval officer"
+                 style="width:100%; height:100%; object-fit:cover; object-position:center 10%; display:block;" />
+          </div>
+          <div style="margin-top: 0.75rem; width: 26rem;">
+            <p class="label" style="margin-bottom: 0.25rem;">The explorer</p>
+            <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">Commandant Jean-Baptiste Charcot<br><span style="font-size: 0.75rem; color: var(--ink-light);">French scientist, explorer, naval officer (1867-1936)</span></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: pullout + remaining paragraphs / vessel image, tops aligned -->
+      <div class="flex flex-col lg:flex-row" style="gap: 3rem; align-items: flex-start; margin-top: 1.75rem;">
+
+        <div style="display: flex; flex-direction: column; gap: 1.75rem; max-width: 44rem;">
           <!-- Pullout box -->
           <div style="border-left: 3px solid var(--navy); padding: 1.25rem 1.75rem; background: var(--bg-alt);">
             <p class="serif-italic" style="font-size: clamp(1.5rem, 2.5vw, 2.25rem); color: var(--navy); line-height: 1.55;">
               His ship was named the <em>Pourquoi-Pas?</em> - Why not?
             </p>
+          </div>
+
+          <!-- Mobile vessel image -->
+          <div class="lg:hidden">
+            <div style="overflow: hidden; aspect-ratio: 3/2;">
+              <img src="image_sources/vessel.webp"
+                   alt="A three-masted barquentine of the type Charcot's Pourquoi-Pas? sailed"
+                   style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;" />
+            </div>
+            <div style="margin-top: 0.75rem;">
+              <p class="label" style="margin-bottom: 0.25rem;">The vessel</p>
+              <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">Inspired by the Pourquoi-Pas?<br><span style="font-size: 0.75rem; color: var(--ink-light);">Charcot's polar research vessel</span></p>
+            </div>
           </div>
 
           <p style="color: var(--ink-light); line-height: 1.7;">
@@ -228,48 +258,19 @@
           <p style="color: var(--ink-light); line-height: 1.7;">
             We chose the name because it reflects something we believe about advisory work at its best: that the most valuable counsel does not simply confirm what a client expects to hear. It asks <em>Pourquoi-Pas?</em> - challenges assumptions, finds routes others have overlooked, and has the courage to follow them.
           </p>
-
-          <!-- Mobile ship image -->
-          <div class="lg:hidden">
-            <div style="overflow: hidden; aspect-ratio: 3/2;">
-              <img src="image_sources/Pourquoi_pas.webp"
-                   alt="The Pourquoi-Pas? - Commandant Charcot's polar research vessel"
-                   style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;" />
-            </div>
-            <div style="margin-top: 0.75rem;">
-              <p class="label" style="margin-bottom: 0.25rem;">The ship</p>
-              <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">The Pourquoi-Pas?<br><span style="font-size: 0.75rem; color: var(--ink-light);">Charcot's polar research vessel</span></p>
-            </div>
-          </div>
         </div>
 
-        <!-- Right: images stacked -->
-        <div class="hidden lg:flex" style="flex-direction: column; gap: 2rem; padding-top: 8.5rem;">
-
-          <div>
-            <div style="overflow: hidden; aspect-ratio: 3/2;">
-              <img src="image_sources/Jean_Baptiste_Charcot.webp"
-                   alt="Commandant Jean-Baptiste Charcot, French explorer and naval officer"
-                   style="width:100%; height:100%; object-fit:cover; object-position:center 10%; display:block;" />
-            </div>
-            <div style="margin-top: 0.75rem;">
-              <p class="label" style="margin-bottom: 0.25rem;">The explorer</p>
-              <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">Commandant Jean-Baptiste Charcot<br><span style="font-size: 0.75rem; color: var(--ink-light);">French scientist, explorer, naval officer (1867-1936)</span></p>
-            </div>
+        <!-- Vessel image (desktop only), top-aligned with the pullout box -->
+        <div class="hidden lg:block" style="flex: 0 0 26rem;">
+          <div style="overflow: hidden; aspect-ratio: 3/2; width: 26rem;">
+            <img src="image_sources/vessel.webp"
+                 alt="A three-masted barquentine of the type Charcot's Pourquoi-Pas? sailed"
+                 style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;" />
           </div>
-
-          <div>
-            <div style="overflow: hidden; aspect-ratio: 3/2;">
-              <img src="image_sources/Pourquoi_pas.webp"
-                   alt="The Pourquoi-Pas? - Commandant Charcot's polar research vessel"
-                   style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;" />
-            </div>
-            <div style="margin-top: 0.75rem;">
-              <p class="label" style="margin-bottom: 0.25rem;">The ship</p>
-              <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">The Pourquoi-Pas?<br><span style="font-size: 0.75rem; color: var(--ink-light);">Charcot's polar research vessel</span></p>
-            </div>
+          <div style="margin-top: 0.75rem; width: 26rem;">
+            <p class="label" style="margin-bottom: 0.25rem;">The vessel</p>
+            <p style="font-size: 0.875rem; color: var(--ink-mid); line-height: 1.4;">Inspired by the Pourquoi-Pas?<br><span style="font-size: 0.75rem; color: var(--ink-light);">Charcot's polar research vessel</span></p>
           </div>
-
         </div>
 
       </div>
@@ -315,34 +316,33 @@
     </div>
   </section>
 
+  <!-- PULL QUOTE -->
+  <section style="padding: 5rem 0; margin: 4rem 0; background: var(--card-navy); position: relative; overflow: hidden;">
+    <div style="max-width: 56rem; margin: 0 auto; padding: 0 2.5rem; text-align: center;">
+      <p class="serif-italic" style="font-size: clamp(1.75rem, 3.25vw, 2.5rem); color: #fff; line-height: 1.45; letter-spacing: -0.015em;">
+        "At the moments that define a business - a sale, an acquisition, a strategic crossroads - the quality of advice and the character of the adviser matter above all else."
+      </p>
+    </div>
+  </section>
+
   <!-- WHY IT MATTERS -->
   <section style="padding: 3.5rem 0 6.5rem; background: #fff; border-top: 1px solid var(--rule);">
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
 
-      <div style="margin-bottom: 2.5rem; max-width: 44rem;">
+      <div style="margin-bottom: 2.5rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Why it matters</p>
         <h2 style="margin-bottom: 1.5rem;">
           <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">The outcome you achieve depends entirely on</span><span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);"> who is working for it.</span>
         </h2>
-        <div style="height: 1px; background: var(--rule); width: 2.5rem;"></div>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.52;">Whether you are selling a business built over decades, acquiring a strategic target, or steering a board through a critical decision - this is likely one of the most consequential transactions of your professional life. The quality of the advice you receive, and the commitment of the person giving it, will shape what is achievable.</p>
-        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.52;">When you work with Charcot Capital, you have direct access to the senior partners throughout your mandate. The same people who designed your strategy are the ones in the room at every negotiation.</p>
-        <ul style="display: flex; flex-direction: column; gap: 1rem; padding: 0; list-style: none;">
-          <li style="display: flex; gap: 1.25rem; align-items: flex-start;">
-            <span style="flex-shrink:0; color: var(--navy); margin-top: 0.25rem;"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-            <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">The same senior partner from your first conversation to the day you close</span>
-          </li>
-          <li style="display: flex; gap: 1.25rem; align-items: flex-start;">
-            <span style="flex-shrink:0; color: var(--navy); margin-top: 0.25rem;"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-            <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Full commitment to your mandate - we take a limited number each year, by design</span>
-          </li>
-          <li style="display: flex; gap: 1.25rem; align-items: flex-start;">
-            <span style="flex-shrink:0; color: var(--navy); margin-top: 0.25rem;"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-            <span style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Advice shaped entirely by your situation and your goals</span>
-          </li>
+      <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 52rem;">
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">Whether you are selling a business built over decades, acquiring a strategic target, or steering a board through a critical decision - this is likely one of the most consequential transactions of your professional life. The quality of the advice you receive, and the commitment of the person giving it, will shape what is achievable.</p>
+        <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7;">When you work with Charcot Capital, you have direct access to the senior partners throughout your mandate. The same people who designed your strategy are the ones in the room at every negotiation.</p>
+        <ul class="dash-list" style="display: flex; flex-direction: column; gap: 1rem;">
+          <li style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">The same senior partner from your first conversation to the day you close</li>
+          <li style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Full commitment to your mandate - we take a limited number each year, by design</li>
+          <li style="font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.65;">Advice shaped entirely by your situation and your goals</li>
         </ul>
       </div>
 
@@ -353,15 +353,14 @@
   <section style="background: var(--bg-alt); border-top: 1px solid var(--rule);">
     <div style="max-width: 44rem; margin: 0 auto; padding: 8rem 2.5rem; text-align: center;">
       <p class="label" style="margin-bottom: 2rem;">Get in touch</p>
-      <h2 style="margin-bottom: 1.75rem;">
+      <h2 style="margin-bottom: 3.5rem;">
         <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">Speak directly </span>
         <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">with the partners.</span>
       </h2>
-      <div style="height: 1px; background: var(--rule); width: 2.5rem; margin: 0 auto 1.75rem;"></div>
       <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem;">The partners who advise on a mandate lead it personally - from first conversation to final close. An initial call is always available, at any stage.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
-        <a href="contact.html" class="btn-navy">Contact us</a>
-        <a href="services.html" class="btn-ghost">Our services</a>
+        <a href="contact.html" class="btn-navy" style="width: 11.7rem; white-space: nowrap;">Contact us</a>
+        <a href="services.html" class="btn-ghost" style="width: 11.7rem; white-space: nowrap;">Our services</a>
       </div>
     </div>
   </section>
@@ -399,7 +398,7 @@
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
           <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>

@@ -42,7 +42,7 @@
     .btn-navy:hover { background: var(--navy-dark); }
     .btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; border: 1px solid var(--rule); color: var(--ink-mid); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
 
@@ -84,9 +84,36 @@
     .tombstone-card img { width: 100%; height: auto; display: block; }
     .tombstone-caption { display: none; }
 
-    /* KPI bar */
-    .kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; background: transparent; }
-    @media (max-width: 767px) { .kpi-grid { grid-template-columns: 1fr; } }
+    /* Hero: full-bleed photo, text overlaid directly on the image (no white card panel). */
+    .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; background: #0b0c0f; }
+    .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; }
+    .hero-bg img {
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; object-position: 68% 42%;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: linear-gradient(90deg,
+        rgba(52,54,58,0.58) 0%,
+        rgba(52,54,58,0.38) 26%,
+        rgba(52,54,58,0.14) 46%,
+        rgba(52,54,58,0) 62%);
+    }
+    .hero-text, .hero-text * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
+    .hero-content {
+      position: relative; z-index: 1; max-width: 88rem; margin: 0 auto;
+      padding: clamp(6.5rem, 15vw, 10.5rem) 2.5rem clamp(4.5rem, 9vw, 6.5rem);
+    }
+    .hero-text { max-width: clamp(28rem, 40vw, 44rem); }
+    .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; }
+    .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
+
+    @media (max-width: 1024px) {
+      .hero-bg img { object-position: 60% 42%; }
+    }
+    @media (max-width: 767px) {
+      .hero-section { min-height: 0; }
+    }
   </style>
 </head>
 <body>
@@ -132,27 +159,68 @@
     </div>
   </div>
 
-  <!-- TRACK RECORD + GEOGRAPHIC FOOTPRINT -->
-  <section style="padding-top: 4.5rem; background: #fff; border-bottom: 1px solid var(--rule);">
-    <div style="max-width: 88rem; margin: 0 auto; padding: 5rem 2.5rem 2rem;">
+  <!-- PAGE HERO -->
+  <section class="hero-section hidden md:block">
 
-      <div style="max-width: 54rem; margin: 0 0 1.5rem;">
-        <p class="label" style="margin-bottom: 1.5rem;">Geographic footprint</p>
-        <h1 style="margin-bottom: 1rem;">
-          <span class="serif" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--ink);">A track record built across</span>
-          <span class="serif-italic" style="font-size: clamp(2.75rem, 5vw, 5rem); color: var(--navy); display: block;">five continents.</span>
+    <div class="hero-bg" aria-hidden="true">
+      <img src="image_sources/team_bell.webp"
+           fetchpriority="high" decoding="async"
+           alt="" />
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Geographic footprint</p>
+        <h1 class="hero-title" style="margin: 2rem 0;">
+          <span class="serif" style="color: #fff;">A track record built&nbsp;across</span>
+          <span class="serif-italic" style="color: #fff; display: block;">five continents.</span>
         </h1>
+        <p style="font-size: 1rem; color: #fff; line-height: 1.6; max-width: 30rem;">
+          Since 2002, Charcot Capital has advised on more than 56 transactions across five continents - M&amp;A advisory, capital raising, and principal investment for corporates, entrepreneurs, and financial sponsors.
+        </p>
       </div>
+    </div>
 
-      <!-- Map -->
-      <div style="max-width: 68rem; margin: 0 auto;">
-        <img src="image_sources/map/transactions_map.svg"
-             alt="World map showing Charcot Capital deal geographies - primary markets in dark navy, secondary markets in light blue"
-             style="width: 100%; height: auto; display: block;" />
-      </div>
+  </section>
 
-      <!-- Map legend -->
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; max-width: 68rem;">
+  <!-- PAGE HERO (mobile) -->
+  <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
+    <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
+      <img src="image_sources/team_bell.webp"
+           fetchpriority="high" decoding="async"
+           alt="" aria-hidden="true"
+           style="width: 100%; height: 100%; object-fit: cover; object-position: 55% 42%; display: block;" />
+    </div>
+    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
+    <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
+      <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Geographic footprint</p>
+      <h1 style="margin: 1.5rem 0;">
+        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">A track record built&nbsp;across</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff; display: block;">five continents.</span>
+      </h1>
+      <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
+        Since 2002, Charcot Capital has advised on more than 56 transactions across five continents - M&amp;A advisory, capital raising, and principal investment for corporates, entrepreneurs, and financial sponsors.
+      </p>
+    </div>
+  </section>
+
+  <!-- GEOGRAPHIC FOOTPRINT MAP -->
+  <section style="padding: 6.5rem 0 0; background: #fff; border-bottom: 1px solid var(--rule);">
+
+    <!-- Section intro -->
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
+      <p class="label" style="margin-bottom: 0.875rem;">Global reach</p>
+      <h2>
+        <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">Presence built </span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">mandate by mandate.</span>
+      </h2>
+    </div>
+
+    <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem 2rem; display: flex; flex-direction: column;">
+
+      <!-- Map legend: below map on mobile, above map on desktop -->
+      <div class="order-2 lg:order-1 mt-6 lg:mt-8" style="display: flex; flex-wrap: wrap; gap: 2rem; max-width: 68rem;">
         <div style="display: flex; align-items: center; gap: 0.625rem;">
           <div style="width: 1rem; height: 1rem; background: var(--navy); flex-shrink: 0;"></div>
           <span style="font-size: 0.8125rem; color: var(--ink-light);">Primary deal geography - multiple transactions or deep market presence</span>
@@ -163,26 +231,13 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- KPI bar -->
-    <div style="background: #fff; border-top: 1px solid var(--rule);">
-      <div style="max-width: 88rem; margin: 0 auto;">
-        <div class="kpi-grid">
-          <div style="padding: 1.75rem 2.25rem; background: var(--bg-alt);">
-            <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1; margin-bottom: 0.5rem;">&gt; 56 transactions</p>
-            <p class="label" style="color: var(--ink-light);">Across public and private markets since 2002</p>
-          </div>
-          <div style="padding: 1.75rem 2.25rem; background: var(--bg-alt);">
-            <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1; margin-bottom: 0.5rem;">&gt; 43 countries</p>
-            <p class="label" style="color: var(--ink-light);">Spanning Europe, the Americas, Africa, Asia, and Australia</p>
-          </div>
-          <div style="padding: 1.75rem 2.25rem; background: var(--bg-alt);">
-            <p class="serif" style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1; margin-bottom: 0.5rem;">&gt; 70% referral</p>
-            <p class="label" style="color: var(--ink-light);">Referral and repeat clients - a measure of the trust we build</p>
-          </div>
-        </div>
+      <!-- Map -->
+      <div class="order-1 lg:order-2 mt-8 lg:mt-6" style="width: 100%;">
+        <img src="image_sources/map/transactions_map.svg"
+             alt="World map showing Charcot Capital deal geographies - primary markets in dark navy, secondary markets in grey"
+             style="width: 100%; height: auto; display: block;" />
       </div>
+
     </div>
   </section>
 
@@ -192,9 +247,9 @@
 
       <div style="margin-bottom: 3.5rem;">
         <p class="label" style="margin-bottom: 0.875rem;">Selected transactions</p>
-        <h2 style="margin-bottom: 1.25rem;">
-          <span class="serif" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--ink);">A record of </span>
-          <span class="serif-italic" style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--navy);">advisory work done.</span>
+        <h2 style="margin-bottom: 3rem;">
+          <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">A record of </span>
+          <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">advisory work done.</span>
         </h2>
         <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; max-width: 52rem;">The tombstones below represent a selection of completed mandates. They span M&amp;A advisory, capital raising, and principal investments across sectors ranging from food and agriculture to industrials, healthcare, and financial services.</p>
 
@@ -210,27 +265,28 @@
 
       <div class="tombstone-grid">
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/04_2026_United_Rentals_Inc.png" loading="lazy" alt="United Rentals - Sell-side M&amp;A" /><div class="tombstone-caption"><p>United Rentals - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/15_2019_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/22_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/34_2013_Danone_SA.png" loading="lazy" alt="Danone - Buy-side M&amp;A" /><div class="tombstone-caption"><p>Danone - Buy-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/43_2010_General_Electric_Company.png" loading="lazy" alt="General Electric - Sell-side M&amp;A" /><div class="tombstone-caption"><p>General Electric - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/23_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Buy-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew - Buy-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/31_2014_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - M&amp;A Advisory" /><div class="tombstone-caption"><p>Smith &amp; Nephew - M&amp;A Advisory</p></div></div>
+        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/15_2019_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew - Sell-side M&amp;A</p></div></div>
+        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/22_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/55_2007_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory" /><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/57_2001_Thales_plc.png" loading="lazy" alt="Thales - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Thales - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/26_2015_Danone_SA.png" loading="lazy" alt="Danone - M&amp;A Advisory" /><div class="tombstone-caption"><p>Danone - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/32_2013_General_Electric_Company.png" loading="lazy" alt="General Electric - Sell-side M&amp;A" /><div class="tombstone-caption"><p>General Electric - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/40_2011_CWT_Limited.png" loading="lazy" alt="CWT Limited - M&amp;A Advisory" /><div class="tombstone-caption"><p>CWT Limited - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/07_2025_Adcorp.png" loading="lazy" alt="Adcorp - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Adcorp - Sell-side M&amp;A</p></div></div>
+        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/23_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Buy-side M&amp;A" /><div class="tombstone-caption"><p>Smith &amp; Nephew - Buy-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/24_2016_Krispy_Kreme.png" loading="lazy" alt="Krispy Kreme - M&amp;A Advisory" /><div class="tombstone-caption"><p>Krispy Kreme - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/39_2011_CalyxAgro.png" loading="lazy" alt="CalyxAgro - Sell-side M&amp;A" /><div class="tombstone-caption"><p>CalyxAgro - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/08_2022_Bracco_SpA.png" loading="lazy" alt="Bracco SpA - M&amp;A Advisory" /><div class="tombstone-caption"><p>Bracco SpA - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/09_2022_Bracco_SpA.png" loading="lazy" alt="Bracco SpA - M&amp;A Advisory" /><div class="tombstone-caption"><p>Bracco SpA - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/29_2014_Danone_SA.png" loading="lazy" alt="Danone - Buy-side M&amp;A" /><div class="tombstone-caption"><p>Danone - Buy-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/46_2009_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory" /><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
+        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/31_2014_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - M&amp;A Advisory" /><div class="tombstone-caption"><p>Smith &amp; Nephew - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/49_2008_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory" /><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
         <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/50_2008_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory" /><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
 
+        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/02_2026_Proske_GmbH.png" loading="lazy" alt="Proske - Board advisory" /><div class="tombstone-caption"><p>Proske - Board advisory</p></div></div>
         <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/16_2019_YES_Ltd__Corporate_Events.png" loading="lazy" alt="YES Ltd - Sell-side M&amp;A" /><div class="tombstone-caption"><p>YES Ltd - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/44_2010_Windsor__Brook_Trading_Pte_L.png" loading="lazy" alt="Windsor &amp; Brook Trading - Sell-side M&amp;A" /><div class="tombstone-caption"><p>Windsor &amp; Brook Trading - Sell-side M&amp;A</p></div></div>
         <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/45_2010_PT_Jawamanis_Rafinasi.png" loading="lazy" alt="PT Jawamanis Rafinasi - Sell-side M&amp;A" /><div class="tombstone-caption"><p>PT Jawamanis Rafinasi - Sell-side M&amp;A</p></div></div>
@@ -300,11 +356,11 @@
   <section style="background: var(--bg-alt); border-top: 1px solid var(--rule);">
     <div style="max-width: 44rem; margin: 0 auto; padding: 8rem 2.5rem; text-align: center;">
       <p class="label" style="margin-bottom: 2rem;">Get in touch</p>
-      <h2 style="margin-bottom: 1.75rem;">
+      <h2 style="margin-bottom: 3.5rem;">
         <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">Every mandate here </span>
         <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">was led by a partner.</span>
       </h2>
-      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem; margin-top: 1.75rem;">The same partners whose names appear on these transactions are the people who will lead yours. Senior judgement at every stage, from origination to close.</p>
+      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem;">The same partners whose names appear on these transactions are the people who will lead yours. Senior judgement at every stage, from origination to close.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
         <a href="contact.html" class="btn-navy">Contact us</a>
         <a href="team.html" class="btn-ghost">Meet the partners</a>
@@ -345,7 +401,7 @@
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
           <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>

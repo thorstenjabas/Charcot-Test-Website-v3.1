@@ -42,7 +42,7 @@
     .btn-navy:hover { background: var(--navy-dark); }
     .btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; border: 1px solid var(--rule); color: var(--ink-mid); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
 
@@ -52,15 +52,14 @@
     .hero-bg img {
       display: block; width: 100%; height: 100%;
       object-fit: cover; object-position: 78% 32%;
-      filter: brightness(0.62);
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: linear-gradient(90deg,
-        rgba(8,9,10,0.8) 0%,
-        rgba(8,9,10,0.6) 30%,
-        rgba(8,9,10,0.3) 50%,
-        rgba(8,9,10,0) 68%);
+        rgba(52,54,58,0.58) 0%,
+        rgba(52,54,58,0.38) 26%,
+        rgba(52,54,58,0.14) 46%,
+        rgba(52,54,58,0) 62%);
     }
     .hero-text, .hero-text * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
     .hero-content {
@@ -156,7 +155,7 @@
   <section class="hero-section hidden md:block">
 
     <div class="hero-bg" aria-hidden="true">
-      <img src="image_sources/team_bell.webp"
+      <img src="image_sources/helm.webp"
            fetchpriority="high" decoding="async"
            alt="" />
     </div>
@@ -165,9 +164,9 @@
     <div class="hero-content">
       <div class="hero-text">
         <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Direct access</p>
-        <h1 class="hero-title" style="margin: 0 0 1.5rem;">
+        <h1 class="hero-title" style="margin: 2rem 0;">
           <span class="serif" style="color: #fff;">Experience applied</span>
-          <span class="serif-italic" style="color: var(--navy); display: block;">without dilution.</span>
+          <span class="serif-italic" style="color: #fff;">without dilution.</span>
         </h1>
         <p style="font-size: 1rem; color: #fff; line-height: 1.6; max-width: 30rem;">
           The founding partners came from senior advisory roles at leading international investment banks, with three decades of M&amp;A experience across transactions in more than 40 countries. At Charcot, that experience is applied directly: on a deliberately limited number of mandates, by the partners themselves, from first conversation to final close. The names in the transaction record are theirs. The partner you meet at the outset is the partner accountable at close.
@@ -180,17 +179,17 @@
   <!-- PAGE HERO (mobile) -->
   <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
     <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
-      <img src="image_sources/team_bell.webp"
+      <img src="image_sources/helm.webp"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
-           style="width: 100%; height: 100%; object-fit: cover; object-position: 65% center; display: block; filter: brightness(0.62);" />
+           style="width: 100%; height: 100%; object-fit: cover; object-position: 65% center; display: block;" />
     </div>
-    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(8,9,10,0.78) 0%, rgba(8,9,10,0.58) 35%, rgba(8,9,10,0.34) 55%, rgba(8,9,10,0.15) 75%, rgba(8,9,10,0) 90%);"></div>
+    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
     <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
       <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Direct access</p>
-      <h1 style="margin: 0 0 1.5rem;">
+      <h1 style="margin: 1.5rem 0;">
         <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">Experience applied</span>
-        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: var(--navy);">without dilution.</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">without dilution.</span>
       </h1>
       <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
         The founding partners came from senior advisory roles at leading international investment banks, with three decades of M&amp;A experience across transactions in more than 40 countries. At Charcot, that experience is applied directly: on a deliberately limited number of mandates, by the partners themselves, from first conversation to final close. The names in the transaction record are theirs. The partner you meet at the outset is the partner accountable at close.
@@ -206,7 +205,7 @@
       <div style="padding: 4.5rem 0 0; max-width: 52rem;">
         <p class="label" style="margin-bottom: 1.5rem;">Partners and leadership team</p>
         <h2>
-          <span class="serif" style="font-size: clamp(1.75rem, 3vw, 2.75rem); color: var(--ink); line-height: 1.3;">The partner who opens your conversation is the partner </span><span class="serif-italic" style="font-size: clamp(1.75rem, 3vw, 2.75rem); color: var(--navy);">in the room at close, and at every meeting in between.</span>
+          <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink); line-height: 1.3;">The partner who opens your conversation is the partner </span><span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">in the room at close, and at every meeting in between.</span>
         </h2>
       </div>
 
@@ -337,11 +336,11 @@
   <section style="background: var(--bg-alt); border-top: 1px solid var(--rule);">
     <div style="max-width: 44rem; margin: 0 auto; padding: 8rem 2.5rem; text-align: center;">
       <p class="label" style="margin-bottom: 2rem;">Get in touch</p>
-      <h2 style="margin-bottom: 1.75rem;">
+      <h2 style="margin-bottom: 3.5rem;">
         <span class="serif" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--ink);">An initial conversation </span>
         <span class="serif-italic" style="font-size: clamp(2.25rem, 3.5vw, 3.5rem); color: var(--navy);">is always in confidence.</span>
       </h2>
-      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem; margin-top: 1.75rem;">Senior partners are available to discuss any situation - a potential mandate, a question about market conditions, or simply to share perspective.</p>
+      <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem;">Senior partners are available to discuss any situation - a potential mandate, a question about market conditions, or simply to share perspective.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
         <a href="contact.html" class="btn-navy">Contact us</a>
         <a href="services.html" class="btn-ghost">Our services</a>
@@ -382,7 +381,7 @@
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1.5rem 0;border-top:1px solid var(--rule);margin-top:0;">
-        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;max-width:72rem;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
+        <p style="font-size:0.8125rem;color:var(--ink-light);line-height:1.7;">Charcot Capital (UK) LLP is registered in England and Wales. Registered office: 18 Nevern Square, London SW5 9PD, United Kingdom. This website is provided for information purposes only and does not constitute financial or investment advice. &copy; 2002-<span id="copyright-year">2026</span> Charcot Capital (UK) LLP. All rights reserved.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
           <a href="privacy.html" style="font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Privacy &amp; Terms</a>
         </div>
