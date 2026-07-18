@@ -153,11 +153,11 @@
       display: inline-flex; align-items: center; justify-content: center;
       padding: 0.8125rem 2rem;
       border: 1px solid rgba(255,255,255,0.55); color: #fff;
-      background: rgba(20,22,26,0.4);
+      background: rgba(52,54,58,0.55);
       font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.02em;
       transition: border-color 0.2s, background 0.2s;
     }
-    .btn-ghost-white:hover { border-color: #fff; background: rgba(20,22,26,0.6); }
+    .btn-ghost-white:hover { border-color: #fff; background: rgba(52,54,58,0.8); }
     .btn-ghost-white:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
     /* Proof strip responsive */
@@ -195,6 +195,8 @@
     }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px)  { .footer-grid { grid-template-columns: 1fr; } }
+    .nav-logo { height: 2.5rem; width: auto; }
+    @media (max-width: 767px) { .nav-logo { height: 1.8rem; } .footer-links { line-height: 1.5 !important; } }
 
     /* CTA section */
     .cta-grid { display: grid; grid-template-columns: 55fr 45fr; gap: 4rem; align-items: center; }
@@ -211,12 +213,12 @@
     .hero-overlay {
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: linear-gradient(90deg,
-        rgba(52,54,58,0.58) 0%,
-        rgba(52,54,58,0.38) 26%,
-        rgba(52,54,58,0.14) 46%,
-        rgba(52,54,58,0) 62%);
+        rgba(52,54,58,0.62) 0%,
+        rgba(52,54,58,0.46) 32%,
+        rgba(52,54,58,0.22) 56%,
+        rgba(52,54,58,0) 74%);
     }
-    .hero-text, .hero-text * { text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+    .hero-text, .hero-text * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
     .hero-content {
       position: relative; z-index: 1; max-width: 88rem; margin: 0 auto;
       padding: clamp(6.5rem, 15vw, 10.5rem) 2.5rem clamp(4.5rem, 9vw, 6.5rem);
@@ -243,7 +245,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;"  width="927" height="400"/>
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" class="nav-logo"  width="927" height="171"/>
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -284,7 +286,7 @@
   <section class="hero-section hidden md:block">
 
     <div class="hero-bg" aria-hidden="true">
-      <img src="image_sources/mast_and_sail.webp"
+      <img src="image_sources/index_mast_sail.webp"
            width="4032" height="3024"
            fetchpriority="high" decoding="async"
            alt="" />
@@ -298,7 +300,7 @@
           <span class="serif" style="color: #fff;">Every M&amp;A transaction<br>has its own</span>
           <span class="serif-italic" style="color: #fff;">true bearing.</span>
         </h1>
-        <p style="font-size: 1rem; color: #fff; line-height: 1.6; margin-bottom: 2rem;">
+        <p style="font-size: 1rem; color: #f7f6f3; line-height: 1.6; margin-bottom: 2rem;">
           Charcot Capital advises boards, founders, and financial sponsors on cross-border mergers and acquisitions. As merchant bankers, we selectively co-invest alongside our clients.
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2.5rem;">
@@ -313,20 +315,20 @@
   <!-- HERO (mobile) -->
   <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
     <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
-      <img src="image_sources/mast_and_sail.webp"
+      <img src="image_sources/index_mast_sail.webp"
            width="4032" height="3024"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
            style="width: 100%; height: 100%; object-fit: cover; object-position: 66% 0%; display: block;" />
     </div>
-    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
+    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.62) 0%, rgba(52,54,58,0.46) 40%, rgba(52,54,58,0.28) 62%, rgba(52,54,58,0.14) 80%, rgba(52,54,58,0) 92%);"></div>
     <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
-      <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Independent merchant bank</p>
+      <p class="label" style="color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); margin-bottom: 1.5rem;">Independent merchant bank</p>
       <h1 style="margin: 1.5rem 0;">
-        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">Every M&amp;A transaction has its own</span>
-        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">true bearing.</span>
+        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45);">Every M&amp;A transaction has its own</span>
+        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45);">true bearing.</span>
       </h1>
-      <p style="font-size: 1rem; color: #fff; line-height: 1.6; margin-bottom: 2rem;">
+      <p style="font-size: 1rem; color: #f7f6f3; line-height: 1.6; margin-bottom: 2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45);">
         Charcot Capital advises boards, founders, and financial sponsors on cross-border mergers and acquisitions. As merchant bankers, we selectively co-invest alongside clients.
       </p>
       <div style="display: flex; flex-wrap: wrap; gap: 0.875rem; margin-top: 2rem;">
@@ -587,7 +589,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
             <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
             <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
@@ -595,7 +597,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
             <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
             <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
@@ -603,7 +605,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
-          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+          <address class="footer-links" style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
             18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>

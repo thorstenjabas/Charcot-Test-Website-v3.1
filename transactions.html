@@ -82,6 +82,8 @@
     .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+    .nav-logo { height: 2.5rem; width: auto; }
+    @media (max-width: 767px) { .nav-logo { height: 1.8rem; } .footer-links { line-height: 1.5 !important; } }
 
     /* Tombstones */
     .tombstone-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.75rem; }
@@ -120,6 +122,68 @@
     }
     .tombstone-card img { width: 100%; height: auto; display: block; }
     .tombstone-caption { display: none; }
+
+    /* Tombstone cards (HTML/CSS, replacing the old PNG tombstones) */
+    .cc-tombstone {
+      position: relative;
+      aspect-ratio: 732 / 874;
+      container-type: inline-size;
+      font-family: 'Inter Tight', system-ui, sans-serif;
+      color: var(--ink);
+    }
+    .cc-tombstone__rule {
+      position: absolute; top: 7.55%; left: 6.7%; right: 6.7%;
+      border-top: 1px solid var(--rule);
+    }
+    .cc-tombstone__type {
+      position: absolute; top: 7.55%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff; padding: 0 0.6em;
+      font-weight: 700; font-size: 12px; white-space: nowrap;
+    }
+    .cc-tombstone__short {
+      position: absolute; top: 14.2%; left: 9%; right: 9%;
+      text-align: center; font-weight: 700; font-size: 9px; line-height: 1.35;
+    }
+    .cc-tombstone__primary {
+      position: absolute; top: 37.8%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 77.9%; height: 21.6%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cc-tombstone--advisory .cc-tombstone__primary { height: 24%; }
+    .cc-tombstone__primary img {
+      max-width: 100%; max-height: 100%; width: auto; height: auto;
+      display: block; object-fit: contain;
+    }
+    .cc-tombstone__primary-name { font-weight: 700; font-size: 12px; text-align: center; white-space: normal; }
+    .cc-tombstone__confidential {
+      position: absolute; top: 37.8%; left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid var(--ink-light); color: var(--ink-light);
+      font-weight: 700; font-size: 12px; padding: 0.5em 1.4em; white-space: nowrap;
+    }
+    .cc-tombstone__desc {
+      position: absolute; top: 53%; left: 7.5%; right: 7.5%;
+      text-align: center; font-weight: 400; font-size: 9.5px; line-height: 1.35;
+    }
+    .cc-tombstone__secondary {
+      position: absolute; top: 84.7%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 67%; height: 15.2%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cc-tombstone__secondary img {
+      max-width: 100%; max-height: 100%; width: auto; height: auto;
+      display: block; object-fit: contain;
+    }
+    .cc-tombstone__secondary-name { font-weight: 400; font-size: 12px; text-align: center; }
+    @supports (font-size: 1cqw) {
+      .cc-tombstone__type, .cc-tombstone__primary-name, .cc-tombstone__confidential { font-size: 7.1cqw; }
+      .cc-tombstone__short { font-size: 4.9cqw; }
+      .cc-tombstone__desc { font-size: 5.2cqw; }
+      .cc-tombstone__secondary-name { font-size: 7.1cqw; }
+    }
 
     /* Hero: full-bleed photo, text overlaid directly on the image (no white card panel). */
     .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; background: #0b0c0f; }
@@ -161,7 +225,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;"  width="927" height="400"/>
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" class="nav-logo"  width="927" height="171"/>
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -200,7 +264,7 @@
   <section class="hero-section hidden md:block">
 
     <div class="hero-bg" aria-hidden="true">
-      <img src="image_sources/team_bell.webp"
+      <img src="image_sources/transactions_bell.webp"
            fetchpriority="high" decoding="async"
            alt=""  width="2400" height="1600"/>
     </div>
@@ -224,7 +288,7 @@
   <!-- PAGE HERO (mobile) -->
   <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
     <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
-      <img src="image_sources/team_bell.webp"
+      <img src="image_sources/transactions_bell.webp"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
            style="width: 100%; height: 100%; object-fit: cover; object-position: 55% 42%; display: block;"  width="2400" height="1600"/>
@@ -301,65 +365,402 @@
       </div>
 
       <div class="tombstone-grid">
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/04_2026_United_Rentals_Inc.png" loading="lazy" alt="United Rentals - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>United Rentals - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/34_2013_Danone_SA.png" loading="lazy" alt="Danone - Buy-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Danone - Buy-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/43_2010_General_Electric_Company.png" loading="lazy" alt="General Electric - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>General Electric - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/15_2019_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Smith &amp; Nephew - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/22_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Smith &amp; Nephew - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/55_2007_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/57_2001_Thales_plc.png" loading="lazy" alt="Thales - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Thales - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/26_2015_Danone_SA.png" loading="lazy" alt="Danone - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Danone - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/32_2013_General_Electric_Company.png" loading="lazy" alt="General Electric - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>General Electric - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/40_2011_CWT_Limited.png" loading="lazy" alt="CWT Limited - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>CWT Limited - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/07_2025_Adcorp.png" loading="lazy" alt="Adcorp - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Adcorp - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/23_2017_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - Buy-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Smith &amp; Nephew - Buy-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/24_2016_Krispy_Kreme.png" loading="lazy" alt="Krispy Kreme - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Krispy Kreme - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/39_2011_CalyxAgro.png" loading="lazy" alt="CalyxAgro - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>CalyxAgro - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/08_2022_Bracco_SpA.png" loading="lazy" alt="Bracco SpA - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Bracco SpA - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/09_2022_Bracco_SpA.png" loading="lazy" alt="Bracco SpA - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Bracco SpA - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/29_2014_Danone_SA.png" loading="lazy" alt="Danone - Buy-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Danone - Buy-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/46_2009_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/31_2014_Smith__Nephew_plc.png" loading="lazy" alt="Smith &amp; Nephew - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Smith &amp; Nephew - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/49_2008_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="corporates"><img src="image_sources/transactions/50_2008_Louis_Dreyfus_Commodities_BV.png" loading="lazy" alt="Louis Dreyfus Commodities - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Louis Dreyfus Commodities - M&amp;A Advisory</p></div></div>
-
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/02_2026_Proske_GmbH.png" loading="lazy" alt="Proske - Board advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Proske - Board advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/16_2019_YES_Ltd__Corporate_Events.png" loading="lazy" alt="YES Ltd - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>YES Ltd - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/44_2010_Windsor__Brook_Trading_Pte_L.png" loading="lazy" alt="Windsor &amp; Brook Trading - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Windsor &amp; Brook Trading - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/45_2010_PT_Jawamanis_Rafinasi.png" loading="lazy" alt="PT Jawamanis Rafinasi - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>PT Jawamanis Rafinasi - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/54_2008_.png" loading="lazy" alt="Confidential - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Confidential - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/56_2007_Titan.png" loading="lazy" alt="Titan - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Titan - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/10_2022_Groupe_Safari_Ltd.png" loading="lazy" alt="Groupe Safari - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Groupe Safari - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/33_2013_MRI_Trading_AG.png" loading="lazy" alt="MRI Trading - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>MRI Trading - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/51_2008_IKI.png" loading="lazy" alt="IKI - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>IKI - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/18_2018_Ethiopian_Magical_Flowers.png" loading="lazy" alt="Ethiopian Magical Flowers - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Ethiopian Magical Flowers - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/21_2017_Blue_Nile_Holdings.png" loading="lazy" alt="Blue Nile Holdings - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Blue Nile Holdings - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/38_2012_Nao_SAS.png" loading="lazy" alt="Nao - Principal Investment"  width="732" height="874"/><div class="tombstone-caption"><p>Nao - Principal Investment</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/03_2026_EcoBusiness_Pte_Ltd.png" loading="lazy" alt="EcoBusiness Pte Ltd - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>EcoBusiness Pte Ltd - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/05_2025_Aymax_Software.png" loading="lazy" alt="Aymax Software - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Aymax Software - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/12_2020_Intercept_Technologies_GmbH.png" loading="lazy" alt="Intercept Technologies - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Intercept Technologies - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/13_2020_Groupe_Safari_Ltd.png" loading="lazy" alt="Groupe Safari - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Groupe Safari - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/36_2012_Agrinergy_Pte_Ltd.png" loading="lazy" alt="Agrinergy - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Agrinergy - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/48_2008_OTCEX_SAS.png" loading="lazy" alt="OTCEX - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>OTCEX - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/19_2017_Cocopain.png" loading="lazy" alt="Cocopain - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Cocopain - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/20_2017_Socavins.png" loading="lazy" alt="Socavins - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Socavins - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/37_2012_Bralico_SA.png" loading="lazy" alt="Bralico - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Bralico - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="entrepreneurs"><img src="image_sources/transactions/06_2025_Trinity_Organics_Ltd.png" loading="lazy" alt="Trinity Organics - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Trinity Organics - Sell-side M&amp;A</p></div></div>
-
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/27_2015_Rivertrade_Ltd.png" loading="lazy" alt="Rivertrade - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Rivertrade - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/28_2015_ABIM.png" loading="lazy" alt="ABIM - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>ABIM - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/35_2013_Citigroup_Venture_Capital_In.png" loading="lazy" alt="CVCI - Co-investment"  width="732" height="874"/><div class="tombstone-caption"><p>CVCI - Co-investment</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/41_2011_BIH_Ltd_Brewery_Invest_Holdi.png" loading="lazy" alt="Brewery Invest Holdings - Acquisition / LBO"  width="732" height="874"/><div class="tombstone-caption"><p>Brewery Invest Holdings - Acquisition / LBO</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/52_2008_Citigroup_Venture_Capital_In.png" loading="lazy" alt="CVCI - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>CVCI - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/53_2008_Citigroup_Venture_Capital_In.png" loading="lazy" alt="CVCI - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>CVCI - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/11_2021_Montecito_Equity_Partners.png" loading="lazy" alt="Montecito Equity Partners - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Montecito Equity Partners - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/14_2020_Rivertrade_Ltd.png" loading="lazy" alt="Rivertrade - Sell-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Rivertrade - Sell-side M&amp;A</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/17_2018_Firebird_Management_LLC.png" loading="lazy" alt="Firebird Management - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Firebird Management - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/25_2015_Firebird_Management_LLC.png" loading="lazy" alt="Firebird Management - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Firebird Management - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/30_2014_The_Rohatyn_Group_LLC.png" loading="lazy" alt="The Rohatyn Group - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>The Rohatyn Group - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/47_2009_Emerging_Capital_Partners_LL.png" loading="lazy" alt="Emerging Capital Partners - M&amp;A Advisory"  width="732" height="874"/><div class="tombstone-caption"><p>Emerging Capital Partners - M&amp;A Advisory</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/42_2011_BIH_Ltd_Brewery_Invest_Holdi.png" loading="lazy" alt="Brewery Invest Holdings - Co-investment"  width="732" height="874"/><div class="tombstone-caption"><p>Brewery Invest Holdings - Co-investment</p></div></div>
-        <div class="tombstone-card" data-cat="sponsors"><img src="image_sources/transactions/58_2018_Farallon_Capital.png" loading="lazy" alt="Farallon Capital - Buy-side M&amp;A"  width="732" height="874"/><div class="tombstone-caption"><p>Farallon Capital - Buy-side M&amp;A</p></div></div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to United Rentals</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/united_rentals.png" alt="United Rentals, Inc" loading="lazy" width="400" height="108"></div>
+          <div class="cc-tombstone__desc">Sale of Interlas Welding Solutions B.V., a Dutch industrial welding equipment distributor, by United Rentals</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Danone</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/danone.png" alt="Danone S.A." loading="lazy" width="400" height="126"></div>
+          <div class="cc-tombstone__desc">Proposed acquisition of Water operations in Saudi Arabia</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to General Electric</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/ge.png" alt="General Electric Company" loading="lazy" width="400" height="176"></div>
+          <div class="cc-tombstone__desc">Sale of General Electric&#x27;s railway switch gear and wayside signalling business to Progress Rail Services, a Caterpillar subsidiary</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/caterpillar.png" alt="Caterpilar" loading="lazy" width="400" height="69"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Smith &amp; Nephew</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/smithnephew.png" alt="Smith &amp; Nephew plc" loading="lazy" width="400" height="70"></div>
+          <div class="cc-tombstone__desc">Sale of Smith &amp; Nephew&#x27;s Jobskin compression garment business to a trade buyer in Australia</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/jobskin.png" alt="Jobskin compression garments" loading="lazy" width="400" height="160"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Smith &amp; Nephew</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/smithnephew.png" alt="Smith &amp; Nephew plc" loading="lazy" width="400" height="70"></div>
+          <div class="cc-tombstone__desc">Sale of Smith &amp; Nephew&#x27;s paste bandage products to Evolan, a Swedish pharmaceutical company</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/evolan.png" alt="Evolan" loading="lazy" width="400" height="97"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Louis Dreyfus</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/louis_dreyfus.png" alt="Louis Dreyfus Commodities B.V." loading="lazy" width="400" height="95"></div>
+          <div class="cc-tombstone__desc">Sale of a strategic stake in Queensland Cotton, Australia&#x27;s leading cotton merchant, following a contested public takeover</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/queensland_cotton.png" alt="Queensland Cotton" loading="lazy" width="400" height="111"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the seller</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/thales.png" alt="Thales plc" loading="lazy" width="400" height="145"></div>
+          <div class="cc-tombstone__desc">Sale of Racal Instruments, test and measurement division of Thales in UK and US</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/racal.png" alt="Racal" loading="lazy" width="400" height="87"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/danone.png" alt="Danone S.A." loading="lazy" width="400" height="126"></div>
+          <div class="cc-tombstone__desc">Advisor on strategic discussions on dairy products with local partners in Turkey</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Joint financial adviser to General Electric</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/ge.png" alt="General Electric Company" loading="lazy" width="400" height="176"></div>
+          <div class="cc-tombstone__desc">Acquisition of Salof Companies, a leading designer and manufacturer of LNG technologies for the rail sector, by General Electric</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/salof.png" alt="Salof Companies" loading="lazy" width="400" height="210"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to CWT</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/cwt.png" alt="CWT Limited" loading="lazy" width="400" height="133"></div>
+          <div class="cc-tombstone__desc">Acquisition of MRI Trading AG, a Swiss-based global commodity trading company, by CWT Limited</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/mri.png" alt="MRI Trading AG" loading="lazy" width="400" height="204"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Investment</div>
+          <div class="cc-tombstone__confidential">Confidential</div>
+          <div class="cc-tombstone__desc">Proposed investment in a multinational human ressources management company</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Smith &amp; Nephew</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/smithnephew.png" alt="Smith &amp; Nephew plc" loading="lazy" width="400" height="70"></div>
+          <div class="cc-tombstone__desc">Sale of Ametop, Smith &amp; Nephew&#x27;s topical anaesthetic gel, to Alliance Pharmaceuticals</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/alliance.png" alt="Alliance" loading="lazy" width="400" height="56"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Investment</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/krispykreme.png" alt="Krispy Kreme" loading="lazy" width="400" height="136"></div>
+          <div class="cc-tombstone__desc">Proprietary investment in a Krispy Kreme franchise operation in Nigeria</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/calyx.png" alt="CalyxAgro" loading="lazy" width="400" height="158"></div>
+          <div class="cc-tombstone__desc">Advisory on capital raising for CalyxAgro, an agricultural land acquisition fund managed by Louis Dreyfus Commodities</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/louis_dreyfus.png" alt="Louis Dreyfus" loading="lazy" width="400" height="95"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/bracco.png" alt="Bracco S.p.A." loading="lazy" width="400" height="358"></div>
+          <div class="cc-tombstone__desc">Strategic review, due diligence, and market assessment in support of a potential acquisition in the medical imaging and devices sector</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/bracco.png" alt="Bracco S.p.A." loading="lazy" width="400" height="358"></div>
+          <div class="cc-tombstone__desc">Strategic review of SurgVision, a German medical technology company specialising in fluorescence-guided imaging</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/surgvision.png" alt="surgvision" loading="lazy" width="400" height="114"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Danone</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/danone.png" alt="Danone S.A." loading="lazy" width="400" height="126"></div>
+          <div class="cc-tombstone__desc">Sale of Danone&#x27;s packaging operations in Canada to Barry-Wehmiller Companies, a US capital equipment manufacturer</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/barry_wehmiller.png" alt="Barry-Wehmiller" loading="lazy" width="400" height="56"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/louis_dreyfus.png" alt="Louis Dreyfus Commodities B.V." loading="lazy" width="400" height="95"></div>
+          <div class="cc-tombstone__desc">Advisory on proposed acquisition of a leading soybean agribusiness in Brazil</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Smith &amp; Nephew</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/smithnephew.png" alt="Smith &amp; Nephew plc" loading="lazy" width="400" height="70"></div>
+          <div class="cc-tombstone__desc">Sale of Smith &amp; Nephew&#x27;s wound care nets and foam manufacturing operations to SWM International, a US-listed specialty materials group</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/swm.png" alt="SWM International" loading="lazy" width="400" height="101"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/louis_dreyfus.png" alt="Louis Dreyfus Commodities B.V." loading="lazy" width="400" height="95"></div>
+          <div class="cc-tombstone__desc">Advisory on proposed acquisition of leading grain trading businesses in Northern and Central Europe</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="corporates">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/louis_dreyfus.png" alt="Louis Dreyfus Commodities B.V." loading="lazy" width="400" height="95"></div>
+          <div class="cc-tombstone__desc">Advisory on proposed investment in sugar and flour milling operations in West Africa</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/proske.png" alt="Proske GmbH" loading="lazy" width="400" height="121"></div>
+          <div class="cc-tombstone__desc">On-going strategic and financial advisory to the shareholders</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to YES!</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/yes.png" alt="YES Ltd - Corporate Events" loading="lazy" width="400" height="218"></div>
+          <div class="cc-tombstone__desc">Sale of YES Ltd&#x27;s corporate event management division to Internova Group, a US-based travel management company</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/internova.png" alt="Internova Travel Group" loading="lazy" width="400" height="117"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the seller</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/windsor_brook.png" alt="Windsor &amp; Brook Trading Pte Ltd" loading="lazy" width="400" height="238"></div>
+          <div class="cc-tombstone__desc">Sale of Windsor &amp; Brook, an international soft commodity trading business, to Wilmar International</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/wilmar.png" alt="Wilmar International" loading="lazy" width="400" height="134"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the seller</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/jawamanis.png" alt="PT Jawamanis Rafinasi" loading="lazy" width="273" height="400"></div>
+          <div class="cc-tombstone__desc">Sale of PT Jawamanis Rafinasi, an Indonesian sugar refinery and farming operation, to Wilmar International</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/wilmar.png" alt="Wilmar International" loading="lazy" width="400" height="134"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the seller</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/zodiac.png" alt="zodiac" loading="lazy" width="400" height="83"></div>
+          <div class="cc-tombstone__desc">Sale of Zodiac Marine &amp; Pool&#x27;s above-ground swimming pool division to Carlyle Group</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/carlyle.png" alt="Carlyle Group" loading="lazy" width="400" height="60"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Ensamblaje Superior</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/titan.png" alt="Titan" loading="lazy" width="400" height="288"></div>
+          <div class="cc-tombstone__desc">Sale of vehicle body and bus manufacturer Titan to Chinese backed family office consortium</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/groupe_safari.png" alt="Groupe Safari Ltd" loading="lazy" width="227" height="81"></div>
+          <div class="cc-tombstone__desc">Fairness opinion for the shareholders of a diversified holding company (industrials, mining, real estate, consumer)</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to MRI</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/mri.png" alt="MRI Trading AG" loading="lazy" width="400" height="204"></div>
+          <div class="cc-tombstone__desc">Acquisition of a metals trading business based in Switzerland by MRI Trading AG</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Capital raise</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/iki.png" alt="IKI" loading="lazy" width="400" height="377"></div>
+          <div class="cc-tombstone__desc">Capital raise of €50 million in equity capital from CVCI</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/CVCI_Citi.png" alt="CVCI" loading="lazy" width="400" height="157"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Investment</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/emf.png" alt="Ethiopian Magical Flowers" loading="lazy" width="400" height="102"></div>
+          <div class="cc-tombstone__desc">Proprietary investment in Ethiopian Magical Flowers, a carnation growing operation in Ethiopia</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Investment</div>
+          <div class="cc-tombstone__primary"><span class="cc-tombstone__primary-name">Blue Nile Holdings</span></div>
+          <div class="cc-tombstone__desc">Proprietary investment in Blue Nile Holdings, the first foreign-owned financial services and leasing company established in Ethiopia</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Investment</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/nao.png" alt="Nao S.A.S." loading="lazy" width="400" height="231"></div>
+          <div class="cc-tombstone__desc">Proprietary co-investment in Nao S.A.S., a French sports and leasurewear brand</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/eco_business.png" alt="Eco-Business Pte Ltd" loading="lazy" width="400" height="200"></div>
+          <div class="cc-tombstone__desc">On-going strategic and financial advisory to the shareholders</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/aymax.png" alt="Aymax Software" loading="lazy" width="400" height="95"></div>
+          <div class="cc-tombstone__desc">Fairness opinion in connection with Groupe Poulina&#x27;s acquisition of Aymax Software, a French software company</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/pgh.png" alt="pgh" loading="lazy" width="400" height="79"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/intercept_technology.png" alt="Intercept Technologies GmbH" loading="lazy" width="400" height="293"></div>
+          <div class="cc-tombstone__desc">Strategic review and financial valuation of Intercept Technologies, a German-US industrial technology company</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Groupe Safari</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/groupe_safari.png" alt="Groupe Safari Ltd" loading="lazy" width="227" height="81"></div>
+          <div class="cc-tombstone__desc">Proposed acquisition of industrial mining operations in Morocco, by Safari Group</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/agrinergy.png" alt="Agrinergy Pte Ltd" loading="lazy" width="400" height="296"></div>
+          <div class="cc-tombstone__desc">Shareholder reorganisation of Singapore-based agri-tech company, partly owned by RWE Group</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/RWE.png" alt="RWE Group" loading="lazy" width="400" height="116"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/otcex.png" alt="OTCEX S.A.S." loading="lazy" width="400" height="146"></div>
+          <div class="cc-tombstone__desc">Financial advisory to OTCEX S.A.S., a French OTC derivatives brokerage platform</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Capital raise</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/cocopain.png" alt="Cocopain" loading="lazy" width="400" height="186"></div>
+          <div class="cc-tombstone__desc">Capital raise and co-investment in Cocopain, an industrial bakery and food manufacturing business in Congo-Brazzaville</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Capital raise</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/socavins.png" alt="Socavins" loading="lazy" width="362" height="400"></div>
+          <div class="cc-tombstone__desc">Capital raise and co-investment in Socavins, a wine and spirits distribution company in Congo-Brazzaville</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Capital raise</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/bralico.png" alt="Bralico S.A." loading="lazy" width="400" height="366"></div>
+          <div class="cc-tombstone__desc">Capital raising for BRALICO, a brewing and bottling company operating in the Democratic Republic of Congo</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="entrepreneurs">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Investment</div>
+          <div class="cc-tombstone__primary"><span class="cc-tombstone__primary-name">Trinity Organics Ltd</span></div>
+          <div class="cc-tombstone__desc">Proposed investment in a renewable energy infrastructure project (biomethane)</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/Rivertrade.png" alt="Rivertrade Ltd" loading="lazy" width="400" height="47"></div>
+          <div class="cc-tombstone__desc">Strategic portfolio review, valuation and ongoing financial advisory to a UK-based family office</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Bralico</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/bralico.png" alt="ABIM" loading="lazy" width="400" height="366"></div>
+          <div class="cc-tombstone__desc">Sale of BRALICO, a brewing and bottling company in the Democratic Republic of Congo, to Castel Group</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/castel.png" alt="Bralico S.A." loading="lazy" width="400" height="215"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the vendors</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/BIH_Eastern.png" alt="Citigroup Venture Capital International (CVCI)" loading="lazy" width="400" height="211"></div>
+          <div class="cc-tombstone__desc">Sale of Castel Sakartvelo, a Georgian brewing company, by Citigroup Venture Capital International</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/castel_sakartvelo.png" alt="castel sakartvelo" loading="lazy" width="400" height="329"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Capital raise</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/BIH_Eastern.png" alt="BIH Ltd. (Brewery Invest Holdings)" loading="lazy" width="400" height="211"></div>
+          <div class="cc-tombstone__desc">EBRD-supported refinancing of Brewery Invest Holdings (BIH), a CVCI-owned Armenian brewing group</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/ebrd.png" alt="EBRD" loading="lazy" width="400" height="74"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the CVCI</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/CVCI_Citi.png" alt="Citigroup Venture Capital International (CVCI)" loading="lazy" width="400" height="157"></div>
+          <div class="cc-tombstone__desc">Sale of Baku-Castel Breweries, a leading Azerbaijani brewing company, to Carlsberg Group</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/carlsberg.png" alt="Carlsberg Group" loading="lazy" width="400" height="152"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to CVCI &amp; founding shareholders</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/CVCI_Citi.png" alt="Citigroup Venture Capital International (CVCI)" loading="lazy" width="400" height="157"></div>
+          <div class="cc-tombstone__desc">Sale of IKI, a leading Lithuanian supermarket chain, to a REWE-led consortium of European retailers</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/rewe.png" alt="Rewe" loading="lazy" width="400" height="124"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Montecito</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/montecito.png" alt="Montecito Equity Partners" loading="lazy" width="400" height="192"></div>
+          <div class="cc-tombstone__desc">Proposed acquisition of D&amp;D London, an international premium restaurant and hospitality group, from LDC</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/dd_london.png" alt="dd london" loading="lazy" width="400" height="240"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to the vendors</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/robertsontaylor.png" alt="Rivertrade Ltd" loading="lazy" width="400" height="84"></div>
+          <div class="cc-tombstone__desc">Sale of RT, a leading entertainment and sports insurance broker, to Integro Insurance Brokers</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/integro.png" alt="Integro Insurance Brokers" loading="lazy" width="400" height="126"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/firebird.png" alt="Firebird Management LLC" loading="lazy" width="400" height="108"></div>
+          <div class="cc-tombstone__desc">Strategic review and advisory on a potential beer sector investment in Russia</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/firebird.png" alt="Firebird Management LLC" loading="lazy" width="400" height="108"></div>
+          <div class="cc-tombstone__desc">Advisory to Firebird Management on a potential investment opportunity in the Georgian market</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/rohatyn.png" alt="The Rohatyn Group LLC" loading="lazy" width="400" height="34"></div>
+          <div class="cc-tombstone__desc">Restructuring advisory for one of Rohatyn&#x27;s emerging market portfolio investments</div>
+        </div>
+        <div class="tombstone-card cc-tombstone cc-tombstone--advisory" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Board advisory</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/ecp_pe.png" alt="Emerging Capital Partners LLC (ECP)" loading="lazy" width="400" height="158"></div>
+          <div class="cc-tombstone__desc">Fairness opinion on one of ECP&#x27;s East African portfolio investments</div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Sell-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to BIH</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/BIH_Eastern.png" alt="BIH Ltd. (Brewery Invest Holdings)" loading="lazy" width="400" height="211"></div>
+          <div class="cc-tombstone__desc">Sale of Kotayk Brewery, a leading Armenian beverage producer, by Brewery Invest Holdings</div>
+          <div class="cc-tombstone__secondary"><img src="image_sources/tombstone_logos/kotayk.png" alt="Kotayk" loading="lazy" width="400" height="209"></div>
+        </div>
+        <div class="tombstone-card cc-tombstone" data-cat="sponsors">
+          <div class="cc-tombstone__rule"></div>
+          <div class="cc-tombstone__type">Buy-side M&amp;A</div>
+          <div class="cc-tombstone__short">Sole financial adviser to Farallon</div>
+          <div class="cc-tombstone__primary"><img src="image_sources/tombstone_logos/farallon.png" alt="Farallon Capital" loading="lazy" width="400" height="107"></div>
+          <div class="cc-tombstone__desc">Potential acquisition of regional water distributor in France</div>
+        </div>
       </div>
 
     </div>
@@ -399,8 +800,8 @@
       </h2>
       <p style="font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 3rem;">The same partners whose names appear on these transactions are the people who will lead yours. Senior judgement at every stage, from origination to close.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
-        <a href="contact.html" class="btn-navy">Contact us</a>
-        <a href="team.html" class="btn-ghost">Meet the partners</a>
+        <a href="contact.html" class="btn-navy" style="width: 12.5rem; white-space: nowrap;">Contact us</a>
+        <a href="team.html" class="btn-ghost" style="width: 12.5rem; white-space: nowrap;">Meet the partners</a>
       </div>
     </div>
   </section>
@@ -415,7 +816,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
             <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
             <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
@@ -423,7 +824,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
             <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
             <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
@@ -431,7 +832,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
-          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+          <address class="footer-links" style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
             18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>

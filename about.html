@@ -82,6 +82,8 @@
     .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+    .nav-logo { height: 2.5rem; width: auto; }
+    @media (max-width: 767px) { .nav-logo { height: 1.8rem; } .footer-links { line-height: 1.5 !important; } }
 
     /* Hero: full-bleed photo, text overlaid directly on the image (no white card panel). */
     .hero-section { position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 44rem; background: #0b0c0f; }
@@ -93,13 +95,13 @@
     .hero-overlay {
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: linear-gradient(90deg,
-        rgba(52,54,58,0.58) 0%,
-        rgba(52,54,58,0.38) 26%,
-        rgba(52,54,58,0.14) 46%,
-        rgba(52,54,58,0) 62%);
+        rgba(52,54,58,0.62) 0%,
+        rgba(52,54,58,0.46) 32%,
+        rgba(52,54,58,0.22) 56%,
+        rgba(52,54,58,0) 74%);
     }
-    .hero-text, .hero-text * { text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
-    .hero-text-m, .hero-text-m * { text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
+    .hero-text, .hero-text * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
+    .hero-text-m, .hero-text-m * { text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.45); }
     .hero-content {
       position: relative; z-index: 1; max-width: 88rem; margin: 0 auto;
       padding: clamp(6.5rem, 15vw, 10.5rem) 2.5rem clamp(4.5rem, 9vw, 6.5rem);
@@ -134,7 +136,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;"  width="927" height="400"/>
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" class="nav-logo"  width="927" height="171"/>
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link active">About</a>
@@ -186,7 +188,7 @@
           <span class="serif" style="color: #fff;">Built by practitioners,</span>
           <span class="serif-italic" style="color: #fff; display: block;">for clients.</span>
         </h1>
-        <p style="font-size: 1rem; color: #fff; line-height: 1.6; max-width: 30rem;">
+        <p style="font-size: 1rem; color: #f7f6f3; line-height: 1.6; max-width: 30rem;">
           The founding partners shared a background in bulge-bracket investment banking and began working together as independent advisers in 2002. Charcot Capital was formally established in 2008 as the vehicle for that partnership. Their purpose was clear from the outset: to build something different - a platform structured around the client's interests alone.
         </p>
       </div>
@@ -202,14 +204,14 @@
            alt="" aria-hidden="true"
            style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"  width="2400" height="1594"/>
     </div>
-    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
+    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.62) 0%, rgba(52,54,58,0.46) 40%, rgba(52,54,58,0.28) 62%, rgba(52,54,58,0.14) 80%, rgba(52,54,58,0) 92%);"></div>
     <div class="hero-text-m" style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
       <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Our origins</p>
       <h1 style="margin: 1.5rem 0;">
         <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">Built by practitioners,</span>
         <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff; display: block;">for clients.</span>
       </h1>
-      <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
+      <p style="font-size: 1rem; color: #f7f6f3; line-height: 1.6;">
         The founding partners shared a background in bulge-bracket investment banking and began working together as independent advisers in 2002. Charcot Capital was formally established in 2008 as the vehicle for that partnership. Their purpose was clear from the outset: to build something different - a platform structured around the client's interests alone.
       </p>
     </div>
@@ -412,7 +414,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
             <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
             <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
@@ -420,7 +422,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
             <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
             <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
@@ -428,7 +430,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
-          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+          <address class="footer-links" style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
             18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>

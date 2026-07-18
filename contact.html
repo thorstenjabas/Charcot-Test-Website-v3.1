@@ -112,6 +112,8 @@
     .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(20,20,20,0.06); }
     @media (max-width: 1023px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-grid > div:nth-child(1) { order: 1; } .footer-grid > div:nth-child(2) { order: 4; } .footer-grid > div:nth-child(3) { order: 3; } .footer-grid > div:nth-child(4) { order: 2; } }
     @media (max-width: 639px) { .footer-grid { grid-template-columns: 1fr; } }
+    .nav-logo { height: 2.5rem; width: auto; }
+    @media (max-width: 767px) { .nav-logo { height: 1.8rem; } .footer-links { line-height: 1.5 !important; } }
 
     /* Form */
     .form-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 0.5rem; }
@@ -147,7 +149,7 @@
     <div style="max-width: 88rem; margin: 0 auto; padding: 0 2.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4.5rem;">
         <a href="index.html" aria-label="Charcot Capital home">
-          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" style="height: 3.9rem; width: auto;"  width="927" height="400"/>
+          <img src="image_sources/charcot_logos/charcot_logo_nav.webp" alt="Charcot Capital" class="nav-logo"  width="927" height="171"/>
         </a>
         <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
           <a href="about.html" class="nav-link">About</a>
@@ -352,7 +354,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">The firm</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="transactions.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Transactions</a>
             <a href="team.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Team</a>
             <a href="about.html" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">About</a>
@@ -360,7 +362,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Services</p>
-          <div style="line-height:2;">
+          <div class="footer-links" style="line-height:2;">
             <a href="services.html#pane-ma" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Mergers &amp; Acquisitions</a>
             <a href="services.html#pane-capital" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Capital Solutions</a>
             <a href="services.html#pane-merchant" style="display:block;font-size:0.8125rem;color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">Merchant Banking</a>
@@ -368,7 +370,7 @@
         </div>
         <div>
           <p class="label" style="color:rgba(20,20,20,0.35);margin-bottom:1.25rem;">Contact</p>
-          <address style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
+          <address class="footer-links" style="font-style:normal;font-size:0.8125rem;color:var(--ink-light);line-height:2;">
             18 Nevern Square<br>London SW5 9PD<br>United Kingdom<br>
             <a href="mailto:info@charcotcapital.com" style="color:var(--ink-light);transition:color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-light)'">info@charcotcapital.com</a>
           </address>

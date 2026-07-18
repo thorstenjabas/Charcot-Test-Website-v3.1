@@ -27,6 +27,7 @@ Status as at 17 July 2026 (last full pass 6 June 2026). Grouped by theme, number
 - [x] 0.19 Updated the homepage `<title>` to "Mergers and Acquisitions - Charcot Capital" (stakeholder choice). Resolves item 27.
 - [x] 0.20 Re-checked every page at tablet (768px) and mobile (375px) after all of today's spacing and build changes - no regressions found (hero images, capability grid, sector grid, CTA band buttons, mobile nav all confirmed). Resolves item 16.
 - [x] 0.21 Investigated item 8: total image weight is 11.8MB/98 files, mostly fine. Two clear outliers - `energy_bw.webp` (4288x2848, 1.7MB) and `tmt_bw.webp` (5472x3648, 1.2MB) - both added this session, both several times larger than their ~480px display size warrants. Not yet resized (pending decision, see item 8 note below).
+- [x] 0.22 Rebuilt the 57 tombstone cards on Transactions as real HTML/CSS (BEM `cc-tombstone__*` markup) instead of PNG screenshots, matching the old 732:874 proportions via `aspect-ratio`. Card content matched 1:1 to the correct `data-cat` by cross-referencing company/deal text against `data_cat_mapping.csv`, with ~16 duplicate-company cases (Smith & Nephew, Louis Dreyfus, Bracco, CVCI, Firebird) and one mislabelled row (old "Adcorp" alt text, and a "Confidential" row that was actually Zodiac/Carlyle) resolved by reading the original PNGs directly rather than trusting their alt text. Logos moved to `image_sources/tombstone_logos/` (62 files, one casing fix: `BIH_Eastern.png`), each with explicit `width`/`height` plus `loading="lazy"`. Filter JS, hover treatment, and the 5/4/3/2 responsive grid untouched. Verified: all 57 cards render, filter counts exact (57/21/22/14), no broken images, screenshots compared at 1440/768/375px. Resolves item 14 (uniform card height/padding is now structural via `aspect-ratio`, not a manual PNG-crop convention).
 
 ---
 
@@ -60,7 +61,7 @@ Status as at 17 July 2026 (last full pass 6 June 2026). Grouped by theme, number
 
 12. ~~Unify the hero system across all pages.~~ **Done (0.12)** - one shared hero treatment, fixed 44rem height, Contact and Careers both carry full photographic heroes.
 13. ~~Balance the Services capability sections... apply one vertical spacing scale site-wide.~~ **Done (0.7)** - Services' local spacing tokens removed, section rhythm aligned to the sitewide values.
-14. Normalise tombstone cards: uniform logo max-height, equal padding, consistent card height, no orphan cells in the final row. **Decision: keep logos in original brand colour** (0.14) - greyscale requirement dropped per stakeholder call; card sizing/padding already reads consistent, no further action needed there.
+14. ~~Normalise tombstone cards: uniform logo max-height, equal padding, consistent card height, no orphan cells in the final row.~~ **Done (0.22)** - tombstones rebuilt as HTML/CSS with a fixed `aspect-ratio` and `object-fit: contain` logo boxes, so uniform sizing is now structural. Logos kept in original brand colour (0.14 decision stands).
 15. ~~Give Contact and Careers heroes a consistent visual motif.~~ **Done (0.12)** - subsumed by item 12.
 16. ~~Re-check all spacing fixes at tablet and mobile breakpoints.~~ **Done (0.20)**.
 
