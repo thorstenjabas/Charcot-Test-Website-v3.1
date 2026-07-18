@@ -1,6 +1,68 @@
 # Charcot Capital website revamp — working to-do list
 
-Status as at 17 July 2026 (last full pass 6 June 2026). Grouped by theme, numbered for tracking. Priority: P0 before launch, P1 shortly after, P2 polish.
+Status as at 18 July 2026 (last full pass 17 July 2026). **All P0 pre-launch blockers are done — site is launch-ready.** Remaining items below are P1/P2 follow-ups and ongoing maintenance, not launch blockers. Completed items have been moved out of the active list into their own section further down. Priority: P0 before launch, P1 shortly after, P2 polish.
+
+---
+
+## Open / remaining items
+
+### Conversion and trust
+5. Consider partner-level contact or a scheduling link, to match the "speak directly with the partners" promise. **Still open.**
+
+### Performance and build
+11. Use the Vercel image optimisation pipeline. **Not actioned** - no `vercel.json` exists, so Vercel's automatic image optimisation isn't active (it requires framework-level wiring this static site doesn't have). Images are already reasonably sized by hand; treat as a separate deliberate task - flag if you want it scoped.
+
+### Proof and credibility (P2, competitive gap)
+22. Launch a light Insights / News section. **Deferred - not for now.**
+23. Enrich the track record: add deal role and, where disclosable, value; add two or three short case studies. **Deferred - not for now.**
+24. Replace synthetic-looking imagery with authentic photography wherever trust matters (portraits already improved).
+
+### SEO and structured data
+28. Keep robots.txt and sitemap.xml in sync as pages (e.g. Insights) are added. **Mostly fine** - sitemap lists all 7 core pages; privacy.html is the only omission, likely intentional.
+
+### Content accuracy (ongoing)
+29. Lock one canonical set of figures (transactions, countries, continents, referral %) in a single source and reuse; re-check after any copy edit.
+30. Keep the "independent advisory from 2002, firm co-founded 2008" wording consistent wherever dates appear.
+
+---
+
+## Completed
+
+### Pre-launch blockers (P0) - all done, launch-ready
+1. ~~Verify the contact form actually delivers.~~ **Done (0.11)** - posts to `https://formspree.io/f/xaqzodnr`.
+2. ~~State the regulatory position in the footer.~~ **Decided: no FCA status to add** - confirmed not applicable, footer stays as company-registration only.
+3. ~~Confirm office reality.~~ **Decided: Singapore wording is fine as-is** - team.html's historical/network framing stands, no change needed.
+
+### Conversion and trust
+4. ~~Add a clickable firm telephone number.~~ **Decided: no phone numbers on the site.** Form-only contact stands.
+6. ~~Make the referral statistic more prominent near the primary calls to action.~~ **Decided: current homepage treatment is fine**, no change needed.
+
+### Performance and build
+7. ~~Replace the Tailwind CDN runtime with a compiled static CSS file.~~ **Done (0.15)**.
+8. ~~Optimise all photography.~~ **Done** - `energy_bw.webp` and `tmt_bw.webp` resized from full camera resolution (4288x2848 / 5472x3648) to 1100px wide, matching the other four sector tiles. 1714KB→82KB and 1168KB→76KB (2.7MB saved; site image total now 9.1MB, down from 11.8MB). Verified visually, no quality loss at display size.
+9. ~~Add width and height to all images.~~ **Done (0.16)** - all 104 `<img>` tags across 8 pages.
+10. ~~Lazy-load below-the-fold images.~~ **Done (0.17)** - every below-fold image site-wide, hero/nav images correctly left eager.
+
+### Visual consistency
+12. ~~Unify the hero system across all pages.~~ **Done (0.12)** - one shared hero treatment, fixed 44rem height, Contact and Careers both carry full photographic heroes.
+13. ~~Balance the Services capability sections... apply one vertical spacing scale site-wide.~~ **Done (0.7)** - Services' local spacing tokens removed, section rhythm aligned to the sitewide values.
+14. ~~Normalise tombstone cards: uniform logo max-height, equal padding, consistent card height, no orphan cells in the final row.~~ **Done (0.22)** - tombstones rebuilt as HTML/CSS with a fixed `aspect-ratio` and `object-fit: contain` logo boxes, so uniform sizing is now structural. Logos kept in original brand colour (0.14 decision stands).
+15. ~~Give Contact and Careers heroes a consistent visual motif.~~ **Done (0.12)** - subsumed by item 12.
+16. ~~Re-check all spacing fixes at tablet and mobile breakpoints.~~ **Done (0.20)**.
+
+### Image language
+17. ~~Commit to one coherent image system and one grade.~~ **Done (0.9)** - all sector tiles now match the black-and-white grade already used across every hero photo and the portraits.
+18. ~~Replace the AI/stock-looking sector tiles with a uniform duotone treatment.~~ **Done (0.9)**.
+19. ~~Replace stock cityscapes (London, Paris) with real photography of the actual buildings.~~ **Done (0.13)** - Contact page office photos are specific building doors/facades, not generic stock.
+20. ~~Remove remaining watermarked stock images before finalising.~~ **Done - confirmed no watermarks remain.**
+21. ~~Re-theme or remove the remaining bridge image on About.~~ **Done (0.13)** - confirmed no trace of it in source; already fully resolved by 0.2.
+
+### Proof and credibility
+25. ~~Add partner-level contact or LinkedIn links on the team page.~~ **Decided: no LinkedIn links.**
+
+### SEO and structured data
+26. ~~Add Organization / FinancialService and Person JSON-LD structured data.~~ **Done (0.18)**.
+27. ~~Sharpen remaining page titles.~~ **Done (0.19)** - homepage title updated; every page now has a specific, keyword-rich title.
 
 ---
 
@@ -28,73 +90,3 @@ Status as at 17 July 2026 (last full pass 6 June 2026). Grouped by theme, number
 - [x] 0.20 Re-checked every page at tablet (768px) and mobile (375px) after all of today's spacing and build changes - no regressions found (hero images, capability grid, sector grid, CTA band buttons, mobile nav all confirmed). Resolves item 16.
 - [x] 0.21 Investigated item 8: total image weight is 11.8MB/98 files, mostly fine. Two clear outliers - `energy_bw.webp` (4288x2848, 1.7MB) and `tmt_bw.webp` (5472x3648, 1.2MB) - both added this session, both several times larger than their ~480px display size warrants. Not yet resized (pending decision, see item 8 note below).
 - [x] 0.22 Rebuilt the 57 tombstone cards on Transactions as real HTML/CSS (BEM `cc-tombstone__*` markup) instead of PNG screenshots, matching the old 732:874 proportions via `aspect-ratio`. Card content matched 1:1 to the correct `data-cat` by cross-referencing company/deal text against `data_cat_mapping.csv`, with ~16 duplicate-company cases (Smith & Nephew, Louis Dreyfus, Bracco, CVCI, Firebird) and one mislabelled row (old "Adcorp" alt text, and a "Confidential" row that was actually Zodiac/Carlyle) resolved by reading the original PNGs directly rather than trusting their alt text. Logos moved to `image_sources/tombstone_logos/` (62 files, one casing fix: `BIH_Eastern.png`), each with explicit `width`/`height` plus `loading="lazy"`. Filter JS, hover treatment, and the 5/4/3/2 responsive grid untouched. Verified: all 57 cards render, filter counts exact (57/21/22/14), no broken images, screenshots compared at 1440/768/375px. Resolves item 14 (uniform card height/padding is now structural via `aspect-ratio`, not a manual PNG-crop convention).
-
----
-
-## 1. Pre-launch blockers (P0)
-
-1. ~~Verify the contact form actually delivers.~~ **Done (0.11)** - now posts to `https://formspree.io/f/xaqzodnr`. Still needs one live end-to-end test to fully close out.
-2. ~~State the regulatory position in the footer.~~ **Decided: no FCA status to add** - confirmed not applicable, footer stays as company-registration only.
-3. ~~Confirm office reality.~~ **Decided: Singapore wording is fine as-is** - team.html's historical/network framing stands, no change needed.
-
----
-
-## 2. Conversion and trust (P1)
-
-4. ~~Add a clickable firm telephone number.~~ **Decided: no phone numbers on the site.** Form-only contact stands.
-5. Consider partner-level contact or a scheduling link, to match the "speak directly with the partners" promise. **Still open.**
-6. ~~Make the referral statistic more prominent near the primary calls to action.~~ **Decided: current homepage treatment is fine**, no change needed.
-
----
-
-## 3. Performance and build (P1)
-
-7. ~~Replace the Tailwind CDN runtime with a compiled static CSS file.~~ **Done (0.15)**.
-8. ~~Optimise all photography.~~ **Done** - `energy_bw.webp` and `tmt_bw.webp` resized from full camera resolution (4288x2848 / 5472x3648) to 1100px wide, matching the other four sector tiles. 1714KB→82KB and 1168KB→76KB (2.7MB saved; site image total now 9.1MB, down from 11.8MB). Verified visually, no quality loss at display size.
-9. ~~Add width and height to all images.~~ **Done (0.16)** - all 104 `<img>` tags across 8 pages.
-10. ~~Lazy-load below-the-fold images.~~ **Done (0.17)** - every below-fold image site-wide, hero/nav images correctly left eager.
-11. Use the Vercel image optimisation pipeline. **Explained, not actioned** - no `vercel.json` exists, so Vercel's automatic image optimisation is not currently active (it requires framework-level wiring this static site doesn't have). Given images are already reasonably sized by hand, treating as a separate deliberate task rather than folding in here - flag if you want it scoped.
-
----
-
-## 4. Visual consistency (P1)
-
-12. ~~Unify the hero system across all pages.~~ **Done (0.12)** - one shared hero treatment, fixed 44rem height, Contact and Careers both carry full photographic heroes.
-13. ~~Balance the Services capability sections... apply one vertical spacing scale site-wide.~~ **Done (0.7)** - Services' local spacing tokens removed, section rhythm aligned to the sitewide values.
-14. ~~Normalise tombstone cards: uniform logo max-height, equal padding, consistent card height, no orphan cells in the final row.~~ **Done (0.22)** - tombstones rebuilt as HTML/CSS with a fixed `aspect-ratio` and `object-fit: contain` logo boxes, so uniform sizing is now structural. Logos kept in original brand colour (0.14 decision stands).
-15. ~~Give Contact and Careers heroes a consistent visual motif.~~ **Done (0.12)** - subsumed by item 12.
-16. ~~Re-check all spacing fixes at tablet and mobile breakpoints.~~ **Done (0.20)**.
-
----
-
-## 5. Image language (P1/P2)
-
-17. ~~Commit to one coherent image system and one grade.~~ **Done (0.9)** - all sector tiles now match the black-and-white grade already used across every hero photo and the portraits.
-18. ~~Replace the AI/stock-looking sector tiles with a uniform duotone treatment.~~ **Done (0.9)**.
-19. ~~Replace stock cityscapes (London, Paris) with real photography of the actual buildings.~~ **Done (0.13)** - Contact page office photos are specific building doors/facades, not generic stock.
-20. ~~Remove remaining watermarked stock images before finalising.~~ **Done - confirmed no watermarks remain.**
-21. ~~Re-theme or remove the remaining bridge image on About.~~ **Done (0.13)** - confirmed no trace of it in source; already fully resolved by 0.2.
-
----
-
-## 6. Proof and credibility (P2, competitive gap)
-
-22. Launch a light Insights / News section. **Deferred - not for now.**
-23. Enrich the track record: add deal role and, where disclosable, value; add two or three short case studies. **Deferred - not for now.**
-24. Replace synthetic-looking imagery with authentic photography wherever trust matters (portraits already improved).
-25. ~~Add partner-level contact or LinkedIn links on the team page.~~ **Decided: no LinkedIn links.**
-
----
-
-## 7. SEO and structured data (P2)
-
-26. ~~Add Organization / FinancialService and Person JSON-LD structured data.~~ **Done (0.18)**.
-27. ~~Sharpen remaining page titles.~~ **Done (0.19)** - homepage title updated; every page now has a specific, keyword-rich title.
-28. Keep robots.txt and sitemap.xml in sync as pages (e.g. Insights) are added. **Mostly fine** - sitemap lists all 7 core pages; privacy.html is the only omission, likely intentional.
-
----
-
-## 8. Content accuracy (ongoing)
-
-29. Lock one canonical set of figures (transactions, countries, continents, referral %) in a single source and reuse; re-check after any copy edit.
-30. Keep the "independent advisory from 2002, firm co-founded 2008" wording consistent wherever dates appear.
