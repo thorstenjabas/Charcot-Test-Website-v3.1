@@ -688,6 +688,7 @@
   (function(){
     var tiles = document.querySelectorAll('.sector-tile');
     var tables = document.querySelectorAll('.sector-table');
+    var eyebrow = document.getElementById('sector-eyebrow');
     var eyebrowName = document.getElementById('sector-eyebrow-name');
     var sectorNames = { consumer: 'Consumer', industrials: 'Industrials', business: 'Business Services', energy: 'Energy', tmt: 'TMT', 'life-sciences': 'Life Sciences' };
     tiles.forEach(function(tile){
@@ -696,6 +697,9 @@
         tiles.forEach(function(t){ t.classList.toggle('active', t === tile); });
         tables.forEach(function(tbl){ tbl.style.display = (tbl.dataset.sector === sector) ? '' : 'none'; });
         eyebrowName.textContent = sectorNames[sector];
+        var navHeight = document.getElementById('site-nav').offsetHeight;
+        var targetY = eyebrow.getBoundingClientRect().top + window.pageYOffset - navHeight - 24;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
       });
     });
   })();
