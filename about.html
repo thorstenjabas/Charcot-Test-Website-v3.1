@@ -90,7 +90,8 @@
     .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; }
     .hero-bg img {
       display: block; width: 100%; height: 100%;
-      object-fit: cover; object-position: 70% 20%;
+      object-fit: cover; object-position: 0% 100%;
+      transform: scale(1.15); transform-origin: 0% 100%;
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -111,7 +112,7 @@
     .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
 
     @media (max-width: 1024px) {
-      .hero-bg img { object-position: 58% 18%; }
+      .hero-bg img { transform: scale(1.3); transform-origin: 0% 100%; }
     }
     @media (max-width: 767px) {
       .hero-section { min-height: 0; }
@@ -175,9 +176,9 @@
   <section class="hero-section hidden md:block">
 
     <div class="hero-bg" aria-hidden="true">
-      <img src="image_sources/about_ropes.webp"
+      <img src="image_sources/about_yacht.webp"
            fetchpriority="high" decoding="async"
-           alt=""  width="2400" height="1594"/>
+           alt=""  width="2400" height="1600"/>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -199,10 +200,10 @@
   <!-- PAGE HERO (mobile) -->
   <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
     <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
-      <img src="image_sources/about_ropes.webp"
+      <img src="image_sources/about_yacht.webp"
            fetchpriority="high" decoding="async"
            alt="" aria-hidden="true"
-           style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"  width="2400" height="1594"/>
+           style="width: 100%; height: 100%; object-fit: cover; object-position: 10% 40%; display: block;"  width="2400" height="1600"/>
     </div>
     <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.62) 0%, rgba(52,54,58,0.46) 40%, rgba(52,54,58,0.28) 62%, rgba(52,54,58,0.14) 80%, rgba(52,54,58,0) 92%);"></div>
     <div class="hero-text-m" style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
