@@ -53,9 +53,7 @@
   }
   </script>
   <link rel="stylesheet" href="tailwind-utilities.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
   <style>
     :root {
       --bg: #F5F6F8; --bg-alt: #ECEEF2; --ink: #181815; --ink-mid: #3A3A35;
@@ -97,14 +95,21 @@
       padding: clamp(6.5rem, 15vw, 10.5rem) 2.5rem clamp(4.5rem, 9vw, 6.5rem);
     }
     .hero-text { max-width: clamp(28rem, 40vw, 44rem); }
-    .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; }
+    .hero-title { font-size: clamp(3.25rem, 4.75vw, 5.5rem); line-height: 1.05; margin: 2rem 0; }
     .hero-title .serif, .hero-title .serif-italic { line-height: 1.05; }
 
     @media (max-width: 1024px) {
       .hero-bg img { object-position: 58% 18%; }
     }
     @media (max-width: 767px) {
-      .hero-section { min-height: 0; }
+      .hero-section { min-height: 34rem; }
+      .hero-bg, .hero-overlay { top: 4.5rem; }
+      .hero-bg img { object-position: center; }
+      .hero-overlay { background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%); }
+      .hero-content { padding: 2.5rem 1.5rem 3rem; }
+      .hero-title, .hero-title .serif, .hero-title .serif-italic { font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; }
+      .hero-title { margin: 1.5rem 0; }
+      .hero-text, .hero-text * { text-shadow: none; }
     }
 
     .btn-navy { display: inline-flex; align-items: center; justify-content: center; padding: 0.8125rem 2rem; background: var(--navy); color: #fff; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
@@ -117,6 +122,7 @@
     .nav-logo { height: 2.5rem; width: auto; }
     @media (max-width: 767px) { .nav-logo { height: 1.8rem; } .footer-links { line-height: 1.5 !important; } }
   </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e6198997-c838-44f2-9e96-fbd3c065b0b0"></script>
 </head>
 <body>
 
@@ -162,7 +168,7 @@
   </div>
 
   <!-- PAGE HERO -->
-  <section class="hero-section hidden md:block">
+  <section class="hero-section">
 
     <div class="hero-bg" aria-hidden="true">
       <img src="image_sources/careers_ropes.webp"
@@ -174,7 +180,7 @@
     <div class="hero-content">
       <div class="hero-text">
         <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Join us</p>
-        <h1 class="hero-title" style="margin: 2rem 0;">
+        <h1 class="hero-title">
           <span class="serif" style="color: #fff;">Exceptional people.</span>
           <span class="serif-italic" style="color: #fff;">Shared values.</span>
         </h1>
@@ -184,27 +190,6 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- PAGE HERO (mobile) -->
-  <section class="md:hidden" style="position: relative; padding-top: 4.5rem; overflow: hidden; min-height: 34rem; background: #0b0c0f;">
-    <div style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0;">
-      <img src="image_sources/careers_ropes.webp"
-           fetchpriority="high" decoding="async"
-           alt="" aria-hidden="true"
-           style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"  width="2400" height="1594"/>
-    </div>
-    <div aria-hidden="true" style="position: absolute; top: 4.5rem; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(52,54,58,0.58) 0%, rgba(52,54,58,0.4) 35%, rgba(52,54,58,0.24) 55%, rgba(52,54,58,0.1) 75%, rgba(52,54,58,0) 90%);"></div>
-    <div style="position: relative; z-index: 1; padding: 2.5rem 1.5rem 3rem;">
-      <p class="label" style="color: #fff; margin-bottom: 1.5rem;">Join us</p>
-      <h1 style="margin: 1.5rem 0;">
-        <span class="serif" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">Exceptional people.</span>
-        <span class="serif-italic" style="font-size: clamp(2.25rem, 9vw, 3rem); line-height: 1.32; color: #fff;">Shared values.</span>
-      </h1>
-      <p style="font-size: 1rem; color: #fff; line-height: 1.6;">
-        Charcot Capital is a partner-led advisory and investment firm, deliberately small and senior-run. Mandates are led by partners, not delegated to teams - which means the work is substantive from day one.
-      </p>
-    </div>
   </section>
 
   <!-- VALUES -->

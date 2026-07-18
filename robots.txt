@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /image_sources/
+Allow: /image_sources/charcot_logos/
+Allow: /image_sources/tombstone_logos/
+Disallow: /image_sources/leadership/
 
 Sitemap: https://www.charcotcapital.com/sitemap.xml
